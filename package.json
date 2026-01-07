@@ -1,0 +1,25 @@
+{
+  "name": "chill-out-lingerie",
+  "version": "1.0.0",
+  "description": "Chill Out Lingerie - официальный сайт",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "lingerie",
+    "website",
+    "vite"
+  ],
+  "author": "",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "sass": "^1.77.8",
+    "vite": "^5.4.0"
+  }
+}
+
+
