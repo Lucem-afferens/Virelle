@@ -1,0 +1,2044 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Каталог премиального нижнего белья Chill Out Lingerie. 156 изделий премиум класса: бюстгальтеры, трусики, пижамы, боди и многое другое. Бесплатная доставка.">
+    <meta name="keywords" content="каталог нижнего белья, лингерье каталог, премиум белье каталог, Chill Out Lingerie каталог">
+    <title>Каталог - Chill Out Lingerie | Премиальное нижнее белье</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chilloutlingerie.com/catalog.html">
+    <meta property="og:title" content="Каталог - Chill Out Lingerie | Премиальное нижнее белье">
+    <meta property="og:description" content="Откройте для себя 156 изделий премиального нижнего белья. Качество, комфорт и элегантность в каждом изделии.">
+    <meta property="og:image" content="https://storage.googleapis.com/uxpilot-auth.appspot.com/2fcc1bf8a5-be70f47eadce17c0083c.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="Chill Out Lingerie">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Каталог - Chill Out Lingerie | Премиальное нижнее белье">
+    <meta name="twitter:description" content="Откройте для себя 156 изделий премиального нижнего белья. Качество, комфорт и элегантность в каждом изделии.">
+    <meta name="twitter:image" content="https://storage.googleapis.com/uxpilot-auth.appspot.com/2fcc1bf8a5-be70f47eadce17c0083c.png">
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ::-webkit-scrollbar { 
+            display: none;
+        }
+        
+        body { 
+            overflow-x: hidden;
+            background-color: #2b2b2b;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .font-serif { 
+            font-family: 'Cormorant Garamond', serif; 
+        }
+        
+        .font-sans { 
+            font-family: 'Montserrat', sans-serif; 
+        }
+        
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .text-gold {
+            color: #d4af37;
+        }
+        
+        .border-gold {
+            border-color: #d4af37;
+        }
+        
+        .bg-charcoal {
+            background-color: #2b2b2b;
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(43, 43, 43, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .menu-overlay.active {
+            left: 0;
+        }
+
+        .menu-overlay .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .menu-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2.25rem;
+            color: #d4af37;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .menu-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .menu-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .menu-nav a {
+            font-size: 3.75rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .menu-nav a:hover,
+        .menu-nav a.active {
+            color: #d4af37;
+        }
+
+        .menu-social {
+            margin-top: 4rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .menu-social a {
+            font-size: 1.5rem;
+            color: #d4af37;
+            transition: transform 0.3s;
+        }
+
+        .menu-social a:hover {
+            transform: scale(1.1);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .menu-btn {
+            font-size: 1.5rem;
+            color: #d4af37;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .menu-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.875rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            color: #d4af37;
+            letter-spacing: 0.05em;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .header-actions button {
+            font-size: 1.25rem;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .header-actions button:hover {
+            color: #d4af37;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -0.5rem;
+            right: -0.5rem;
+            background: #d4af37;
+            color: #2b2b2b;
+            border-radius: 50%;
+            width: 1.25rem;
+            height: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .search-bar {
+            display: none;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            background: rgba(43, 43, 43, 0.95);
+            backdrop-filter: blur(60px);
+        }
+
+        .search-bar.active {
+            display: block;
+        }
+
+        .search-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .search-wrapper {
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem 1rem 3rem;
+            background: #262626;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #d4af37;
+        }
+
+        .catalog-hero {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 5rem;
+        }
+
+        .catalog-hero-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #171717, #2b2b2b);
+        }
+
+        .catalog-hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 0 2rem;
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        .catalog-hero h2 {
+            font-size: 4.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            color: #d4af37;
+        }
+
+        .catalog-hero p {
+            font-size: 1.25rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            color: #d1d5db;
+            letter-spacing: 0.05em;
+        }
+
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .catalog-main {
+            padding: 3rem 0;
+            background-color: #2b2b2b;
+        }
+
+        .catalog-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .catalog-layout {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .filters-sidebar {
+            width: 320px;
+            flex-shrink: 0;
+        }
+
+        .filters-sticky {
+            position: sticky;
+            top: 7rem;
+        }
+
+        .filter-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-header h3 {
+            font-size: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: #d4af37;
+        }
+
+        .clear-btn {
+            font-size: 0.875rem;
+            color: #9ca3af;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            transition: color 0.3s;
+        }
+
+        .clear-btn:hover {
+            color: #d4af37;
+        }
+
+        .filter-section {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .filter-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .filter-section h4 {
+            font-size: 1.125rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .filter-checkbox {
+            display: none;
+        }
+
+        .filter-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .filter-label:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .filter-checkbox:checked + .filter-label {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: #d4af37;
+        }
+
+        .filter-label span:first-child {
+            color: #d1d5db;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.875rem;
+        }
+
+        .filter-label span:last-child {
+            color: #6b7280;
+            font-size: 0.75rem;
+        }
+
+        .price-slider {
+            width: 100%;
+            height: 0.5rem;
+            background: #404040;
+            border-radius: 0.5rem;
+            appearance: none;
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+
+        .price-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #d4af37;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .price-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #d4af37;
+            cursor: pointer;
+            border-radius: 50%;
+            border: none;
+        }
+
+        .price-range {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .price-range span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.875rem;
+        }
+
+        .price-range span:first-child,
+        .price-range span:last-child {
+            color: #9ca3af;
+        }
+
+        .price-range span:nth-child(2) {
+            color: #d4af37;
+            font-weight: 600;
+        }
+
+        .size-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+        }
+
+        .size-btn {
+            padding: 0.5rem 0.75rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: #d1d5db;
+            font-size: 0.875rem;
+            font-family: 'Montserrat', sans-serif;
+            background: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .size-btn:hover {
+            background: #d4af37;
+            color: #2b2b2b;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0.75rem;
+        }
+
+        .color-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .color-btn:hover {
+            border-color: #d4af37;
+        }
+
+        .rating-btn {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 0.75rem;
+        }
+
+        .rating-btn:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .rating-stars {
+            display: flex;
+            color: #d4af37;
+            font-size: 0.875rem;
+            margin-right: 0.75rem;
+        }
+
+        .rating-text {
+            color: #9ca3af;
+            font-size: 0.875rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .products-grid {
+            flex: 1;
+        }
+
+        .products-toolbar {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .toolbar-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .toolbar-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .products-count {
+            color: #d1d5db;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .products-count span {
+            color: #d4af37;
+            font-weight: 600;
+        }
+
+        .view-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .view-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .view-btn.active {
+            color: #d4af37;
+        }
+
+        .view-btn:hover {
+            background: #d4af37;
+            color: #2b2b2b;
+        }
+
+        .toolbar-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .toolbar-right label {
+            color: #9ca3af;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.875rem;
+        }
+
+        .sort-select {
+            padding: 0.75rem 1.5rem;
+            background: #262626;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+        }
+
+        .sort-select:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            cursor: pointer;
+        }
+
+        .product-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            background: #262626;
+            height: 384px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover .product-image-wrapper {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.1);
+        }
+
+        .product-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(43, 43, 43, 0.8), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+
+        .quick-view-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: #d4af37;
+            color: #2b2b2b;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            border: none;
+            cursor: pointer;
+        }
+
+        .wishlist-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: rgba(43, 43, 43, 0.8);
+            backdrop-filter: blur(4px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .wishlist-btn:hover {
+            color: #d4af37;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-new {
+            background: #d4af37;
+            color: #2b2b2b;
+        }
+
+        .badge-bestseller {
+            background: #fb7185;
+            color: white;
+        }
+
+        .badge-sale {
+            background: #dc2626;
+            color: white;
+        }
+
+        .product-title {
+            font-size: 1.125rem;
+            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .product-description {
+            font-size: 0.875rem;
+            color: #9ca3af;
+            margin-bottom: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-stars {
+            display: flex;
+            color: #d4af37;
+            font-size: 0.75rem;
+            margin-right: 0.5rem;
+        }
+
+        .product-reviews {
+            color: #6b7280;
+            font-size: 0.75rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: #d4af37;
+        }
+
+        .price-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .price-old {
+            font-size: 0.875rem;
+            font-family: 'Montserrat', sans-serif;
+            color: #6b7280;
+            text-decoration: line-through;
+        }
+
+        .pagination {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .pagination-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .page-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: none;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .page-btn:hover {
+            background: #d4af37;
+            color: #2b2b2b;
+        }
+
+        .page-btn.active {
+            background: #d4af37;
+            color: #2b2b2b;
+            font-weight: 600;
+        }
+
+        .page-dots {
+            color: #6b7280;
+            padding: 0 0.5rem;
+        }
+
+        .featured-categories {
+            padding: 6rem 0;
+            background: linear-gradient(to bottom, #2b2b2b, #171717);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3.75rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.25rem;
+            color: #9ca3af;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .category-card {
+            position: relative;
+            height: 320px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .category-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .category-card:hover .category-image {
+            transform: scale(1.1);
+        }
+
+        .category-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(43, 43, 43, 0.9), transparent);
+        }
+
+        .category-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+        }
+
+        .category-content h3 {
+            font-size: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-content p {
+            font-size: 0.875rem;
+            color: #9ca3af;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .newsletter {
+            padding: 6rem 0;
+            background: #171717;
+        }
+
+        .newsletter-content {
+            max-width: 768px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .newsletter-content h2 {
+            font-size: 3rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-content > p {
+            font-size: 1.25rem;
+            color: #d1d5db;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            margin-bottom: 3rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 672px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            background: #262626;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+
+        .newsletter-btn {
+            padding: 1rem 3rem;
+            background: #d4af37;
+            color: #2b2b2b;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            background: white;
+        }
+
+        .newsletter-disclaimer {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-family: 'Montserrat', sans-serif;
+            margin-top: 1.5rem;
+        }
+
+        footer {
+            background: #171717;
+            padding-top: 4rem;
+            padding-bottom: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.875rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-brand p {
+            color: #9ca3af;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4af37;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-btn:hover {
+            background: #d4af37;
+            color: #2b2b2b;
+        }
+
+        .footer-column h4 {
+            font-size: 1.125rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #d4af37;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding-top: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-copyright {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-legal a {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-legal a:hover {
+            color: #d4af37;
+        }
+        
+        /* Адаптивные стили для мобильных устройств */
+        @media (max-width: 1024px) {
+            .catalog-container {
+                padding: 0 1.5rem;
+            }
+            
+            .catalog-layout {
+                flex-direction: column;
+            }
+            
+            .filters-sidebar {
+                width: 100%;
+            }
+            
+            .filters-sticky {
+                position: relative;
+                top: 0;
+            }
+            
+            .products-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 1rem 1.5rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .catalog-hero h2 {
+                font-size: 3rem;
+            }
+            
+            .catalog-hero p {
+                font-size: 1rem;
+            }
+            
+            .catalog-hero {
+                height: 300px;
+                margin-top: 4rem;
+            }
+            
+            .products-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .product-image-wrapper {
+                height: 20rem;
+            }
+            
+            .toolbar-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .toolbar-left {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .toolbar-right {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .menu-nav a {
+                font-size: 2.5rem;
+            }
+            
+            .size-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .color-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .catalog-container {
+                padding: 0 1rem;
+            }
+            
+            .header-container {
+                padding: 0.75rem 1rem;
+            }
+            
+            .logo {
+                font-size: 1.25rem;
+            }
+            
+            .catalog-hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .catalog-hero {
+                height: 250px;
+            }
+            
+            .products-container {
+                gap: 1rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+            
+            .size-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .color-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="menu-overlay" class="menu-overlay">
+    <div class="container">
+        <button onclick="closeMenu()" class="menu-close">
+            <i class="fa-solid fa-times"></i>
+        </button>
+        <nav class="menu-nav">
+            <a href="index.html" onclick="closeMenu()">HOME</a>
+            <a href="catalog.html" onclick="closeMenu()" class="active">CATALOG</a>
+            <a href="index.html#bestsellers" onclick="closeMenu()">BESTSELLERS</a>
+            <a href="index.html#new-arrivals" onclick="closeMenu()">NEW ARRIVALS</a>
+            <a href="index.html#about" onclick="closeMenu()">ABOUT</a>
+            <a href="index.html#contact" onclick="closeMenu()">CONTACT</a>
+        </nav>
+        <div class="menu-social">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+    </div>
+</div>
+
+<header id="header">
+    <div class="header-container">
+        <button onclick="openMenu()" class="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        
+        <a href="index.html" style="text-decoration: none;"><h1 class="logo">Chill Out Lingerie</h1></a>
+        
+        <div class="header-actions">
+            <button onclick="toggleSearchBar()">
+                <i class="fa-solid fa-search"></i>
+            </button>
+            <button>
+                <i class="fa-regular fa-user"></i>
+            </button>
+            <button>
+                <i class="fa-solid fa-shopping-bag"></i>
+                <span class="cart-badge">0</span>
+            </button>
+        </div>
+    </div>
+    
+    <div id="search-bar" class="search-bar">
+        <div class="search-container">
+            <div class="search-wrapper">
+                <input type="text" placeholder="Search for products..." class="search-input">
+                <i class="fa-solid fa-search search-icon"></i>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="catalog-hero" class="catalog-hero">
+    <div class="catalog-hero-bg"></div>
+    
+    <div class="catalog-hero-content">
+        <h2>Our Collection</h2>
+        <p>Discover 156 pieces of premium lingerie designed for every occasion</p>
+    </div>
+</section>
+
+<section id="catalog-main" class="catalog-main">
+    <div class="catalog-container">
+        <div class="catalog-layout">
+            <aside id="filters-sidebar" class="filters-sidebar">
+                <div class="filters-sticky">
+                    <div class="filter-box">
+                        <div class="filter-header">
+                            <h3>Filters</h3>
+                            <button onclick="clearFilters()" class="clear-btn">Clear All</button>
+                        </div>
+                        
+                        <div class="filter-section">
+                            <h4>Category</h4>
+                            <div class="filter-options">
+                                <input type="checkbox" id="cat-bras" class="filter-checkbox">
+                                <label for="cat-bras" class="filter-label">
+                                    <span>Bras & Bralettes</span>
+                                    <span>(32)</span>
+                                </label>
+                                
+                                <input type="checkbox" id="cat-panties" class="filter-checkbox">
+                                <label for="cat-panties" class="filter-label">
+                                    <span>Panties</span>
+                                    <span>(45)</span>
+                                </label>
+                                
+                                <input type="checkbox" id="cat-sleepwear" class="filter-checkbox">
+                                <label for="cat-sleepwear" class="filter-label">
+                                    <span>Sleepwear</span>
+                                    <span>(28)</span>
+                                </label>
+                                
+                                <input type="checkbox" id="cat-bodysuits" class="filter-checkbox">
+                                <label for="cat-bodysuits" class="filter-label">
+                                    <span>Bodysuits</span>
+                                    <span>(19)</span>
+                                </label>
+                                
+                                <input type="checkbox" id="cat-robes" class="filter-checkbox">
+                                <label for="cat-robes" class="filter-label">
+                                    <span>Robes & Kimonos</span>
+                                    <span>(15)</span>
+                                </label>
+                                
+                                <input type="checkbox" id="cat-bridal" class="filter-checkbox">
+                                <label for="cat-bridal" class="filter-label">
+                                    <span>Bridal Collection</span>
+                                    <span>(17)</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-section">
+                            <h4>Price Range</h4>
+                            <input type="range" min="0" max="300" value="150" class="price-slider">
+                            <div class="price-range">
+                                <span>$0</span>
+                                <span id="price-value">$150</span>
+                                <span>$300+</span>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-section">
+                            <h4>Size</h4>
+                            <div class="size-grid">
+                                <button class="size-btn">XS</button>
+                                <button class="size-btn">S</button>
+                                <button class="size-btn">M</button>
+                                <button class="size-btn">L</button>
+                                <button class="size-btn">XL</button>
+                                <button class="size-btn">2XL</button>
+                                <button class="size-btn">3XL</button>
+                                <button class="size-btn">4XL</button>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-section">
+                            <h4>Color</h4>
+                            <div class="color-grid">
+                                <button class="color-btn" style="background: black;"></button>
+                                <button class="color-btn" style="background: white;"></button>
+                                <button class="color-btn" style="background: #dc2626;"></button>
+                                <button class="color-btn" style="background: #fda4af;"></button>
+                                <button class="color-btn" style="background: #1e3a8a;"></button>
+                                <button class="color-btn" style="background: #059669;"></button>
+                                <button class="color-btn" style="background: #9333ea;"></button>
+                                <button class="color-btn" style="background: #fef3c7;"></button>
+                                <button class="color-btn" style="background: #9ca3af;"></button>
+                                <button class="color-btn" style="background: #fb7185;"></button>
+                                <button class="color-btn" style="background: #0d9488;"></button>
+                                <button class="color-btn" style="background: #ea580c;"></button>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-section">
+                            <h4>Material</h4>
+                            <div class="filter-options">
+                                <input type="checkbox" id="mat-silk" class="filter-checkbox">
+                                <label for="mat-silk" class="filter-label">
+                                    <span>Silk</span>
+                                    <span>(42)</span>
+                                </label>
+                                
+                                <input type="checkbox" id="mat-lace" class="filter-checkbox">
+                                <label for="mat-lace" class="filter-label">
+                                    <span>Lace</span>
+                                    <span>(68)</span>
+                                </label>
+                                
+                                <input type="checkbox" id="mat-satin" class="filter-checkbox">
+                                <label for="mat-satin" class="filter-label">
+                                    <span>Satin</span>
+                                    <span>(35)</span>
+                                </label>
+                                
+                                <input type="checkbox" id="mat-cotton" class="filter-checkbox">
+                                <label for="mat-cotton" class="filter-label">
+                                    <span>Cotton</span>
+                                    <span>(23)</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-section">
+                            <h4>Rating</h4>
+                            <button class="rating-btn">
+                                <div class="rating-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="rating-text">& Up</span>
+                            </button>
+                            <button class="rating-btn">
+                                <div class="rating-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                                <span class="rating-text">& Up</span>
+                            </button>
+                            <button class="rating-btn">
+                                <div class="rating-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                                <span class="rating-text">& Up</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            
+            <main id="products-grid" class="products-grid">
+                <div class="products-toolbar">
+                    <div class="toolbar-content">
+                        <div class="toolbar-left">
+                            <p class="products-count">
+                                Showing <span>156</span> products
+                            </p>
+                            <div class="view-toggle">
+                                <button onclick="toggleView('grid')" class="view-btn active">
+                                    <i class="fa-solid fa-grid-2"></i>
+                                </button>
+                                <button onclick="toggleView('list')" class="view-btn">
+                                    <i class="fa-solid fa-list"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="toolbar-right">
+                            <label>Sort by:</label>
+                            <select class="sort-select">
+                                <option>Featured</option>
+                                <option>Price: Low to High</option>
+                                <option>Price: High to Low</option>
+                                <option>Newest Arrivals</option>
+                                <option>Best Selling</option>
+                                <option>Top Rated</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="products-container">
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/6555e7d064-c3b9b19a9e4b32d7ad33.png" alt="elegant black lace bralette">
+                            <div class="product-overlay">
+                                <button class="quick-view-btn">QUICK VIEW</button>
+                            </div>
+                            <button class="wishlist-btn">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <div class="product-badge badge-new">NEW</div>
+                        </div>
+                        <h4 class="product-title">Midnight Lace Bralette</h4>
+                        <p class="product-description">Delicate French lace</p>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="product-reviews">(127)</span>
+                        </div>
+                        <p class="product-price">$78.00</p>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b56beff876-e29888d5a8ccd0f22677.png" alt="champagne silk slip dress">
+                            <div class="product-overlay">
+                                <button class="quick-view-btn">QUICK VIEW</button>
+                            </div>
+                            <button class="wishlist-btn">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <div class="product-badge badge-bestseller">BESTSELLER</div>
+                        </div>
+                        <h4 class="product-title">Champagne Silk Slip</h4>
+                        <p class="product-description">Pure mulberry silk</p>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="product-reviews">(284)</span>
+                        </div>
+                        <p class="product-price">$145.00</p>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/0ff1edacf9-0d1b5003996b1b432a27.png" alt="burgundy lace set">
+                            <div class="product-overlay">
+                                <button class="quick-view-btn">QUICK VIEW</button>
+                            </div>
+                            <button class="wishlist-btn">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                        <h4 class="product-title">Rose Satin Bodysuit</h4>
+                        <p class="product-description">Italian satin blend</p>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <span class="product-reviews">(92)</span>
+                        </div>
+                        <p class="product-price">$92.00</p>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/d34cd14776-fd8800389b5e3f0b7c82.png" alt="ivory lace teddy">
+                            <div class="product-overlay">
+                                <button class="quick-view-btn">QUICK VIEW</button>
+                            </div>
+                            <button class="wishlist-btn">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                        <h4 class="product-title">Ivory Lace Teddy</h4>
+                        <p class="product-description">Chantilly lace</p>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="product-reviews">(215)</span>
+                        </div>
+                        <p class="product-price">$118.00</p>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/5c08a7f1c6-b1f2b1fff0aab95f6104.png" alt="emerald silk robe">
+                            <div class="product-overlay">
+                                <button class="quick-view-btn">QUICK VIEW</button>
+                            </div>
+                            <button class="wishlist-btn">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                        <h4 class="product-title">Emerald Silk Robe</h4>
+                        <p class="product-description">Luxurious silk charmeuse</p>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="product-reviews">(178)</span>
+                        </div>
+                        <p class="product-price">$168.00</p>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a550f76729-2f940b8687fba9bc8a11.png" alt="white cotton camisole set">
+                            <div class="product-overlay">
+                                <button class="quick-view-btn">QUICK VIEW</button>
+                            </div>
+                            <button class="wishlist-btn">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                        <h4 class="product-title">Cloud Camisole Set</h4>
+                        <p class="product-description">Pima cotton & lace</p>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <span class="product-reviews">(156)</span>
+                        </div>
+                        <p class="product-price">$82.00</p>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/48870ed260-bde48a1c7ea8473e1e41.png" alt="navy satin chemise">
+                            <div class="product-overlay">
+                                <button class="quick-view-btn">QUICK VIEW</button>
+                            </div>
+                            <button class="wishlist-btn">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <div class="product-badge badge-sale">-20%</div>
+                        </div>
+                        <h4 class="product-title">Midnight Chemise</h4>
+                        <p class="product-description">Satin with lace accents</p>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="product-reviews">(203)</span>
+                        </div>
+                        <div class="price-wrapper">
+                            <p class="product-price">$84.00</p>
+                            <p class="price-old">$105.00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/8ec3f80d6a-ff62832bf3e5711e34a5.png" alt="peach silk set">
+                            <div class="product-overlay">
+                                <button class="quick-view-btn">QUICK VIEW</button>
+                            </div>
+                            <button class="wishlist-btn">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                        <h4 class="product-title">Peach Dream Set</h4>
+                        <p class="product-description">Silk bralette & shorts</p>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <span class="product-reviews">(134)</span>
+                        </div>
+                        <p class="product-price">$125.00</p>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/18e9a25748-4b11a0bfe27d58a635f0.png" alt="champagne pajama set">
+                            <div class="product-overlay">
+                                <button class="quick-view-btn">QUICK VIEW</button>
+                            </div>
+                            <button class="wishlist-btn">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <div class="product-badge badge-new">NEW</div>
+                        </div>
+                        <h4 class="product-title">Champagne Dreams PJ Set</h4>
+                        <p class="product-description">Signature silk blend</p>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="product-reviews">(89)</span>
+                        </div>
+                        <p class="product-price">$195.00</p>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/425b0cfdf7-0c3bc91ccd1a89de7620.png" alt="rose lace set">
+                            <div class="product-overlay">
+                                <button class="quick-view-btn">QUICK VIEW</button>
+                            </div>
+                            <button class="wishlist-btn">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                        <h4 class="product-title">Rose Garden Set</h4>
+                        <p class="product-description">Floral lace design</p>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <span class="product-reviews">(167)</span>
+                        </div>
+                        <p class="product-price">$88.00</p>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/9748b8f173-db06ed5110f8b9df1561.png" alt="sage silk cami">
+                            <div class="product-overlay">
+                                <button class="quick-view-btn">QUICK VIEW</button>
+                            </div>
+                            <button class="wishlist-btn">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                        <h4 class="product-title">Sage Silk Cami</h4>
+                        <p class="product-description">Minimalist elegance</p>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="product-reviews">(112)</span>
+                        </div>
+                        <p class="product-price">$72.00</p>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/2fcc1bf8a5-be70f47eadce17c0083c.png" alt="luxury lace bras">
+                            <div class="product-overlay">
+                                <button class="quick-view-btn">QUICK VIEW</button>
+                            </div>
+                            <button class="wishlist-btn">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <div class="product-badge badge-bestseller">BESTSELLER</div>
+                        </div>
+                        <h4 class="product-title">Velvet Noir Bralette</h4>
+                        <p class="product-description">Soft cup design</p>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="product-reviews">(298)</span>
+                        </div>
+                        <p class="product-price">$65.00</p>
+                    </div>
+                </div>
+                
+                <div id="pagination" class="pagination">
+                    <div class="pagination-content">
+                        <button class="page-btn">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn">4</button>
+                        <button class="page-btn">5</button>
+                        <span class="page-dots">...</span>
+                        <button class="page-btn">13</button>
+                        <button class="page-btn">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</section>
+
+<section id="featured-categories" class="featured-categories">
+    <div class="section-header">
+        <h2>Shop by Style</h2>
+        <p>Find your perfect match</p>
+    </div>
+    
+    <div class="categories-grid">
+        <div class="category-card">
+            <img class="category-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/adb8294d8c-f1aa37cfc2108dacaf05.png" alt="romantic lace collection">
+            <div class="category-overlay"></div>
+            <div class="category-content">
+                <h3>Romantic</h3>
+                <p>42 items</p>
+            </div>
+        </div>
+        
+        <div class="category-card">
+            <img class="category-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/22b45282c5-14a43d12bcbfd0bb3828.png" alt="elegant silk sleepwear">
+            <div class="category-overlay"></div>
+            <div class="category-content">
+                <h3>Elegant</h3>
+                <p>38 items</p>
+            </div>
+        </div>
+        
+        <div class="category-card">
+            <img class="category-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b4b7c4de51-082c1749c35819c5b24b.png" alt="sexy black lingerie">
+            <div class="category-overlay"></div>
+            <div class="category-content">
+                <h3>Seductive</h3>
+                <p>51 items</p>
+            </div>
+        </div>
+        
+        <div class="category-card">
+            <img class="category-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b968491bc7-138dd7e45dcca10c68bc.png" alt="comfortable loungewear">
+            <div class="category-overlay"></div>
+            <div class="category-content">
+                <h3>Comfort</h3>
+                <p>25 items</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="newsletter" class="newsletter">
+    <div class="newsletter-content">
+        <h2>Join Our Community</h2>
+        <p>Subscribe to receive exclusive offers, styling tips, and early access to new collections.</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email address" class="newsletter-input">
+            <button type="submit" class="newsletter-btn">SUBSCRIBE</button>
+        </form>
+        <p class="newsletter-disclaimer">By subscribing, you agree to our Privacy Policy and consent to receive updates.</p>
+    </div>
+</section>
+
+<footer id="footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Chill Out Lingerie</h3>
+                <p>Elevating intimate apparel with timeless elegance, premium quality, and inclusive designs for the modern woman.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="social-btn"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="#" class="social-btn"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Shop</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Bras</a></li>
+                    <li><a href="#">Panties</a></li>
+                    <li><a href="#">Sleepwear</a></li>
+                    <li><a href="#">Bodysuits</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Bestsellers</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Customer Care</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Track Order</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Affiliates</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p class="footer-copyright">© 2024 Chill Out Lingerie. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function openMenu() {
+        document.getElementById('menu-overlay').classList.add('active');
+    }
+    
+    function closeMenu() {
+        document.getElementById('menu-overlay').classList.remove('active');
+    }
+    
+    function toggleSearchBar() {
+        const searchBar = document.getElementById('search-bar');
+        searchBar.classList.toggle('active');
+    }
+    
+    function clearFilters() {
+        const checkboxes = document.querySelectorAll('.filter-checkbox');
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = false;
+        });
+    }
+    
+    function toggleView(viewType) {
+        console.log('Switching to ' + viewType + ' view');
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const priceSlider = document.querySelector('.price-slider');
+        if (priceSlider) {
+            priceSlider.addEventListener('input', function() {
+                const value = this.value;
+                const priceValue = document.getElementById('price-value');
+                if (priceValue) {
+                    priceValue.textContent = '$' + value;
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
