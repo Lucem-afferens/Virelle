@@ -115,14 +115,6 @@
         </div>
     </div>
     
-    <div id="search-bar" class="search-bar">
-        <div class="search-container">
-            <div class="search-wrapper">
-                <input type="text" placeholder="Поиск товаров..." class="search-input" data-i18n-placeholder="catalog.searchPlaceholder">
-                <i class="fa-solid fa-search search-icon"></i>
-            </div>
-        </div>
-    </div>
 </header>
 
 <section id="catalog-hero" class="catalog-hero">
@@ -312,6 +304,10 @@
                         </div>
                         
                         <div class="toolbar-right">
+                            <div class="search-wrapper-toolbar">
+                                <input type="text" placeholder="Поиск товаров..." class="search-input-toolbar" data-i18n-placeholder="catalog.searchPlaceholder">
+                                <i class="fa-solid fa-search search-icon-toolbar"></i>
+                            </div>
                             <label data-i18n="catalog.sort.label">Сортировать:</label>
                             <select class="sort-select">
                                 <option data-i18n="catalog.sort.featured">Рекомендуемые</option>
@@ -1108,15 +1104,11 @@
         document.getElementById('menu-overlay').classList.remove('active');
     }
     
-    function toggleSearchBar() {
-        const searchBar = document.getElementById('search-bar');
-        searchBar.classList.toggle('active');
-    }
     
     // Функция фильтрации товаров
     function filterProducts() {
         const products = document.querySelectorAll('.product-card');
-        const searchInput = document.querySelector('.search-input');
+        const searchInput = document.querySelector('.search-input-toolbar');
         const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
         
         // Получаем активные фильтры категорий
@@ -1171,8 +1163,10 @@
             
             // Поиск по названию и описанию
             if (searchTerm) {
-                const title = product.querySelector('.product-title').textContent.toLowerCase();
-                const description = product.querySelector('.product-description').textContent.toLowerCase();
+                const titleEl = product.querySelector('.product-title');
+                const descEl = product.querySelector('.product-description');
+                const title = titleEl ? titleEl.textContent.toLowerCase() : '';
+                const description = descEl ? descEl.textContent.toLowerCase() : '';
                 if (!title.includes(searchTerm) && !description.includes(searchTerm)) {
                     show = false;
                 }
@@ -1342,7 +1336,7 @@
         }
         
         // Обработчик для поиска
-        const searchInput = document.querySelector('.search-input');
+        const searchInput = document.querySelector('.search-input-toolbar');
         if (searchInput) {
             searchInput.addEventListener('input', filterProducts);
         }
