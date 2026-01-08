@@ -103,8 +103,8 @@
         <a href="index.html" style="text-decoration: none; color: inherit;"><h1 class="header-logo">Chill Out Lingerie</h1></a>
         
         <div class="header-actions">
-            <button onclick="toggleLanguage()" class="icon-btn lang-switcher" title="Переключить язык">
-                <i class="fa-solid fa-language"></i>
+            <button onclick="toggleLanguage()" class="lang-switcher" title="Переключить язык">
+                <span class="lang-switcher-text">RU</span>
             </button>
             <a href="index.html" style="text-decoration: none; color: inherit;">
                 <img src="/logo.svg" alt="Chill Out Lingerie" class="header-logo-image">
@@ -711,15 +711,15 @@
                     <i class="fa-brands fa-vk"></i>
                 </div>
                 <div>
-                    <h3 class="vk-notice-title">Покупайте через ВКонтакте</h3>
-                    <p class="vk-notice-text">
+                    <h3 class="vk-notice-title" data-i18n="vkNotice.title">Покупайте через ВКонтакте</h3>
+                    <p class="vk-notice-text" data-i18n="vkNotice.text">
                         Этот сайт создан для ознакомления с коллекцией. Все заказы принимаются в нашей группе ВКонтакте
                     </p>
                 </div>
             </div>
             <a href="https://vk.com" target="_blank" class="btn-vk-large">
                 <i class="fa-brands fa-vk"></i>
-                <span>ПЕРЕЙТИ В VK</span>
+                <span data-i18n="vkNotice.button">ПЕРЕЙТИ В VK</span>
             </a>
         </div>
     </div>
@@ -832,6 +832,11 @@
             },
             footer: {
                 description: 'Повышаем уровень интимного белья с вневременной элегантностью, премиальным качеством и инклюзивными дизайнами для современной женщины.'
+            },
+            vkNotice: {
+                title: 'Покупайте через ВКонтакте',
+                text: 'Этот сайт создан для ознакомления с коллекцией. Все заказы принимаются в нашей группе ВКонтакте',
+                button: 'ПЕРЕЙТИ В VK'
             }
         },
         en: {
@@ -904,6 +909,11 @@
             },
             footer: {
                 description: 'Elevating intimate apparel with timeless elegance, premium quality, and inclusive designs for the modern woman.'
+            },
+            vkNotice: {
+                title: 'Shop via VKontakte',
+                text: 'This site is created to browse the collection. All orders are accepted in our VKontakte group',
+                button: 'GO TO VK'
             }
         }
     };
@@ -926,6 +936,12 @@
         currentLanguage = lang;
         localStorage.setItem('language', lang);
         document.documentElement.lang = lang;
+
+        // Обновляем текст переключателя языка
+        const langSwitcher = document.querySelector('.lang-switcher-text');
+        if (langSwitcher) {
+            langSwitcher.textContent = lang.toUpperCase();
+        }
 
         // Переводим все элементы с data-i18n
         document.querySelectorAll('[data-i18n]').forEach(el => {

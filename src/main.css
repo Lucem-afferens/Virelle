@@ -218,27 +218,42 @@ body {
     color: #ffc0cb;
 }
 
+/* Переключатель языка - только текст RU/EN */
 .lang-switcher {
-    position: relative;
-}
-
-.lang-switcher::after {
-    content: 'RU';
-    position: absolute;
-    bottom: -5px;
-    right: -5px;
-    font-size: 0.6rem;
+    background: rgba(255, 192, 203, 0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 182, 193, 0.15);
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
     color: #d4af37;
-    background: rgba(43, 43, 43, 0.9);
-    border-radius: 3px;
-    padding: 1px 3px;
-    line-height: 1;
+    min-width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(255, 182, 193, 0.1);
 }
 
-[lang="en"] .lang-switcher::after {
-    content: 'EN';
+.lang-switcher:hover {
+    background: rgba(255, 192, 203, 0.15);
+    border-color: rgba(255, 182, 193, 0.3);
+    box-shadow: 0 4px 12px rgba(255, 182, 193, 0.2);
+    transform: translateY(-1px);
+}
+
+.lang-switcher:active {
+    transform: translateY(0);
+}
+
+.lang-switcher-text {
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
 }
 
 .menu-btn {
@@ -365,7 +380,7 @@ body {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(43, 43, 43, 0.2), rgba(60, 40, 50, 0.5), rgba(43, 43, 43, 0.65));
+    background: linear-gradient(to bottom, rgba(43, 43, 43, 0.3), rgba(60, 40, 50, 0.6), rgba(43, 43, 43, 0.7));
 }
 
 .hero-content {
@@ -1943,6 +1958,16 @@ body {
         margin-right: 0.625rem;
     }
     
+    .lang-switcher {
+        padding: 0.5rem 0.875rem;
+        font-size: 0.8125rem;
+        min-width: 2.75rem;
+    }
+    
+    .lang-switcher-text {
+        font-size: 0.8125rem;
+    }
+    
     .icon-btn {
         font-size: 1.375rem;
         width: 2.25rem;
@@ -1982,6 +2007,16 @@ body {
         max-height: 2.5rem;
         max-width: 100px;
         margin-right: 0.5rem;
+    }
+    
+    .lang-switcher {
+        padding: 0.4375rem 0.75rem;
+        font-size: 0.75rem;
+        min-width: 2.5rem;
+    }
+    
+    .lang-switcher-text {
+        font-size: 0.75rem;
     }
     
     .hero-title {
