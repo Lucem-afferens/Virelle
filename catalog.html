@@ -1260,6 +1260,64 @@
         updateFilterCounts();
     }
     
+    // Функция для инициализации начальных счетчиков
+    function initializeCounts() {
+        const products = document.querySelectorAll('.product-card');
+        
+        // Считаем по категориям
+        const categoryCounts = {
+            'bras': 0,
+            'panties': 0,
+            'sleepwear': 0,
+            'bodysuits': 0,
+            'robes': 0,
+            'bridal': 0
+        };
+        
+        // Считаем по материалам
+        const materialCounts = {
+            'silk': 0,
+            'lace': 0,
+            'satin': 0,
+            'cotton': 0
+        };
+        
+        products.forEach(product => {
+            const category = product.getAttribute('data-category');
+            const material = product.getAttribute('data-material');
+            
+            if (category && categoryCounts.hasOwnProperty(category)) {
+                categoryCounts[category]++;
+            }
+            
+            if (material && materialCounts.hasOwnProperty(material)) {
+                materialCounts[material]++;
+            }
+        });
+        
+        // Обновляем счетчики категорий
+        Object.keys(categoryCounts).forEach(cat => {
+            const countElement = document.querySelector(`.category-count[data-category="${cat}"]`);
+            if (countElement) {
+                countElement.textContent = `(${categoryCounts[cat]})`;
+            }
+        });
+        
+        // Обновляем счетчики материалов
+        Object.keys(materialCounts).forEach(mat => {
+            const countElement = document.querySelector(`.material-count[data-material="${mat}"]`);
+            if (countElement) {
+                countElement.textContent = `(${materialCounts[mat]})`;
+            }
+        });
+        
+        // Обновляем общий счетчик товаров
+        const productsCount = document.querySelector('.products-visible-count');
+        if (productsCount) {
+            productsCount.textContent = products.length;
+        }
+    }
+    
     // Функция для подсчета и обновления счетчиков в фильтрах
     function updateFilterCounts() {
         const products = document.querySelectorAll('.product-card');
@@ -1510,13 +1568,6 @@
             });
         }
     });
-    
-    // Обновляем счетчики при изменении фильтров
-    const originalFilterProducts = filterProducts;
-    filterProducts = function() {
-        originalFilterProducts();
-        updateFilterCounts();
-    };
 </script>
 
 </body>
