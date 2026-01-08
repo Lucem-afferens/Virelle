@@ -1329,22 +1329,6 @@
         const priceSlider = document.querySelector('.price-slider');
         const maxPrice = priceSlider ? parseInt(priceSlider.value) : 300;
         
-        const sizeFilters = [];
-        document.querySelectorAll('.size-btn.active').forEach(btn => {
-            sizeFilters.push(btn.textContent.trim());
-        });
-        
-        const colorFilters = [];
-        document.querySelectorAll('.color-btn.active').forEach(btn => {
-            const bgColor = btn.style.backgroundColor || window.getComputedStyle(btn).backgroundColor;
-            const rgb = bgColor.match(/\d+/g);
-            if (rgb && rgb.length >= 3) {
-                colorFilters.push(`rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`);
-            } else {
-                colorFilters.push(bgColor);
-            }
-        });
-        
         let minRating = 0;
         const ratingButtons = document.querySelectorAll('.rating-btn.active');
         if (ratingButtons.length > 0) {
@@ -1352,6 +1336,17 @@
             const stars = ratingBtn.querySelectorAll('.fa-solid.fa-star').length;
             minRating = stars;
         }
+        
+        // Получаем активные фильтры категорий и материалов
+        const activeCategoryFilters = [];
+        document.querySelectorAll('.filter-checkbox[id^="cat-"]:checked').forEach(cb => {
+            activeCategoryFilters.push(cb.id.replace('cat-', ''));
+        });
+        
+        const activeMaterialFilters = [];
+        document.querySelectorAll('.filter-checkbox[id^="mat-"]:checked').forEach(cb => {
+            activeMaterialFilters.push(cb.id.replace('mat-', ''));
+        });
         
         // Считаем по категориям - с учетом всех фильтров кроме категорий
         const categoryCounts = {
@@ -1371,69 +1366,68 @@
             'cotton': 0
         };
         
-        // Получаем активные фильтры категорий и материалов для исключения
-        const activeCategoryFilters = [];
-        document.querySelectorAll('.filter-checkbox[id^="cat-"]:checked').forEach(cb => {
-            activeCategoryFilters.push(cb.id.replace('cat-', ''));
-        });
-        
-        const activeMaterialFilters = [];
-        document.querySelectorAll('.filter-checkbox[id^="mat-"]:checked').forEach(cb => {
-            activeMaterialFilters.push(cb.id.replace('mat-', ''));
-        });
-        
         products.forEach(product => {
+            const category = product.getAttribute('data-category');
+            const material = product.getAttribute('data-material');
+            const price = parseFloat(product.getAttribute('data-price')) || 0;
+            const rating = parseInt(product.getAttribute('data-rating')) || 0;
+            
             // Проверяем товар на соответствие всем фильтрам кроме категории/материала, для которого считаем
-            let matchesFilters = true;
             
             // Поиск
+            let matchesSearch = true;
             if (searchTerm) {
                 const titleEl = product.querySelector('.product-title');
                 const descEl = product.querySelector('.product-description');
                 const title = titleEl ? titleEl.textContent.toLowerCase() : '';
                 const description = descEl ? descEl.textContent.toLowerCase() : '';
-                if (!title.includes(searchTerm) && !description.includes(searchTerm)) {
-                    matchesFilters = false;
-                }
+                matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
             }
             
             // Цена
-            if (matchesFilters) {
-                const price = parseFloat(product.getAttribute('data-price'));
-                if (price > maxPrice) {
-                    matchesFilters = false;
-                }
-            }
+            const matchesPrice = price <= maxPrice;
             
             // Рейтинг
-            if (matchesFilters && minRating > 0) {
-                const rating = parseInt(product.getAttribute('data-rating'));
-                if (rating < minRating) {
-                    matchesFilters = false;
-                }
-            }
+            const matchesRating = minRating === 0 || rating >= minRating;
             
-            // Размер (пропускаем, так как нет data-size атрибутов)
+            if (!matchesSearch || !matchesPrice || !matchesRating) return;
             
-            // Цвет (пропускаем для упрощения, можно добавить позже)
-            
-            if (!matchesFilters) return;
-            
-            const category = product.getAttribute('data-category');
-            const material = product.getAttribute('data-material');
-            
-            // Считаем категории: если категория не выбрана, считаем товары с этой категорией
+            // Для каждой категории считаем товары, которые прошли остальные фильтры
+            // И учитываем активные фильтры по материалам
             if (category && categoryCounts.hasOwnProperty(category)) {
-                // Если фильтры по категориям активны, считаем только если категория не выбрана или товар уже проходит фильтр
-                if (activeCategoryFilters.length === 0 || activeCategoryFilters.includes(category)) {
+                let categoryMatches = true;
+                
+                // Если выбраны категории, считаем только если эта категория в выбранных
+                if (activeCategoryFilters.length > 0 && !activeCategoryFilters.includes(category)) {
+                    categoryMatches = false;
+                }
+                
+                // Если выбраны материалы, проверяем соответствие
+                if (activeMaterialFilters.length > 0 && material && !activeMaterialFilters.includes(material)) {
+                    categoryMatches = false;
+                }
+                
+                if (categoryMatches) {
                     categoryCounts[category]++;
                 }
             }
             
-            // Считаем материалы: если материал не выбран, считаем товары с этим материалом
+            // Для каждого материала считаем товары, которые прошли остальные фильтры
+            // И учитываем активные фильтры по категориям
             if (material && materialCounts.hasOwnProperty(material)) {
-                // Если фильтры по материалам активны, считаем только если материал не выбран или товар уже проходит фильтр
-                if (activeMaterialFilters.length === 0 || activeMaterialFilters.includes(material)) {
+                let materialMatches = true;
+                
+                // Если выбраны материалы, считаем только если этот материал в выбранных
+                if (activeMaterialFilters.length > 0 && !activeMaterialFilters.includes(material)) {
+                    materialMatches = false;
+                }
+                
+                // Если выбраны категории, проверяем соответствие
+                if (activeCategoryFilters.length > 0 && category && !activeCategoryFilters.includes(category)) {
+                    materialMatches = false;
+                }
+                
+                if (materialMatches) {
                     materialCounts[material]++;
                 }
             }
