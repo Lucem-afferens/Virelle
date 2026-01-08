@@ -102,12 +102,18 @@
         
         <a href="index.html" style="text-decoration: none; color: inherit;">
             <img src="/logo.svg" alt="Chill Out Lingerie" class="header-logo-image">
-            <h1 class="header-logo">Chill Out Lingerie</h1>
+            <h1 class="header-logo">Chill Out Lingerie®</h1>
         </a>
         
         <div class="header-actions">
             <button onclick="toggleLanguage()" class="lang-switcher" title="Переключить язык">
                 <span class="lang-switcher-text">RU</span>
+            </button>
+            <a href="https://vk.com" target="_blank" class="icon-btn" title="ВКонтакте">
+                <i class="fa-brands fa-vk"></i>
+            </a>
+            <button class="icon-btn">
+                <i class="fa-solid fa-search"></i>
             </button>
         </div>
     </div>
@@ -135,8 +141,11 @@
                         </div>
                         
                         <div class="filter-section">
-                            <h4 data-i18n="catalog.filters.category">Категория</h4>
-                            <div class="filter-options">
+                            <h4 class="filter-section-header" data-section="category">
+                                <span data-i18n="catalog.filters.category">Категория</span>
+                                <i class="fa-solid fa-chevron-down filter-section-icon"></i>
+                            </h4>
+                            <div class="filter-options filter-section-content" data-section-content="category">
                                 <input type="checkbox" id="cat-bras" class="filter-checkbox">
                                 <label for="cat-bras" class="filter-label">
                                 <span data-i18n="catalog.filters.categories.bras">Бюстгальтеры и Бралетты</span>
@@ -176,18 +185,26 @@
                         </div>
                         
                         <div class="filter-section">
-                            <h4 data-i18n="catalog.filters.priceRange">Диапазон Цен</h4>
-                            <input type="range" min="0" max="300" value="150" class="price-slider">
+                            <h4 class="filter-section-header" data-section="price">
+                                <span data-i18n="catalog.filters.priceRange">Диапазон Цен</span>
+                                <i class="fa-solid fa-chevron-down filter-section-icon"></i>
+                            </h4>
+                            <div class="filter-section-content" data-section-content="price">
+                                <input type="range" min="0" max="30000" step="1000" value="15000" class="price-slider">
                             <div class="price-range">
-                                <span>$0</span>
-                                <span id="price-value">$150</span>
-                                <span>$300+</span>
+                                    <span>0 ₽</span>
+                                    <span id="price-value">15 000 ₽</span>
+                                    <span>30 000+ ₽</span>
+                                </div>
                             </div>
                         </div>
                         
                         <div class="filter-section">
-                            <h4 data-i18n="catalog.filters.size">Размер</h4>
-                            <div class="size-grid">
+                            <h4 class="filter-section-header" data-section="size">
+                                <span data-i18n="catalog.filters.size">Размер</span>
+                                <i class="fa-solid fa-chevron-down filter-section-icon"></i>
+                            </h4>
+                            <div class="size-grid filter-section-content" data-section-content="size">
                                 <button class="size-btn">XS</button>
                                 <button class="size-btn">S</button>
                                 <button class="size-btn">M</button>
@@ -200,8 +217,11 @@
                         </div>
                         
                         <div class="filter-section">
-                            <h4 data-i18n="catalog.filters.color">Цвет</h4>
-                            <div class="color-grid">
+                            <h4 class="filter-section-header" data-section="color">
+                                <span data-i18n="catalog.filters.color">Цвет</span>
+                                <i class="fa-solid fa-chevron-down filter-section-icon"></i>
+                            </h4>
+                            <div class="color-grid filter-section-content" data-section-content="color">
                                 <button class="color-btn" style="background: black;"></button>
                                 <button class="color-btn" style="background: white;"></button>
                                 <button class="color-btn" style="background: #dc2626;"></button>
@@ -218,8 +238,11 @@
                         </div>
                         
                         <div class="filter-section">
-                            <h4 data-i18n="catalog.filters.material">Материал</h4>
-                            <div class="filter-options">
+                            <h4 class="filter-section-header" data-section="material">
+                                <span data-i18n="catalog.filters.material">Материал</span>
+                                <i class="fa-solid fa-chevron-down filter-section-icon"></i>
+                            </h4>
+                            <div class="filter-options filter-section-content" data-section-content="material">
                                 <input type="checkbox" id="mat-silk" class="filter-checkbox">
                                 <label for="mat-silk" class="filter-label">
                                     <span data-i18n="catalog.filters.materials.silk">Шелк</span>
@@ -247,7 +270,11 @@
                         </div>
                         
                         <div class="filter-section">
-                            <h4 data-i18n="catalog.filters.rating">Рейтинг</h4>
+                            <h4 class="filter-section-header" data-section="rating">
+                                <span data-i18n="catalog.filters.rating">Рейтинг</span>
+                                <i class="fa-solid fa-chevron-down filter-section-icon"></i>
+                            </h4>
+                            <div class="filter-section-content" data-section-content="rating">
                             <button class="rating-btn">
                                 <div class="rating-stars">
                                     <i class="fa-solid fa-star"></i>
@@ -278,6 +305,7 @@
                                 </div>
                                 <span class="rating-text" data-i18n="catalog.filters.rating.up">& Up</span>
                             </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -291,10 +319,10 @@
                                 <span data-i18n="catalog.products.showing">Показано</span> <span class="products-visible-count">11</span> <span data-i18n="catalog.products.products">товаров</span>
                             </p>
                             <div class="view-toggle">
-                                <button onclick="toggleView('grid')" class="view-btn active">
-                                    <i class="fa-solid fa-grid-2"></i>
+                                <button onclick="toggleView('grid')" class="view-btn active" title="Сетка">
+                                    <i class="fa-solid fa-th-large"></i>
                                 </button>
-                                <button onclick="toggleView('list')" class="view-btn">
+                                <button onclick="toggleView('list')" class="view-btn" title="Список">
                                     <i class="fa-solid fa-list"></i>
                                 </button>
                             </div>
@@ -305,21 +333,23 @@
                                 <input type="text" placeholder="Поиск товаров..." class="search-input-toolbar" data-i18n-placeholder="catalog.searchPlaceholder">
                                 <i class="fa-solid fa-search search-icon-toolbar"></i>
                             </div>
-                            <label data-i18n="catalog.sort.label">Сортировать:</label>
-                            <select class="sort-select">
-                                <option data-i18n="catalog.sort.featured">Рекомендуемые</option>
-                                <option data-i18n="catalog.sort.priceLow">Цена: По Возрастанию</option>
-                                <option data-i18n="catalog.sort.priceHigh">Цена: По Убыванию</option>
-                                <option data-i18n="catalog.sort.newest">Новинки</option>
-                                <option data-i18n="catalog.sort.bestselling">Хиты Продаж</option>
-                                <option data-i18n="catalog.sort.topRated">Высокий Рейтинг</option>
+                            <div class="sort-wrapper-toolbar">
+                                <label for="sort-select" data-i18n="catalog.sort.label">Сортировать:</label>
+                                <select id="sort-select" class="sort-select">
+                                    <option value="featured" data-i18n="catalog.sort.featured">Рекомендуемые</option>
+                                    <option value="priceLow" data-i18n="catalog.sort.priceLow">Цена: По Возрастанию</option>
+                                    <option value="priceHigh" data-i18n="catalog.sort.priceHigh">Цена: По Убыванию</option>
+                                    <option value="newest" data-i18n="catalog.sort.newest">Новинки</option>
+                                    <option value="bestselling" data-i18n="catalog.sort.bestselling">Хиты Продаж</option>
+                                    <option value="topRated" data-i18n="catalog.sort.topRated">Высокий Рейтинг</option>
                             </select>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="products-container">
-                    <div class="product-card" data-category="bras" data-material="lace" data-price="78" data-rating="5" data-color="black">
+                    <div class="product-card" data-category="bras" data-material="lace" data-price="7800" data-rating="5" data-color="black" data-sizes="XS,S,M,L,XL">
                         <div class="product-image-wrapper">
                             <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/6555e7d064-c3b9b19a9e4b32d7ad33.png" alt="elegant black lace bralette">
                             <div class="product-overlay">
@@ -342,10 +372,10 @@
                             </div>
                             <span class="product-reviews">(127)</span>
                         </div>
-                        <p class="product-price">$78.00</p>
+                        <p class="product-price">7 800 ₽</p>
                     </div>
                     
-                    <div class="product-card" data-category="sleepwear" data-material="silk" data-price="145" data-rating="5" data-color="champagne">
+                    <div class="product-card" data-category="sleepwear" data-material="silk" data-price="14500" data-rating="5" data-color="champagne" data-sizes="S,M,L,XL">
                         <div class="product-image-wrapper">
                             <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b56beff876-e29888d5a8ccd0f22677.png" alt="champagne silk slip dress">
                             <div class="product-overlay">
@@ -368,10 +398,10 @@
                             </div>
                             <span class="product-reviews">(284)</span>
                         </div>
-                        <p class="product-price">$145.00</p>
+                        <p class="product-price">14 500 ₽</p>
                     </div>
                     
-                    <div class="product-card" data-category="bodysuits" data-material="satin" data-price="92" data-rating="4" data-color="rose">
+                    <div class="product-card" data-category="bodysuits" data-material="satin" data-price="9200" data-rating="4" data-color="rose" data-sizes="XS,S,M,L">
                         <div class="product-image-wrapper">
                             <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/0ff1edacf9-0d1b5003996b1b432a27.png" alt="burgundy lace set">
                             <div class="product-overlay">
@@ -393,10 +423,10 @@
                             </div>
                             <span class="product-reviews">(92)</span>
                         </div>
-                        <p class="product-price">$92.00</p>
+                        <p class="product-price">9 200 ₽</p>
                     </div>
                     
-                    <div class="product-card" data-category="bodysuits" data-material="lace" data-price="118" data-rating="5" data-color="ivory">
+                    <div class="product-card" data-category="bodysuits" data-material="lace" data-price="11800" data-rating="5" data-color="ivory" data-sizes="S,M,L,XL,2XL">
                         <div class="product-image-wrapper">
                             <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/d34cd14776-fd8800389b5e3f0b7c82.png" alt="ivory lace teddy">
                             <div class="product-overlay">
@@ -418,10 +448,10 @@
                             </div>
                             <span class="product-reviews">(215)</span>
                         </div>
-                        <p class="product-price">$118.00</p>
+                        <p class="product-price">11 800 ₽</p>
                     </div>
                     
-                    <div class="product-card" data-category="robes" data-material="silk" data-price="168" data-rating="5" data-color="emerald">
+                    <div class="product-card" data-category="robes" data-material="silk" data-price="16800" data-rating="5" data-color="emerald" data-sizes="M,L,XL,2XL">
                         <div class="product-image-wrapper">
                             <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/5c08a7f1c6-b1f2b1fff0aab95f6104.png" alt="emerald silk robe">
                             <div class="product-overlay">
@@ -443,10 +473,10 @@
                             </div>
                             <span class="product-reviews">(178)</span>
                         </div>
-                        <p class="product-price">$168.00</p>
+                        <p class="product-price">16 800 ₽</p>
                     </div>
                     
-                    <div class="product-card" data-category="sleepwear" data-material="cotton" data-price="82" data-rating="4" data-color="white">
+                    <div class="product-card" data-category="sleepwear" data-material="cotton" data-price="8200" data-rating="4" data-color="white" data-sizes="XS,S,M,L,XL,2XL">
                         <div class="product-image-wrapper">
                             <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a550f76729-2f940b8687fba9bc8a11.png" alt="white cotton camisole set">
                             <div class="product-overlay">
@@ -468,10 +498,10 @@
                             </div>
                             <span class="product-reviews">(156)</span>
                         </div>
-                        <p class="product-price">$82.00</p>
+                        <p class="product-price">8 200 ₽</p>
                     </div>
                     
-                    <div class="product-card" data-category="sleepwear" data-material="satin" data-price="84" data-rating="5" data-color="navy">
+                    <div class="product-card" data-category="sleepwear" data-material="satin" data-price="8400" data-rating="5" data-color="navy" data-sizes="S,M,L,XL">
                         <div class="product-image-wrapper">
                             <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/48870ed260-bde48a1c7ea8473e1e41.png" alt="navy satin chemise">
                             <div class="product-overlay">
@@ -495,12 +525,12 @@
                             <span class="product-reviews">(203)</span>
                         </div>
                         <div class="price-wrapper">
-                            <p class="product-price">$84.00</p>
-                            <p class="price-old">$105.00</p>
+                            <p class="product-price">8 400 ₽</p>
+                            <p class="price-old">10 500 ₽</p>
                         </div>
                     </div>
                     
-                    <div class="product-card" data-category="sleepwear" data-material="silk" data-price="125" data-rating="4" data-color="peach">
+                    <div class="product-card" data-category="sleepwear" data-material="silk" data-price="12500" data-rating="4" data-color="peach" data-sizes="XS,S,M,L">
                         <div class="product-image-wrapper">
                             <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/8ec3f80d6a-ff62832bf3e5711e34a5.png" alt="peach silk set">
                             <div class="product-overlay">
@@ -522,10 +552,10 @@
                             </div>
                             <span class="product-reviews">(134)</span>
                         </div>
-                        <p class="product-price">$125.00</p>
+                        <p class="product-price">12 500 ₽</p>
                     </div>
                     
-                    <div class="product-card" data-category="sleepwear" data-material="silk" data-price="195" data-rating="5" data-color="champagne">
+                    <div class="product-card" data-category="sleepwear" data-material="silk" data-price="19500" data-rating="5" data-color="champagne" data-sizes="S,M,L,XL,2XL">
                         <div class="product-image-wrapper">
                             <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/18e9a25748-4b11a0bfe27d58a635f0.png" alt="champagne pajama set">
                             <div class="product-overlay">
@@ -548,10 +578,10 @@
                             </div>
                             <span class="product-reviews">(89)</span>
                         </div>
-                        <p class="product-price">$195.00</p>
+                        <p class="product-price">19 500 ₽</p>
                     </div>
                     
-                    <div class="product-card" data-category="sleepwear" data-material="lace" data-price="88" data-rating="4" data-color="rose">
+                    <div class="product-card" data-category="sleepwear" data-material="lace" data-price="8800" data-rating="4" data-color="rose" data-sizes="S,M,L">
                         <div class="product-image-wrapper">
                             <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/425b0cfdf7-0c3bc91ccd1a89de7620.png" alt="rose lace set">
                             <div class="product-overlay">
@@ -573,10 +603,10 @@
                             </div>
                             <span class="product-reviews">(167)</span>
                         </div>
-                        <p class="product-price">$88.00</p>
+                        <p class="product-price">8 800 ₽</p>
                     </div>
                     
-                    <div class="product-card" data-category="sleepwear" data-material="silk" data-price="72" data-rating="5" data-color="sage">
+                    <div class="product-card" data-category="sleepwear" data-material="silk" data-price="7200" data-rating="5" data-color="sage" data-sizes="XS,S,M">
                         <div class="product-image-wrapper">
                             <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/9748b8f173-db06ed5110f8b9df1561.png" alt="sage silk cami">
                             <div class="product-overlay">
@@ -598,10 +628,10 @@
                             </div>
                             <span class="product-reviews">(112)</span>
                         </div>
-                        <p class="product-price">$72.00</p>
+                        <p class="product-price">7 200 ₽</p>
                     </div>
                     
-                    <div class="product-card" data-category="bras" data-material="lace" data-price="65" data-rating="5" data-color="black">
+                    <div class="product-card" data-category="bras" data-material="lace" data-price="6500" data-rating="5" data-color="black" data-sizes="XS,S,M,L,XL,2XL">
                         <div class="product-image-wrapper">
                             <img class="product-image" loading="lazy" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/2fcc1bf8a5-be70f47eadce17c0083c.png" alt="luxury lace bras">
                             <div class="product-overlay">
@@ -624,7 +654,7 @@
                             </div>
                             <span class="product-reviews">(298)</span>
                         </div>
-                        <p class="product-price">$65.00</p>
+                        <p class="product-price">6 500 ₽</p>
                     </div>
                 </div>
                 
@@ -1104,545 +1134,1157 @@
     }
     
     
-    // Функция фильтрации товаров
+    // ============================================================================
+    // КАТАЛОГ: ОПТИМИЗИРОВАННЫЙ КОД ДЛЯ ПРОДАКШЕНА
+    // ============================================================================
+    
+    // Кеш DOM-элементов для оптимизации производительности
+    const catalogCache = {
+        products: null,
+        productsContainer: null,
+        productsCount: null,
+        searchInput: null,
+        priceSlider: null,
+        priceValue: null,
+        sortSelect: null,
+        emptyState: null,
+        originalOrder: [] // Сохраняем исходный порядок товаров
+    };
+    
+    // Маппинг цветов для фильтрации (оптимизированная версия)
+    const COLOR_MAP = {
+        'black': ['black', '#000', '#000000', 'rgb(0, 0, 0)', 'rgb(0,0,0)'],
+        'white': ['white', '#fff', '#ffffff', 'rgb(255, 255, 255)', 'rgb(255,255,255)'],
+        'red': ['red', '#dc2626', 'rgb(220, 38, 38)', 'rgb(220,38,38)'],
+        'rose': ['rose', '#fda4af', 'rgb(253, 164, 175)', 'rgb(253,164,175)'],
+        'navy': ['navy', '#1e3a8a', 'rgb(30, 58, 138)', 'rgb(30,58,138)'],
+        'green': ['green', '#059669', 'rgb(5, 150, 105)', 'rgb(5,150,105)'],
+        'purple': ['purple', '#9333ea', 'rgb(147, 51, 234)', 'rgb(147,51,234)'],
+        'yellow': ['yellow', '#fef3c7', 'rgb(254, 243, 199)', 'rgb(254,243,199)'],
+        'gray': ['gray', 'grey', '#9ca3af', 'rgb(156, 163, 175)', 'rgb(156,163,175)'],
+        'pink': ['pink', '#fb7185', 'rgb(251, 113, 133)', 'rgb(251,113,133)'],
+        'teal': ['teal', '#0d9488', 'rgb(13, 148, 136)', 'rgb(13,148,136)'],
+        'orange': ['orange', '#ea580c', 'rgb(234, 88, 12)', 'rgb(234,88,12)'],
+        'champagne': ['champagne', '#f7e7ce', '#f5e6d3', 'rgb(247, 231, 206)'],
+        'emerald': ['emerald', '#50c878', '#059669', 'rgb(5, 150, 105)'],
+        'ivory': ['ivory', '#fffff0', '#fffef0', 'rgb(255, 255, 240)'],
+        'peach': ['peach', '#ffdab9', '#ffe5b4', 'rgb(255, 218, 185)'],
+        'sage': ['sage', '#87ae73', '#9caf88', 'rgb(135, 174, 115)']
+    };
+    
+    // Текущее состояние фильтров (для оптимизации)
+    let filterState = {
+        search: '',
+        categories: [],
+        materials: [],
+        price: 300,
+        sizes: [],
+        colors: [],
+        rating: 0
+    };
+    
+    // Состояние пагинации
+    let paginationState = {
+        currentPage: 1,
+        itemsPerPage: 12,
+        totalItems: 0,
+        totalPages: 1
+    };
+    
+    // Состояние вида отображения
+    let viewState = {
+        type: 'grid' // grid или list
+    };
+    
+    // Debounce функция для оптимизации
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+    
+    // Инициализация кеша DOM-элементов
+    function initCatalogCache() {
+        try {
+            catalogCache.products = Array.from(document.querySelectorAll('.product-card'));
+            catalogCache.productsContainer = document.querySelector('.products-container');
+            catalogCache.productsCount = document.querySelector('.products-visible-count');
+            catalogCache.searchInput = document.querySelector('.search-input-toolbar');
+            catalogCache.priceSlider = document.querySelector('.price-slider');
+            catalogCache.priceValue = document.getElementById('price-value');
+            catalogCache.sortSelect = document.querySelector('#sort-select') || document.querySelector('.sort-select');
+            
+            // Сохраняем исходный порядок товаров (копируем массив ссылок)
+            if (catalogCache.products && catalogCache.products.length > 0) {
+                catalogCache.originalOrder = [...catalogCache.products];
+            }
+            
+            // Устанавливаем значение по умолчанию для сортировки
+            if (catalogCache.sortSelect) {
+                catalogCache.sortSelect.value = 'featured';
+            }
+            
+            // Создаем элемент для пустого состояния, если его нет
+            if (!document.querySelector('.empty-state')) {
+                const emptyState = document.createElement('div');
+                emptyState.className = 'empty-state';
+                emptyState.style.display = 'none';
+                emptyState.style.textAlign = 'center';
+                emptyState.style.padding = '4rem 2rem';
+                emptyState.style.color = '#9ca3af';
+                emptyState.innerHTML = '<h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #d4af37;">Товары не найдены</h3><p>Попробуйте изменить параметры фильтрации</p>';
+                catalogCache.productsContainer.parentElement.appendChild(emptyState);
+                catalogCache.emptyState = emptyState;
+            } else {
+                catalogCache.emptyState = document.querySelector('.empty-state');
+            }
+        } catch (error) {
+            console.error('Ошибка инициализации кеша:', error);
+        }
+    }
+    
+    // Функция для получения цветовой категории из CSS цвета
+    function getColorCategory(cssColor) {
+        if (!cssColor) return null;
+        const colorLower = cssColor.toLowerCase().trim();
+        
+        // Проверяем все возможные варианты
+        for (const [category, variants] of Object.entries(COLOR_MAP)) {
+            if (variants.some(v => colorLower.includes(v.toLowerCase()))) {
+                return category;
+            }
+        }
+        return null;
+    }
+    
+    // Оптимизированная функция фильтрации с использованием requestAnimationFrame
     function filterProducts() {
-        const products = document.querySelectorAll('.product-card');
-        const searchInput = document.querySelector('.search-input-toolbar');
-        const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+        if (!catalogCache.products || catalogCache.products.length === 0) return;
         
-        // Получаем активные фильтры категорий
-        const categoryFilters = [];
-        document.querySelectorAll('.filter-checkbox[id^="cat-"]:checked').forEach(cb => {
-            categoryFilters.push(cb.id.replace('cat-', ''));
-        });
-        
-        // Получаем активные фильтры материалов
-        const materialFilters = [];
-        document.querySelectorAll('.filter-checkbox[id^="mat-"]:checked').forEach(cb => {
-            materialFilters.push(cb.id.replace('mat-', ''));
-        });
-        
-        // Получаем цену из слайдера
-        const priceSlider = document.querySelector('.price-slider');
-        const maxPrice = priceSlider ? parseInt(priceSlider.value) : 300;
-        
-        // Получаем выбранные размеры
-        const sizeFilters = [];
-        document.querySelectorAll('.size-btn.active').forEach(btn => {
-            sizeFilters.push(btn.textContent.trim());
-        });
-        
-            // Получаем выбранные цвета
-            const colorFilters = [];
-            document.querySelectorAll('.color-btn.active').forEach(btn => {
-                const bgColor = btn.style.backgroundColor || window.getComputedStyle(btn).backgroundColor;
-                // Конвертируем цвет в RGB формат для сравнения
-                const rgb = bgColor.match(/\d+/g);
-                if (rgb && rgb.length >= 3) {
-                    colorFilters.push(`rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`);
+        // Используем requestAnimationFrame для плавности
+        requestAnimationFrame(() => {
+            try {
+                // Получаем активные фильтры (оптимизированная версия)
+                const searchTerm = (catalogCache.searchInput?.value || '').toLowerCase().trim();
+                const maxPrice = catalogCache.priceSlider ? parseInt(catalogCache.priceSlider.value) || 30000 : 30000;
+                
+                // Категории
+                const categoryFilters = Array.from(document.querySelectorAll('.filter-checkbox[id^="cat-"]:checked'))
+                    .map(cb => cb.id.replace('cat-', ''));
+                
+                // Материалы
+                const materialFilters = Array.from(document.querySelectorAll('.filter-checkbox[id^="mat-"]:checked'))
+                    .map(cb => cb.id.replace('mat-', ''));
+                
+                // Размеры
+                const sizeFilters = Array.from(document.querySelectorAll('.size-btn.active'))
+                    .map(btn => btn.textContent.trim().toUpperCase());
+                
+                // Цвета - получаем категории цветов из выбранных кнопок
+                const colorFilters = [];
+                document.querySelectorAll('.color-btn.active').forEach(btn => {
+                    const bgColor = btn.style.backgroundColor || window.getComputedStyle(btn).backgroundColor;
+                    const colorCategory = getColorCategory(bgColor);
+                    if (colorCategory) {
+                        colorFilters.push(colorCategory);
+                    }
+                });
+                
+                // Рейтинг
+                let minRating = 0;
+                const ratingBtn = document.querySelector('.rating-btn.active');
+                if (ratingBtn) {
+                    minRating = ratingBtn.querySelectorAll('.fa-solid.fa-star').length;
+                }
+                
+                let visibleCount = 0;
+                const productsToShow = [];
+                const productsToHide = [];
+                
+                // Оптимизированная фильтрация
+                catalogCache.products.forEach(product => {
+                    let show = true;
+                    
+                    // Кешируем атрибуты товара
+                    const category = product.getAttribute('data-category');
+                    const material = product.getAttribute('data-material');
+                    const price = parseFloat(product.getAttribute('data-price')) || 0;
+                    const rating = parseInt(product.getAttribute('data-rating')) || 0;
+                    const productColor = product.getAttribute('data-color');
+                    const sizes = (product.getAttribute('data-sizes') || '').toUpperCase().split(',');
+                    
+                    // Поиск
+                    if (show && searchTerm) {
+                        const titleEl = product.querySelector('.product-title');
+                        const descEl = product.querySelector('.product-description');
+                        const title = titleEl ? titleEl.textContent.toLowerCase() : '';
+                        const description = descEl ? descEl.textContent.toLowerCase() : '';
+                        show = title.includes(searchTerm) || description.includes(searchTerm);
+                    }
+                    
+                    // Категория
+                    if (show && categoryFilters.length > 0) {
+                        show = categoryFilters.includes(category);
+                    }
+                    
+                    // Материал
+                    if (show && materialFilters.length > 0) {
+                        show = materialFilters.includes(material);
+                    }
+                    
+                    // Цена
+                    if (show) {
+                        show = price <= maxPrice;
+                    }
+                    
+                    // Размер
+                    if (show && sizeFilters.length > 0) {
+                        show = sizeFilters.some(size => sizes.includes(size.trim()));
+                    }
+                    
+                    // Цвет
+                    if (show && colorFilters.length > 0) {
+                        show = productColor && colorFilters.includes(productColor.toLowerCase());
+                    }
+                    
+                    // Рейтинг
+                    if (show && minRating > 0) {
+                        show = rating >= minRating;
+                    }
+                    
+                    // Сохраняем результат
+                    if (show) {
+                        productsToShow.push(product);
+                        visibleCount++;
+                    } else {
+                        productsToHide.push(product);
+                    }
+                });
+                
+                // Применяем изменения с плавными переходами
+                // Сначала скрываем товары, которые должны быть скрыты
+                productsToHide.forEach(product => {
+                    // Добавляем data-атрибут для отслеживания состояния фильтрации
+                    product.setAttribute('data-filtered-out', 'true');
+                    product.style.opacity = '0';
+                    product.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        product.style.display = 'none';
+                        product.style.opacity = '';
+                        product.style.transform = '';
+                    }, 150);
+                });
+                
+                // Показываем товары, которые должны быть видны
+                productsToShow.forEach(product => {
+                    // Убираем data-атрибут фильтрации
+                    product.removeAttribute('data-filtered-out');
+                    product.style.display = '';
+                    requestAnimationFrame(() => {
+                        product.style.opacity = '0';
+                        product.style.transform = 'scale(0.95)';
+                        requestAnimationFrame(() => {
+                            product.style.opacity = '1';
+                            product.style.transform = 'scale(1)';
+                            product.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                        });
+                    });
+                });
+                
+                // Обновляем счетчик товаров
+                if (catalogCache.productsCount) {
+                    catalogCache.productsCount.textContent = visibleCount;
+                }
+                
+                // Показываем/скрываем сообщение о пустых результатах
+                if (catalogCache.emptyState) {
+                    if (visibleCount === 0) {
+                        catalogCache.emptyState.style.display = 'block';
+                    } else {
+                        catalogCache.emptyState.style.display = 'none';
+                    }
+                }
+                
+                // Сбрасываем пагинацию на первую страницу при фильтрации
+                paginationState.currentPage = 1;
+                
+                // Применяем пагинацию к видимым товарам только если есть видимые товары
+                if (visibleCount > 0) {
+                    setTimeout(() => applyPagination(), 100);
                 } else {
-                    // Если это название цвета (black, white и т.д.), сохраняем как есть
-                    colorFilters.push(bgColor);
+                    // Если товаров нет, обновляем UI пагинации
+                    setTimeout(() => updatePagination(0), 100);
+                }
+                
+                // Обновляем счетчики фильтров (асинхронно для производительности)
+                setTimeout(() => updateFilterCounts(), 150);
+                
+                // Сохраняем состояние фильтров
+                filterState = {
+                    search: searchTerm,
+                    categories: categoryFilters,
+                    materials: materialFilters,
+                    price: maxPrice,
+                    sizes: sizeFilters,
+                    colors: colorFilters,
+                    rating: minRating
+                };
+            } catch (error) {
+                console.error('Ошибка фильтрации:', error);
+            }
+        });
+    }
+    
+    // Оптимизированная функция обновления счетчиков
+    function updateFilterCounts() {
+        if (!catalogCache.products) return;
+        
+        requestAnimationFrame(() => {
+            try {
+                const searchTerm = (catalogCache.searchInput?.value || '').toLowerCase().trim();
+                const maxPrice = catalogCache.priceSlider ? parseInt(catalogCache.priceSlider.value) || 30000 : 30000;
+                
+                let minRating = 0;
+                const ratingBtn = document.querySelector('.rating-btn.active');
+                if (ratingBtn) {
+                    minRating = ratingBtn.querySelectorAll('.fa-solid.fa-star').length;
+                }
+                
+                const activeCategoryFilters = Array.from(document.querySelectorAll('.filter-checkbox[id^="cat-"]:checked'))
+                    .map(cb => cb.id.replace('cat-', ''));
+                const activeMaterialFilters = Array.from(document.querySelectorAll('.filter-checkbox[id^="mat-"]:checked'))
+                    .map(cb => cb.id.replace('mat-', ''));
+                
+                // Получаем фильтры по размерам и цветам
+                const sizeFilters = Array.from(document.querySelectorAll('.size-btn.active'))
+                    .map(btn => btn.textContent.trim().toUpperCase());
+                
+                const colorFilters = [];
+                document.querySelectorAll('.color-btn.active').forEach(btn => {
+                    const bgColor = btn.style.backgroundColor || window.getComputedStyle(btn).backgroundColor;
+                    const colorCategory = getColorCategory(bgColor);
+                    if (colorCategory) {
+                        colorFilters.push(colorCategory);
+                    }
+                });
+                
+                const categoryCounts = {
+                    'bras': 0, 'panties': 0, 'sleepwear': 0,
+                    'bodysuits': 0, 'robes': 0, 'bridal': 0
+                };
+                
+                const materialCounts = {
+                    'silk': 0, 'lace': 0, 'satin': 0, 'cotton': 0
+                };
+                
+                catalogCache.products.forEach(product => {
+                    const category = product.getAttribute('data-category');
+                    const material = product.getAttribute('data-material');
+                    const price = parseFloat(product.getAttribute('data-price')) || 0;
+                    const rating = parseInt(product.getAttribute('data-rating')) || 0;
+                    const productColor = product.getAttribute('data-color');
+                    const sizes = (product.getAttribute('data-sizes') || '').toUpperCase().split(',');
+                    
+                    // Проверяем соответствие базовым фильтрам (поиск, цена, рейтинг)
+                    // НЕ проверяем фильтры по категориям и материалам при подсчете их счетчиков
+                    let matchesFilters = true;
+                    
+                    if (searchTerm) {
+                        const titleEl = product.querySelector('.product-title');
+                        const descEl = product.querySelector('.product-description');
+                        const title = titleEl ? titleEl.textContent.toLowerCase() : '';
+                        const description = descEl ? descEl.textContent.toLowerCase() : '';
+                        matchesFilters = title.includes(searchTerm) || description.includes(searchTerm);
+                    }
+                    
+                    if (matchesFilters) {
+                        matchesFilters = price <= maxPrice;
+                    }
+                    
+                    if (matchesFilters && minRating > 0) {
+                        matchesFilters = rating >= minRating;
+                    }
+                    
+                    // Проверяем фильтры по размерам и цветам (они должны учитываться)
+                    if (matchesFilters && sizeFilters.length > 0) {
+                        matchesFilters = sizeFilters.some(size => sizes.includes(size.trim()));
+                    }
+                    
+                    if (matchesFilters && colorFilters.length > 0) {
+                        matchesFilters = productColor && colorFilters.includes(productColor.toLowerCase());
+                    }
+                    
+                    if (!matchesFilters) return;
+                    
+                    // Считаем категории
+                    // Логика: для каждой категории показываем количество товаров этой категории,
+                    // которые пройдут все фильтры БЕЗ учета фильтра по категориям
+                    // Но учитываем материалы, размеры и цвета, если они выбраны
+                    if (category && categoryCounts.hasOwnProperty(category)) {
+                        let shouldCount = true;
+                        
+                        // Учитываем фильтр по материалам, если он активен
+                        if (activeMaterialFilters.length > 0) {
+                            if (!material || !activeMaterialFilters.includes(material)) {
+                                shouldCount = false;
+                            }
+                        }
+                        
+                        // НЕ проверяем фильтр по категориям - показываем для всех категорий
+                        
+                        if (shouldCount) {
+                            categoryCounts[category]++;
+                        }
+                    }
+                    
+                    // Считаем материалы
+                    // Логика: для каждого материала показываем количество товаров этого материала,
+                    // которые пройдут все фильтры БЕЗ учета фильтра по материалам
+                    // Но учитываем категории, размеры и цвета, если они выбраны
+                    if (material && materialCounts.hasOwnProperty(material)) {
+                        let shouldCount = true;
+                        
+                        // Учитываем фильтр по категориям, если он активен
+                        if (activeCategoryFilters.length > 0) {
+                            if (!category || !activeCategoryFilters.includes(category)) {
+                                shouldCount = false;
+                            }
+                        }
+                        
+                        // НЕ проверяем фильтр по материалам - показываем для всех материалов
+                        
+                        if (shouldCount) {
+                            materialCounts[material]++;
+                        }
+                    }
+                });
+                
+                // Обновляем DOM (батчинг для производительности)
+                Object.keys(categoryCounts).forEach(cat => {
+                    const el = document.querySelector(`.category-count[data-category="${cat}"]`);
+                    if (el) el.textContent = `(${categoryCounts[cat]})`;
+                });
+                
+                Object.keys(materialCounts).forEach(mat => {
+                    const el = document.querySelector(`.material-count[data-material="${mat}"]`);
+                    if (el) el.textContent = `(${materialCounts[mat]})`;
+                });
+            } catch (error) {
+                console.error('Ошибка обновления счетчиков:', error);
+            }
+        });
+    }
+    
+    // Функция инициализации счетчиков (вызывается один раз при загрузке)
+    function initializeCounts() {
+        if (!catalogCache.products) return;
+        
+        try {
+            const categoryCounts = {
+                'bras': 0, 'panties': 0, 'sleepwear': 0,
+                'bodysuits': 0, 'robes': 0, 'bridal': 0
+            };
+            
+            const materialCounts = {
+                'silk': 0, 'lace': 0, 'satin': 0, 'cotton': 0
+            };
+            
+            catalogCache.products.forEach(product => {
+                const category = product.getAttribute('data-category');
+                const material = product.getAttribute('data-material');
+                
+                if (category && categoryCounts.hasOwnProperty(category)) {
+                    categoryCounts[category]++;
+                }
+                if (material && materialCounts.hasOwnProperty(material)) {
+                    materialCounts[material]++;
                 }
             });
-        
-        // Получаем минимальный рейтинг
-        let minRating = 0;
-        const ratingButtons = document.querySelectorAll('.rating-btn.active');
-        if (ratingButtons.length > 0) {
-            const ratingBtn = ratingButtons[0];
-            const stars = ratingBtn.querySelectorAll('.fa-solid.fa-star').length;
-            minRating = stars;
+            
+            Object.keys(categoryCounts).forEach(cat => {
+                const el = document.querySelector(`.category-count[data-category="${cat}"]`);
+                if (el) el.textContent = `(${categoryCounts[cat]})`;
+            });
+            
+            Object.keys(materialCounts).forEach(mat => {
+                const el = document.querySelector(`.material-count[data-material="${mat}"]`);
+                if (el) el.textContent = `(${materialCounts[mat]})`;
+            });
+            
+            if (catalogCache.productsCount) {
+                catalogCache.productsCount.textContent = catalogCache.products.length;
+            }
+            
+            paginationState.totalItems = catalogCache.products.length;
+            paginationState.totalPages = Math.ceil(paginationState.totalItems / paginationState.itemsPerPage);
+            updatePagination(catalogCache.products.length);
+        } catch (error) {
+            console.error('Ошибка инициализации счетчиков:', error);
         }
+    }
+    
+    // Функция очистки фильтров
+    function clearFilters() {
+        try {
+            // Очищаем чекбоксы
+            document.querySelectorAll('.filter-checkbox').forEach(checkbox => {
+            checkbox.checked = false;
+        });
+            
+            // Сбрасываем слайдер цены
+            if (catalogCache.priceSlider) {
+                catalogCache.priceSlider.value = 30000;
+                if (catalogCache.priceValue) {
+                    catalogCache.priceValue.textContent = '30 000 ₽';
+                }
+            }
+            
+            // Очищаем поиск
+            if (catalogCache.searchInput) {
+                catalogCache.searchInput.value = '';
+            }
+            
+            // Снимаем активные состояния с кнопок
+            document.querySelectorAll('.size-btn, .color-btn, .rating-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Сбрасываем сортировку
+            if (catalogCache.sortSelect) {
+                catalogCache.sortSelect.value = 'featured';
+            }
+            
+            // Сбрасываем пагинацию
+            paginationState.currentPage = 1;
+            
+            // Убираем data-атрибуты фильтрации со всех товаров
+            if (catalogCache.products) {
+                catalogCache.products.forEach(product => {
+                    product.removeAttribute('data-filtered-out');
+                });
+            }
+            
+            // Применяем фильтрацию
+            filterProducts();
+        } catch (error) {
+            console.error('Ошибка очистки фильтров:', error);
+        }
+    }
+    
+    // Функция переключения вида (grid/list)
+    function toggleView(viewType) {
+        try {
+            if (!catalogCache.productsContainer) return;
+            
+            viewState.type = viewType;
+            
+            // Обновляем активные кнопки
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            const activeBtn = document.querySelector(`.view-btn[onclick*="${viewType}"]`);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+            }
+            
+            // Применяем класс для вида списка или сетки
+            if (viewType === 'list') {
+                catalogCache.productsContainer.classList.add('list-view');
+            } else {
+                catalogCache.productsContainer.classList.remove('list-view');
+            }
+            
+            // Сохраняем предпочтение
+            localStorage.setItem('catalogView', viewType);
+        } catch (error) {
+            console.error('Ошибка переключения вида:', error);
+        }
+    }
+    
+    // Функция сортировки товаров с сохранением скролла
+    function sortProducts(sortType) {
+        if (!catalogCache.productsContainer) return;
         
-        let visibleCount = 0;
-        
-        products.forEach(product => {
-            let show = true;
-            
-            // Поиск по названию и описанию
-            if (searchTerm) {
-                const titleEl = product.querySelector('.product-title');
-                const descEl = product.querySelector('.product-description');
-                const title = titleEl ? titleEl.textContent.toLowerCase() : '';
-                const description = descEl ? descEl.textContent.toLowerCase() : '';
-                if (!title.includes(searchTerm) && !description.includes(searchTerm)) {
-                    show = false;
-                }
-            }
-            
-            // Фильтр по категории
-            if (show && categoryFilters.length > 0) {
-                const category = product.getAttribute('data-category');
-                if (!categoryFilters.includes(category)) {
-                    show = false;
-                }
-            }
-            
-            // Фильтр по материалу
-            if (show && materialFilters.length > 0) {
-                const material = product.getAttribute('data-material');
-                if (!materialFilters.includes(material)) {
-                    show = false;
-                }
-            }
-            
-            // Фильтр по цене
-            if (show) {
-                const price = parseFloat(product.getAttribute('data-price'));
-                if (price > maxPrice) {
-                    show = false;
-                }
-            }
-            
-            // Фильтр по рейтингу
-            if (show && minRating > 0) {
-                const rating = parseInt(product.getAttribute('data-rating'));
-                if (rating < minRating) {
-                    show = false;
-                }
-            }
-            
-            // Фильтр по цвету
-            if (show && colorFilters.length > 0) {
-                const productColor = product.getAttribute('data-color');
-                let colorMatch = false;
+        // Если выбрана сортировка "Рекомендуемые", восстанавливаем исходный порядок
+        if (sortType === 'featured') {
+            try {
+                const scrollY = window.scrollY;
                 
-                // Проверяем соответствие по data-color атрибуту (black, white, rose, navy, sage и т.д.)
-                if (productColor) {
-                    // Мапинг цветов для проверки
-                    const colorMap = {
-                        'black': ['black', '#000', 'rgb(0, 0, 0)'],
-                        'white': ['white', '#fff', '#ffffff', 'rgb(255, 255, 255)'],
-                        'red': ['red', '#dc2626', 'rgb(220, 38, 38)'],
-                        'rose': ['#fda4af', 'rgb(253, 164, 175)'],
-                        'navy': ['#1e3a8a', 'rgb(30, 58, 138)'],
-                        'green': ['#059669', 'rgb(5, 150, 105)'],
-                        'purple': ['#9333ea', 'rgb(147, 51, 234)'],
-                        'yellow': ['#fef3c7', 'rgb(254, 243, 199)'],
-                        'gray': ['#9ca3af', 'rgb(156, 163, 175)'],
-                        'pink': ['#fb7185', 'rgb(251, 113, 133)'],
-                        'teal': ['#0d9488', 'rgb(13, 148, 136)'],
-                        'orange': ['#ea580c', 'rgb(234, 88, 12)']
-                    };
+                requestAnimationFrame(() => {
+                    // Получаем все товары из контейнера
+                    const allProducts = Array.from(catalogCache.productsContainer.querySelectorAll('.product-card'));
                     
-                    colorFilters.forEach(filterColor => {
-                        const filterLower = filterColor.toLowerCase();
-                        if (colorMap[productColor] && colorMap[productColor].some(c => c.toLowerCase() === filterLower)) {
-                            colorMatch = true;
+                    // Разделяем на видимые (не скрытые фильтрацией) и скрытые фильтрацией
+                    const visibleProducts = [];
+                    const hiddenByFilter = [];
+                    
+                    allProducts.forEach(product => {
+                        if (product.hasAttribute('data-filtered-out')) {
+                            hiddenByFilter.push(product);
+                        } else {
+                            visibleProducts.push(product);
                         }
                     });
                     
-                    if (!colorMatch) {
-                        show = false;
+                    // Восстанавливаем исходный порядок для видимых товаров
+                    // Сортируем видимые товары по их позиции в исходном порядке
+                    if (catalogCache.originalOrder && catalogCache.originalOrder.length > 0) {
+                        visibleProducts.sort((a, b) => {
+                            const indexA = catalogCache.originalOrder.indexOf(a);
+                            const indexB = catalogCache.originalOrder.indexOf(b);
+                            // Если товар не найден в исходном порядке, помещаем его в конец
+                            if (indexA === -1) return 1;
+                            if (indexB === -1) return -1;
+                            return indexA - indexB;
+                        });
                     }
+                    
+                    // Временно отключаем transition
+                    allProducts.forEach(product => {
+                        product.style.transition = 'none';
+                    });
+                    
+                    // Создаем DocumentFragment для эффективного добавления элементов
+                    const fragment = document.createDocumentFragment();
+                    
+                    // Добавляем видимые товары в исходном порядке
+                    visibleProducts.forEach(product => {
+                        fragment.appendChild(product);
+                    });
+                    
+                    // Добавляем товары, скрытые фильтрацией
+                    hiddenByFilter.forEach(product => {
+                        fragment.appendChild(product);
+                    });
+                    
+                    // Очищаем контейнер и добавляем все элементы в правильном порядке
+                    catalogCache.productsContainer.innerHTML = '';
+                    catalogCache.productsContainer.appendChild(fragment);
+                    
+                    // Восстанавливаем display статус для видимых товаров
+                    visibleProducts.forEach(product => {
+                        product.style.display = '';
+                        product.style.opacity = '1';
+                        product.style.transform = '';
+                    });
+                    
+                    // Скрытые фильтрацией остаются скрытыми
+                    hiddenByFilter.forEach(product => {
+                        product.style.display = 'none';
+                    });
+                    
+                    // Восстанавливаем transition
+                    setTimeout(() => {
+                        allProducts.forEach(product => {
+                            product.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                        });
+                    }, 50);
+                    
+                    // Обновляем кеш продуктов
+                    catalogCache.products = Array.from(catalogCache.productsContainer.querySelectorAll('.product-card'));
+                    
+                    // Применяем пагинацию заново
+                    if (visibleProducts.length > 0) {
+                        paginationState.currentPage = 1;
+                        setTimeout(() => applyPagination(), 100);
+                    } else {
+                        setTimeout(() => updatePagination(0), 100);
+                    }
+                    
+                    // Восстанавливаем позицию скролла
+                    requestAnimationFrame(() => {
+                        window.scrollTo(0, scrollY);
+                    });
+                });
+            } catch (error) {
+                console.error('Ошибка восстановления исходного порядка:', error);
+            }
+            return;
+        }
+        
+        try {
+            // Сохраняем позицию скролла
+            const scrollY = window.scrollY;
+            
+            requestAnimationFrame(() => {
+                // Получаем ВСЕ товары из контейнера
+                const allProducts = Array.from(catalogCache.productsContainer.querySelectorAll('.product-card'));
+                
+                // Разделяем на видимые (не скрытые фильтрацией) и скрытые фильтрацией
+                const visibleProducts = [];
+                const hiddenByFilter = [];
+                
+                allProducts.forEach(product => {
+                    // Товары, скрытые фильтрацией, имеют data-filtered-out="true"
+                    if (product.hasAttribute('data-filtered-out')) {
+                        hiddenByFilter.push(product);
+                    } else {
+                        visibleProducts.push(product);
+                    }
+                });
+                
+                // Сохраняем текущий display статус для видимых товаров (могут быть скрыты пагинацией)
+                const visibleProductDisplayStates = new Map();
+                visibleProducts.forEach(product => {
+                    visibleProductDisplayStates.set(product, {
+                        display: product.style.display,
+                        opacity: product.style.opacity || '1',
+                        transform: product.style.transform || ''
+                    });
+                });
+                
+                // Сортируем только видимые товары (не скрытые фильтрацией)
+                visibleProducts.sort((a, b) => {
+                    switch(sortType) {
+                        case 'priceLow':
+                            return (parseFloat(a.getAttribute('data-price')) || 0) - (parseFloat(b.getAttribute('data-price')) || 0);
+                        case 'priceHigh':
+                            return (parseFloat(b.getAttribute('data-price')) || 0) - (parseFloat(a.getAttribute('data-price')) || 0);
+                        case 'newest':
+                            const aIsNew = a.querySelector('.badge-new') !== null;
+                            const bIsNew = b.querySelector('.badge-new') !== null;
+                            if (aIsNew && !bIsNew) return -1;
+                            if (!aIsNew && bIsNew) return 1;
+                            return 0;
+                        case 'bestselling':
+                            const reviewsElA = a.querySelector('.product-reviews');
+                            const reviewsElB = b.querySelector('.product-reviews');
+                            const reviewsA = reviewsElA ? parseInt(reviewsElA.textContent.replace(/[()]/g, '')) || 0 : 0;
+                            const reviewsB = reviewsElB ? parseInt(reviewsElB.textContent.replace(/[()]/g, '')) || 0 : 0;
+                            return reviewsB - reviewsA;
+                        case 'topRated':
+                            return (parseInt(b.getAttribute('data-rating')) || 0) - (parseInt(a.getAttribute('data-rating')) || 0);
+                        default:
+                            return 0;
+                    }
+                });
+                
+                // Временно отключаем transition для плавного перемещения
+                allProducts.forEach(product => {
+                    product.style.transition = 'none';
+                });
+                
+                // Создаем DocumentFragment для эффективного добавления элементов
+                const fragment = document.createDocumentFragment();
+                
+                // Добавляем отсортированные видимые товары в fragment
+                visibleProducts.forEach(product => {
+                    fragment.appendChild(product);
+                });
+                
+                // Добавляем товары, скрытые фильтрацией (они остаются в конце и скрыты)
+                hiddenByFilter.forEach(product => {
+                    fragment.appendChild(product);
+                });
+                
+                // Очищаем контейнер и добавляем все элементы в правильном порядке
+                catalogCache.productsContainer.innerHTML = '';
+                catalogCache.productsContainer.appendChild(fragment);
+                
+                // Восстанавливаем display статус для видимых товаров
+                // Сначала показываем все видимые товары (пагинация потом скроет лишние)
+                visibleProducts.forEach(product => {
+                    product.style.display = '';
+                    product.style.opacity = '1';
+                    product.style.transform = '';
+                });
+                
+                // Скрытые фильтрацией остаются скрытыми
+                hiddenByFilter.forEach(product => {
+                    product.style.display = 'none';
+                });
+                
+                // Восстанавливаем transition после небольшой задержки
+                setTimeout(() => {
+                    allProducts.forEach(product => {
+                        product.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                    });
+                }, 50);
+                
+                // Обновляем кеш продуктов после перестановки
+                catalogCache.products = Array.from(catalogCache.productsContainer.querySelectorAll('.product-card'));
+                
+                // Применяем пагинацию заново для отсортированных товаров
+                // Это скроет товары, которые не должны быть видны на текущей странице
+                if (visibleProducts.length > 0) {
+                    // Сбрасываем на первую страницу при сортировке
+                    paginationState.currentPage = 1;
+                    setTimeout(() => applyPagination(), 100);
                 } else {
-                    show = false;
+                    // Если видимых товаров нет, обновляем UI пагинации
+                    setTimeout(() => updatePagination(0), 100);
                 }
-            }
-            
-            // Показываем/скрываем товар
-            if (show) {
-                product.style.display = '';
-                visibleCount++;
-            } else {
-                product.style.display = 'none';
-            }
-        });
-        
-        // Обновляем счетчик товаров
-        const productsCount = document.querySelector('.products-visible-count');
-        if (productsCount) {
-            productsCount.textContent = visibleCount;
-        }
-        
-        // Обновляем счетчики категорий и материалов
-        updateFilterCounts();
-    }
-    
-    // Функция для инициализации начальных счетчиков
-    function initializeCounts() {
-        const products = document.querySelectorAll('.product-card');
-        
-        // Считаем по категориям
-        const categoryCounts = {
-            'bras': 0,
-            'panties': 0,
-            'sleepwear': 0,
-            'bodysuits': 0,
-            'robes': 0,
-            'bridal': 0
-        };
-        
-        // Считаем по материалам
-        const materialCounts = {
-            'silk': 0,
-            'lace': 0,
-            'satin': 0,
-            'cotton': 0
-        };
-        
-        products.forEach(product => {
-            const category = product.getAttribute('data-category');
-            const material = product.getAttribute('data-material');
-            
-            if (category && categoryCounts.hasOwnProperty(category)) {
-                categoryCounts[category]++;
-            }
-            
-            if (material && materialCounts.hasOwnProperty(material)) {
-                materialCounts[material]++;
-            }
-        });
-        
-        // Обновляем счетчики категорий
-        Object.keys(categoryCounts).forEach(cat => {
-            const countElement = document.querySelector(`.category-count[data-category="${cat}"]`);
-            if (countElement) {
-                countElement.textContent = `(${categoryCounts[cat]})`;
-            }
-        });
-        
-        // Обновляем счетчики материалов
-        Object.keys(materialCounts).forEach(mat => {
-            const countElement = document.querySelector(`.material-count[data-material="${mat}"]`);
-            if (countElement) {
-                countElement.textContent = `(${materialCounts[mat]})`;
-            }
-        });
-        
-        // Обновляем общий счетчик товаров
-        const productsCount = document.querySelector('.products-visible-count');
-        if (productsCount) {
-            productsCount.textContent = products.length;
+                
+                // Восстанавливаем позицию скролла
+                requestAnimationFrame(() => {
+                    window.scrollTo(0, scrollY);
+                });
+            });
+        } catch (error) {
+            console.error('Ошибка сортировки:', error);
         }
     }
     
-    // Функция для подсчета и обновления счетчиков в фильтрах
-    function updateFilterCounts() {
-        const products = document.querySelectorAll('.product-card');
-        
-        // Получаем текущие активные фильтры (кроме категорий и материалов, для которых считаем)
-        const searchInput = document.querySelector('.search-input-toolbar');
-        const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
-        
-        const priceSlider = document.querySelector('.price-slider');
-        const maxPrice = priceSlider ? parseInt(priceSlider.value) : 300;
-        
-        let minRating = 0;
-        const ratingButtons = document.querySelectorAll('.rating-btn.active');
-        if (ratingButtons.length > 0) {
-            const ratingBtn = ratingButtons[0];
-            const stars = ratingBtn.querySelectorAll('.fa-solid.fa-star').length;
-            minRating = stars;
-        }
-        
-        // Получаем активные фильтры категорий и материалов
-        const activeCategoryFilters = [];
-        document.querySelectorAll('.filter-checkbox[id^="cat-"]:checked').forEach(cb => {
-            activeCategoryFilters.push(cb.id.replace('cat-', ''));
-        });
-        
-        const activeMaterialFilters = [];
-        document.querySelectorAll('.filter-checkbox[id^="mat-"]:checked').forEach(cb => {
-            activeMaterialFilters.push(cb.id.replace('mat-', ''));
-        });
-        
-        // Считаем по категориям - с учетом всех фильтров кроме категорий
-        const categoryCounts = {
-            'bras': 0,
-            'panties': 0,
-            'sleepwear': 0,
-            'bodysuits': 0,
-            'robes': 0,
-            'bridal': 0
-        };
-        
-        // Считаем по материалам - с учетом всех фильтров кроме материалов
-        const materialCounts = {
-            'silk': 0,
-            'lace': 0,
-            'satin': 0,
-            'cotton': 0
-        };
-        
-        products.forEach(product => {
-            const category = product.getAttribute('data-category');
-            const material = product.getAttribute('data-material');
-            const price = parseFloat(product.getAttribute('data-price')) || 0;
-            const rating = parseInt(product.getAttribute('data-rating')) || 0;
+    // Функция обновления UI пагинации
+    function updatePagination(totalVisible) {
+        try {
+            const paginationEl = document.getElementById('pagination');
+            if (!paginationEl) return;
             
-            // Проверяем товар на соответствие всем фильтрам кроме категории/материала, для которого считаем
-            
-            // Поиск
-            let matchesSearch = true;
-            if (searchTerm) {
-                const titleEl = product.querySelector('.product-title');
-                const descEl = product.querySelector('.product-description');
-                const title = titleEl ? titleEl.textContent.toLowerCase() : '';
-                const description = descEl ? descEl.textContent.toLowerCase() : '';
-                matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+            // Если товаров меньше или равно itemsPerPage, скрываем пагинацию
+            if (totalVisible <= paginationState.itemsPerPage || paginationState.totalPages <= 1) {
+                paginationEl.style.display = 'none';
+                return;
             }
             
-            // Цена
-            const matchesPrice = price <= maxPrice;
+            paginationEl.style.display = 'block';
             
-            // Рейтинг
-            const matchesRating = minRating === 0 || rating >= minRating;
+            // Обновляем кнопки пагинации
+            const paginationContent = paginationEl.querySelector('.pagination-content');
+            if (!paginationContent) return;
             
-            if (!matchesSearch || !matchesPrice || !matchesRating) return;
+            // Очищаем существующие кнопки (кроме навигационных)
+            const navButtons = paginationContent.querySelectorAll('.page-btn:has(.fa-chevron)');
+            paginationContent.innerHTML = '';
             
-            // Для каждой категории считаем товары, которые прошли остальные фильтры
-            // И учитываем активные фильтры по материалам
-            if (category && categoryCounts.hasOwnProperty(category)) {
-                let categoryMatches = true;
+            // Кнопка "Назад"
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'page-btn';
+            prevBtn.disabled = paginationState.currentPage === 1;
+            prevBtn.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
+            prevBtn.onclick = () => changePage(paginationState.currentPage - 1);
+            paginationContent.appendChild(prevBtn);
+            
+            // Номера страниц
+            const maxVisiblePages = 5;
+            let startPage = Math.max(1, paginationState.currentPage - Math.floor(maxVisiblePages / 2));
+            let endPage = Math.min(paginationState.totalPages, startPage + maxVisiblePages - 1);
+            
+            if (endPage - startPage < maxVisiblePages - 1) {
+                startPage = Math.max(1, endPage - maxVisiblePages + 1);
+            }
+            
+            if (startPage > 1) {
+                const firstBtn = document.createElement('button');
+                firstBtn.className = 'page-btn';
+                firstBtn.textContent = '1';
+                firstBtn.onclick = () => changePage(1);
+                paginationContent.appendChild(firstBtn);
                 
-                // Если выбраны категории, считаем только если эта категория в выбранных
-                if (activeCategoryFilters.length > 0 && !activeCategoryFilters.includes(category)) {
-                    categoryMatches = false;
-                }
-                
-                // Если выбраны материалы, проверяем соответствие
-                if (activeMaterialFilters.length > 0 && material && !activeMaterialFilters.includes(material)) {
-                    categoryMatches = false;
-                }
-                
-                if (categoryMatches) {
-                    categoryCounts[category]++;
+                if (startPage > 2) {
+                    const dots = document.createElement('span');
+                    dots.className = 'page-dots';
+                    dots.textContent = '...';
+                    paginationContent.appendChild(dots);
                 }
             }
             
-            // Для каждого материала считаем товары, которые прошли остальные фильтры
-            // И учитываем активные фильтры по категориям
-            if (material && materialCounts.hasOwnProperty(material)) {
-                let materialMatches = true;
-                
-                // Если выбраны материалы, считаем только если этот материал в выбранных
-                if (activeMaterialFilters.length > 0 && !activeMaterialFilters.includes(material)) {
-                    materialMatches = false;
+            for (let i = startPage; i <= endPage; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.className = 'page-btn';
+                if (i === paginationState.currentPage) {
+                    pageBtn.classList.add('active');
                 }
-                
-                // Если выбраны категории, проверяем соответствие
-                if (activeCategoryFilters.length > 0 && category && !activeCategoryFilters.includes(category)) {
-                    materialMatches = false;
-                }
-                
-                if (materialMatches) {
-                    materialCounts[material]++;
-                }
-            }
-        });
-        
-        // Обновляем счетчики категорий
-        Object.keys(categoryCounts).forEach(cat => {
-            const countElement = document.querySelector(`.category-count[data-category="${cat}"]`);
-            if (countElement) {
-                countElement.textContent = `(${categoryCounts[cat]})`;
-            }
-        });
-        
-        // Обновляем счетчики материалов
-        Object.keys(materialCounts).forEach(mat => {
-            const countElement = document.querySelector(`.material-count[data-material="${mat}"]`);
-            if (countElement) {
-                countElement.textContent = `(${materialCounts[mat]})`;
-            }
-        });
-    }
-    
-    // Функция для инициализации начальных счетчиков
-    function initializeCounts() {
-        const products = document.querySelectorAll('.product-card');
-        
-        // Считаем по категориям
-        const categoryCounts = {
-            'bras': 0,
-            'panties': 0,
-            'sleepwear': 0,
-            'bodysuits': 0,
-            'robes': 0,
-            'bridal': 0
-        };
-        
-        // Считаем по материалам
-        const materialCounts = {
-            'silk': 0,
-            'lace': 0,
-            'satin': 0,
-            'cotton': 0
-        };
-        
-        products.forEach(product => {
-            const category = product.getAttribute('data-category');
-            const material = product.getAttribute('data-material');
-            
-            if (category && categoryCounts.hasOwnProperty(category)) {
-                categoryCounts[category]++;
+                pageBtn.textContent = i.toString();
+                pageBtn.onclick = () => changePage(i);
+                paginationContent.appendChild(pageBtn);
             }
             
-            if (material && materialCounts.hasOwnProperty(material)) {
-                materialCounts[material]++;
+            if (endPage < paginationState.totalPages) {
+                if (endPage < paginationState.totalPages - 1) {
+                    const dots = document.createElement('span');
+                    dots.className = 'page-dots';
+                    dots.textContent = '...';
+                    paginationContent.appendChild(dots);
+                }
+                
+                const lastBtn = document.createElement('button');
+                lastBtn.className = 'page-btn';
+                lastBtn.textContent = paginationState.totalPages.toString();
+                lastBtn.onclick = () => changePage(paginationState.totalPages);
+                paginationContent.appendChild(lastBtn);
             }
-        });
-        
-        // Обновляем счетчики категорий
-        Object.keys(categoryCounts).forEach(cat => {
-            const countElement = document.querySelector(`.category-count[data-category="${cat}"]`);
-            if (countElement) {
-                countElement.textContent = `(${categoryCounts[cat]})`;
-            }
-        });
-        
-        // Обновляем счетчики материалов
-        Object.keys(materialCounts).forEach(mat => {
-            const countElement = document.querySelector(`.material-count[data-material="${mat}"]`);
-            if (countElement) {
-                countElement.textContent = `(${materialCounts[mat]})`;
-            }
-        });
-        
-        // Обновляем общий счетчик товаров
-        const productsCount = document.querySelector('.products-visible-count');
-        if (productsCount) {
-            productsCount.textContent = products.length;
+            
+            // Кнопка "Вперед"
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'page-btn';
+            nextBtn.disabled = paginationState.currentPage === paginationState.totalPages;
+            nextBtn.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+            nextBtn.onclick = () => changePage(paginationState.currentPage + 1);
+            paginationContent.appendChild(nextBtn);
+            
+            // Применяем пагинацию к видимым товарам
+            applyPagination();
+        } catch (error) {
+            console.error('Ошибка обновления пагинации:', error);
         }
     }
     
-    function clearFilters() {
-        const checkboxes = document.querySelectorAll('.filter-checkbox');
-        checkboxes.forEach(checkbox => {
-            checkbox.checked = false;
-        });
+    // Функция применения пагинации к видимым товарам
+    function applyPagination() {
+        if (!catalogCache.productsContainer) return;
         
-        const priceSlider = document.querySelector('.price-slider');
-        if (priceSlider) {
-            priceSlider.value = 150;
-            const priceValue = document.getElementById('price-value');
-            if (priceValue) {
-                priceValue.textContent = '$150';
+        try {
+            // Получаем все товары из контейнера
+            const allProducts = Array.from(catalogCache.productsContainer.querySelectorAll('.product-card'));
+            
+            // Фильтруем только те, которые НЕ скрыты фильтрацией (используем data-атрибут)
+            const visibleProducts = allProducts.filter(p => {
+                // Товары, скрытые фильтрацией, имеют data-filtered-out="true"
+                return !p.hasAttribute('data-filtered-out');
+            });
+            
+            const totalVisible = visibleProducts.length;
+            paginationState.totalItems = totalVisible;
+            paginationState.totalPages = Math.max(1, Math.ceil(totalVisible / paginationState.itemsPerPage));
+            
+            // Если товаров меньше или равно itemsPerPage, показываем все видимые
+            if (totalVisible <= paginationState.itemsPerPage) {
+                visibleProducts.forEach(product => {
+                    product.style.display = '';
+                    product.style.opacity = '1';
+                });
+                // Скрываем товары, которые скрыты фильтрацией (если они еще не скрыты)
+                allProducts.forEach(product => {
+                    if (product.hasAttribute('data-filtered-out')) {
+                        product.style.display = 'none';
+                    }
+                });
+                paginationState.currentPage = 1;
+                updatePagination(totalVisible);
+                return;
             }
+            
+            // Применяем пагинацию только к видимым товарам (не скрытым фильтрацией)
+            const start = (paginationState.currentPage - 1) * paginationState.itemsPerPage;
+            const end = start + paginationState.itemsPerPage;
+            
+            visibleProducts.forEach((product, index) => {
+                if (index >= start && index < end) {
+                    // Показываем товар текущей страницы
+                    product.style.display = '';
+                    product.style.opacity = '1';
+                } else {
+                    // Скрываем товары других страниц (но НЕ скрываем те, что уже скрыты фильтрацией)
+                    product.style.display = 'none';
+                }
+            });
+            
+            // Убеждаемся, что товары, скрытые фильтрацией, остаются скрытыми
+            allProducts.forEach(product => {
+                if (product.hasAttribute('data-filtered-out')) {
+                    product.style.display = 'none';
+                }
+            });
+            
+            updatePagination(totalVisible);
+        } catch (error) {
+            console.error('Ошибка применения пагинации:', error);
+        }
+    }
+    
+    // Функция смены страницы
+    function changePage(page) {
+        if (page < 1 || page > paginationState.totalPages) return;
+        
+        paginationState.currentPage = page;
+        
+        // Прокручиваем к началу списка товаров
+        const toolbar = document.querySelector('.products-toolbar');
+        if (toolbar) {
+            toolbar.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
         
-        document.querySelectorAll('.size-btn, .color-btn, .rating-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        
-        filterProducts();
+        updatePagination(paginationState.totalItems);
     }
     
-    function toggleView(viewType) {
-        console.log('Switching to ' + viewType + ' view');
-    }
+    // Создаем debounced версии функций
+    const debouncedFilter = debounce(filterProducts, 150);
+    const debouncedUpdateCounts = debounce(updateFilterCounts, 200);
     
-    // Функция сортировки товаров (только видимых)
-    function sortProducts(sortType) {
-        const container = document.querySelector('.products-container');
-        // Получаем все видимые товары
-        const allProducts = Array.from(container.querySelectorAll('.product-card'));
-        const visibleProducts = allProducts.filter(p => p.style.display !== 'none');
-        const hiddenProducts = allProducts.filter(p => p.style.display === 'none');
-        
-        // Сортируем только видимые товары
-        visibleProducts.sort((a, b) => {
-            switch(sortType) {
-                case 'priceLow':
-                    return parseFloat(a.getAttribute('data-price')) - parseFloat(b.getAttribute('data-price'));
-                case 'priceHigh':
-                    return parseFloat(b.getAttribute('data-price')) - parseFloat(a.getAttribute('data-price'));
-                case 'newest':
-                    // Сортируем по наличию badge-new (новинки первыми)
-                    const aIsNew = a.querySelector('.badge-new') !== null;
-                    const bIsNew = b.querySelector('.badge-new') !== null;
-                    if (aIsNew && !bIsNew) return -1;
-                    if (!aIsNew && bIsNew) return 1;
-                    return 0;
-                case 'bestselling':
-                    // Для бестселлеров используем количество отзывов
-                    const reviewsElA = a.querySelector('.product-reviews');
-                    const reviewsElB = b.querySelector('.product-reviews');
-                    const reviewsA = reviewsElA ? parseInt(reviewsElA.textContent.replace(/[()]/g, '')) || 0 : 0;
-                    const reviewsB = reviewsElB ? parseInt(reviewsElB.textContent.replace(/[()]/g, '')) || 0 : 0;
-                    return reviewsB - reviewsA;
-                case 'topRated':
-                    return parseInt(b.getAttribute('data-rating')) - parseInt(a.getAttribute('data-rating'));
-                default:
-                    // По умолчанию - порядок как в DOM
-                    return 0;
-            }
-        });
-        
-        // Очищаем контейнер
-        container.innerHTML = '';
-        
-        // Добавляем отсортированные видимые товары
-        visibleProducts.forEach(product => container.appendChild(product));
-        
-        // Добавляем скрытые товары в конец
-        hiddenProducts.forEach(product => container.appendChild(product));
-    }
-    
+    // Инициализация при загрузке страницы
     document.addEventListener('DOMContentLoaded', function() {
-        // Применяем сохраненный язык при загрузке
-        translatePage(currentLanguage);
-        
-        // Инициализируем счетчики
-        initializeCounts();
-        
-        // Обработчики для фильтров
-        document.querySelectorAll('.filter-checkbox').forEach(checkbox => {
-            checkbox.addEventListener('change', filterProducts);
-        });
-        
-        // Обработчик для слайдера цены
-        const priceSlider = document.querySelector('.price-slider');
-        if (priceSlider) {
-            priceSlider.addEventListener('input', function() {
-                const value = this.value;
-                const priceValue = document.getElementById('price-value');
-                if (priceValue) {
-                    priceValue.textContent = '$' + value;
-                }
+        try {
+            // Применяем сохраненный язык
+            translatePage(currentLanguage);
+            
+            // Инициализируем кеш
+            initCatalogCache();
+            
+            // Восстанавливаем сохраненный вид
+            const savedView = localStorage.getItem('catalogView');
+            if (savedView) {
+                toggleView(savedView);
+            }
+            
+            // Инициализируем счетчики
+            initializeCounts();
+            
+            // Применяем начальную пагинацию после небольшой задержки
+            setTimeout(() => {
                 filterProducts();
+            }, 100);
+            
+            // Обработчики для фильтров категорий и материалов
+            document.querySelectorAll('.filter-checkbox').forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    filterProducts();
+                    debouncedUpdateCounts();
+                });
             });
-        }
-        
-        // Обработчик для поиска
-        const searchInput = document.querySelector('.search-input-toolbar');
-        if (searchInput) {
-            searchInput.addEventListener('input', filterProducts);
-        }
-        
-        // Обработчики для кнопок размеров
-        document.querySelectorAll('.size-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                this.classList.toggle('active');
-                filterProducts();
+            
+            // Обработчик для слайдера цены с debounce
+            if (catalogCache.priceSlider) {
+                catalogCache.priceSlider.addEventListener('input', function() {
+                    const value = parseInt(this.value) || 0;
+                    if (catalogCache.priceValue) {
+                        // Форматируем цену с пробелами для тысяч
+                        const formattedValue = value.toLocaleString('ru-RU');
+                        catalogCache.priceValue.textContent = formattedValue + ' ₽';
+                    }
+                    debouncedFilter();
+                });
+            }
+            
+            // Функция для раскрытия/закрытия секций фильтров
+            function initFilterSections() {
+                const filterHeaders = document.querySelectorAll('.filter-section-header');
+                filterHeaders.forEach(header => {
+                    header.style.cursor = 'pointer';
+                    header.addEventListener('click', function() {
+                        const sectionContent = this.nextElementSibling;
+                        const icon = this.querySelector('.filter-section-icon');
+                        if (sectionContent && sectionContent.classList.contains('filter-section-content')) {
+                            const isOpen = sectionContent.style.display !== 'none' && 
+                                         !sectionContent.classList.contains('collapsed');
+                            
+                            if (isOpen) {
+                                sectionContent.style.display = 'none';
+                                this.classList.add('collapsed');
+                                if (icon) {
+                                    icon.classList.remove('fa-chevron-down');
+                                    icon.classList.add('fa-chevron-up');
+                                }
+                            } else {
+                                sectionContent.style.display = 'block';
+                                this.classList.remove('collapsed');
+                                if (icon) {
+                                    icon.classList.remove('fa-chevron-up');
+                                    icon.classList.add('fa-chevron-down');
+                                }
+                            }
+                        }
+                    });
+                });
+                
+                // По умолчанию все секции открыты на десктопе, закрыты на мобильных
+                const filterContents = document.querySelectorAll('.filter-section-content');
+                const isMobile = window.innerWidth < 768;
+                filterContents.forEach(content => {
+                    if (isMobile) {
+                        content.style.display = 'none';
+                        const header = content.previousElementSibling;
+                        if (header && header.classList.contains('filter-section-header')) {
+                            header.classList.add('collapsed');
+                            const icon = header.querySelector('.filter-section-icon');
+                            if (icon) {
+                                icon.classList.remove('fa-chevron-down');
+                                icon.classList.add('fa-chevron-up');
+                            }
+                        }
+                    } else {
+                        content.style.display = 'block';
+                        const header = content.previousElementSibling;
+                        if (header && header.classList.contains('filter-section-header')) {
+                            header.classList.remove('collapsed');
+                            const icon = header.querySelector('.filter-section-icon');
+                            if (icon) {
+                                icon.classList.remove('fa-chevron-up');
+                                icon.classList.add('fa-chevron-down');
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Обработчик изменения размера окна для фильтров
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    initFilterSections();
+                }, 250);
             });
-        });
-        
-        // Обработчики для кнопок цветов
-        document.querySelectorAll('.color-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                this.classList.toggle('active');
-                filterProducts();
+            
+            // Инициализируем раскрывающиеся фильтры
+            initFilterSections();
+            
+            // Обработчик для поиска с debounce
+            if (catalogCache.searchInput) {
+                catalogCache.searchInput.addEventListener('input', debouncedFilter);
+            }
+            
+            // Обработчики для кнопок размеров
+            document.querySelectorAll('.size-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    filterProducts();
+                    debouncedUpdateCounts();
+                });
             });
-        });
-        
-        // Обработчики для кнопок рейтинга
-        document.querySelectorAll('.rating-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.rating-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                filterProducts();
+            
+            // Обработчики для кнопок цветов
+            document.querySelectorAll('.color-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    filterProducts();
+                    debouncedUpdateCounts();
+                });
             });
-        });
-        
-        // Обработчик для сортировки
-        const sortSelect = document.querySelector('.sort-select');
-        if (sortSelect) {
-            sortSelect.addEventListener('change', function() {
-                sortProducts(this.value);
+            
+            // Обработчики для кнопок рейтинга
+            document.querySelectorAll('.rating-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.rating-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    filterProducts();
+                    debouncedUpdateCounts();
+                });
             });
+            
+            // Обработчик для сортировки
+            if (catalogCache.sortSelect) {
+                catalogCache.sortSelect.addEventListener('change', function() {
+                    sortProducts(this.value);
+                });
+            }
+            
+            // Обработчик для кнопок wishlist
+            document.querySelectorAll('.wishlist-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        if (icon.classList.contains('fa-regular')) {
+                            icon.classList.remove('fa-regular');
+                            icon.classList.add('fa-solid');
+                            this.style.color = '#dc2626';
+                        } else {
+                            icon.classList.remove('fa-solid');
+                            icon.classList.add('fa-regular');
+                            this.style.color = '';
+                        }
+                    }
+                });
+            });
+        } catch (error) {
+            console.error('Ошибка инициализации:', error);
         }
     });
 </script>
