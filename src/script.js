@@ -664,14 +664,20 @@ function toggleTheme() {
 
 // Инициализация темы при загрузке
 function initTheme() {
+    // Тема уже установлена inline скриптом в head, но проверим на всякий случай
     const savedTheme = localStorage.getItem('theme') || 'light'; // По умолчанию светлая тема
     const html = document.documentElement;
-    html.setAttribute('data-theme', savedTheme);
+    const currentTheme = html.getAttribute('data-theme');
+    
+    // Если тема не установлена или не совпадает с сохраненной, обновляем
+    if (!currentTheme || currentTheme !== savedTheme) {
+        html.setAttribute('data-theme', savedTheme);
+    }
     
     const themeToggle = document.getElementById('theme-toggle');
     if (!themeToggle) return;
     
-    // Проверяем, правильно ли установлены иконки в соответствии с темой
+    // Сразу обновляем иконки без проверки - это быстрее
     const currentSpan = themeToggle.querySelector('.icon--current');
     const nextSpan = themeToggle.querySelector('.icon--next');
     
@@ -680,23 +686,27 @@ function initTheme() {
         const nextIcon = nextSpan.querySelector('i');
         
         if (currentIcon && nextIcon) {
-            // Если тема dark, но в current стоит sun - нужно поменять местами
-            const currentIconClass = currentIcon.classList.contains('fa-sun') ? 'fa-sun' : 'fa-moon';
+            // Определяем, какая иконка должна быть текущей
             const expectedCurrentIcon = getIconClass(savedTheme);
+            const currentIconClass = currentIcon.classList.contains('fa-sun') ? 'fa-sun' : 'fa-moon';
             
-            // Если иконки не соответствуют теме, меняем их местами
+            // Если иконки не соответствуют теме, обновляем их
             if (currentIconClass !== expectedCurrentIcon) {
-                // Меняем роли иконок
-                currentSpan.classList.remove('icon--current');
-                currentSpan.classList.add('icon--next');
-                
-                nextSpan.classList.remove('icon--next');
-                nextSpan.classList.add('icon--current');
+                // Обновляем иконки через updateIconElement для правильной работы с Font Awesome
+                updateIconElement(currentSpan, expectedCurrentIcon);
+                updateIconElement(nextSpan, getIconClass(savedTheme === 'light' ? 'dark' : 'light'));
+            } else {
+                // Иконки правильные, но нужно убедиться, что следующая иконка тоже правильная
+                const expectedNextIcon = getIconClass(savedTheme === 'light' ? 'dark' : 'light');
+                const nextIconClass = nextIcon.classList.contains('fa-sun') ? 'fa-sun' : 'fa-moon';
+                if (nextIconClass !== expectedNextIcon) {
+                    updateIconElement(nextSpan, expectedNextIcon);
+                }
             }
         }
     }
     
-    // Синхронизируем иконки с темой
+    // Синхронизируем иконки с темой (на случай, если Font Awesome уже загрузился)
     syncThemeIcon();
     
     // Обновляем aria-label
@@ -705,7 +715,7 @@ function initTheme() {
     // Дополнительная проверка через небольшую задержку (на случай, если Font Awesome еще не загрузился)
     setTimeout(() => {
         syncThemeIcon();
-    }, 100);
+    }, 50); // Уменьшил задержку до 50ms для более быстрого обновления
 }
 
 document.addEventListener('DOMContentLoaded', function() {

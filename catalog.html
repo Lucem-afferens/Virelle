@@ -36,6 +36,16 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://storage.googleapis.com">
     
+    <!-- Синхронная установка темы ДО рендеринга страницы -->
+    <script>
+        (function() {
+            // Читаем сохраненную тему из localStorage
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            // Устанавливаем data-theme на <html> синхронно, до рендеринга
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+    
     <!-- External Resources -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
