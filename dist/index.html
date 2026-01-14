@@ -61,8 +61,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://storage.googleapis.com">
-    <link rel="preload" as="image" href="/main_for_dark_theme.png" fetchpriority="high" type="image/png">
+    
+    <!-- Предзагрузка критических изображений для hero секции -->
+    <!-- Предзагружаем изображение для светлой темы (тема по умолчанию) -->
+    <link rel="preload" as="image" href="/main_for_light_theme.png" fetchpriority="high" type="image/png" media="(prefers-color-scheme: light)">
     <link rel="preload" as="image" href="/main_for_light_theme.png" fetchpriority="high" type="image/png">
+    <!-- Предзагружаем изображение для темной темы (может понадобиться при переключении) -->
+    <link rel="preload" as="image" href="/main_for_dark_theme.png" fetchpriority="high" type="image/png">
+    <!-- Предзагрузка логотипа -->
+    <link rel="preload" as="image" href="/logo.svg" fetchpriority="high" type="image/svg+xml">
+    
+    <!-- Синхронная установка темы ДО рендеринга страницы -->
+    <script>
+        (function() {
+            // Читаем сохраненную тему из localStorage
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            // Устанавливаем data-theme на <html> синхронно, до рендеринга
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
     
     <!-- External Resources -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -72,7 +89,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet"></noscript>
-  <script type="module" crossorigin src="/assets/script-BGU8S1Tu.js"></script>
+  <script type="module" crossorigin src="/assets/script-C3iXYfC7.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/script-D9GSZqeu.css">
 </head>
 <body>
@@ -109,7 +126,7 @@
         </button>
         
         <a href="index.html" style="text-decoration: none; color: inherit;">
-            <img src="/logo.svg" alt="Chill Out Lingerie" class="header-logo-image">
+            <img src="/logo.svg" alt="Chill Out Lingerie" class="header-logo-image" fetchpriority="high" loading="eager" decoding="async" width="40" height="40">
         <h2 class="header-logo">Chill Out Lingerie®</h2>
         </a>
         
@@ -135,8 +152,8 @@
 <main id="main-content">
 <section id="hero" aria-label="Главная секция">
     <div class="hero-bg">
-        <img src="/main_for_dark_theme.png" alt="elegant woman in luxury black silk lingerie in dark moody bedroom setting, soft golden hour lighting from window, premium intimate apparel photography, charcoal and gold tones, sophisticated boudoir aesthetic" class="hero-image hero-image-dark" fetchpriority="high" loading="eager">
-        <img src="/main_for_light_theme.png" alt="elegant woman in luxury pink silk lingerie in bright minimalist bedroom setting, soft natural lighting, premium intimate apparel photography, light and elegant tones, sophisticated boudoir aesthetic" class="hero-image hero-image-light" fetchpriority="high" loading="eager">
+        <img src="/main_for_dark_theme.png" alt="elegant woman in luxury black silk lingerie in dark moody bedroom setting, soft golden hour lighting from window, premium intimate apparel photography, charcoal and gold tones, sophisticated boudoir aesthetic" class="hero-image hero-image-dark" fetchpriority="high" loading="eager" decoding="async" width="1920" height="1080">
+        <img src="/main_for_light_theme.png" alt="elegant woman in luxury pink silk lingerie in bright minimalist bedroom setting, soft natural lighting, premium intimate apparel photography, light and elegant tones, sophisticated boudoir aesthetic" class="hero-image hero-image-light" fetchpriority="high" loading="eager" decoding="async" width="1920" height="1080">
         <div class="hero-overlay"></div>
     </div>
     
@@ -234,7 +251,7 @@
         <div class="product-grid">
             <div class="product-card">
                 <div class="product-image-wrapper">
-                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/8f519f1bef-1895a91e1bd88105cd4a.png" alt="elegant black lace bralette on model, luxury lingerie photography, studio lighting" loading="lazy">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/8f519f1bef-1895a91e1bd88105cd4a.png" alt="elegant black lace bralette on model, luxury lingerie photography, studio lighting" loading="lazy" decoding="async" width="600" height="800">
                     <div class="product-overlay">
                         <button class="quick-view-btn">БЫСТРЫЙ ПРОСМОТР</button>
                     </div>
@@ -246,7 +263,7 @@
             
             <div class="product-card">
                 <div class="product-image-wrapper">
-                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b56beff876-e29888d5a8ccd0f22677.png" alt="champagne silk slip dress lingerie on model, luxury sleepwear photography, elegant pose" loading="lazy">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b56beff876-e29888d5a8ccd0f22677.png" alt="champagne silk slip dress lingerie on model, luxury sleepwear photography, elegant pose" loading="lazy" decoding="async" width="600" height="800">
                     <div class="product-overlay">
                         <button class="quick-view-btn">БЫСТРЫЙ ПРОСМОТР</button>
                     </div>
@@ -259,7 +276,7 @@
             
             <div class="product-card">
                 <div class="product-image-wrapper">
-                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/96fccf4507-ee48a6038febd71fdd60.png" alt="blush pink satin and lace bodysuit lingerie on model, high-end intimate apparel photography" loading="lazy">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/96fccf4507-ee48a6038febd71fdd60.png" alt="blush pink satin and lace bodysuit lingerie on model, high-end intimate apparel photography" loading="lazy" decoding="async" width="600" height="800">
                     <div class="product-overlay">
                         <button class="quick-view-btn">БЫСТРЫЙ ПРОСМОТР</button>
                     </div>
@@ -271,7 +288,7 @@
             
             <div class="product-card">
                 <div class="product-image-wrapper">
-                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/d34cd14776-fd8800389b5e3f0b7c82.png" alt="ivory lace teddy lingerie on model, bridal lingerie photography, romantic lighting" loading="lazy">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/d34cd14776-fd8800389b5e3f0b7c82.png" alt="ivory lace teddy lingerie on model, bridal lingerie photography, romantic lighting" loading="lazy" decoding="async" width="600" height="800">
                     <div class="product-overlay">
                         <button class="quick-view-btn">БЫСТРЫЙ ПРОСМОТР</button>
                     </div>
@@ -313,7 +330,7 @@
             <div id="carousel" class="carousel-container" role="region" aria-label="Карусель хитов продаж" tabindex="0">
             <div class="carousel-item">
                 <div class="product-image-wrapper">
-                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/5c08a7f1c6-b1f2b1fff0aab95f6104.png" alt="emerald green silk robe with lace trim on model, luxury sleepwear photography" loading="lazy">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/5c08a7f1c6-b1f2b1fff0aab95f6104.png" alt="emerald green silk robe with lace trim on model, luxury sleepwear photography" loading="lazy" decoding="async" width="600" height="800">
                     <div class="product-overlay">
                         <a href="catalog.html" class="quick-view-btn">БЫСТРЫЙ ПРОСМОТР</a>
                     </div>
@@ -325,7 +342,7 @@
             
             <div class="carousel-item">
                 <div class="product-image-wrapper">
-                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/0ff1edacf9-0d1b5003996b1b432a27.png" alt="burgundy lace bra and panty set on model, luxury lingerie photography, dramatic lighting" loading="lazy">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/0ff1edacf9-0d1b5003996b1b432a27.png" alt="burgundy lace bra and panty set on model, luxury lingerie photography, dramatic lighting" loading="lazy" decoding="async" width="600" height="800">
                     <div class="rating-badge">
                         <i class="fa-solid fa-star"></i> 5.0
                     </div>
@@ -340,7 +357,7 @@
             
             <div class="carousel-item">
                 <div class="product-image-wrapper">
-                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a550f76729-2f940b8687fba9bc8a11.png" alt="white cotton and lace camisole pajama set on model, elegant sleepwear photography" loading="lazy">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a550f76729-2f940b8687fba9bc8a11.png" alt="white cotton and lace camisole pajama set on model, elegant sleepwear photography" loading="lazy" decoding="async" width="600" height="800">
                     <div class="rating-badge">
                         <i class="fa-solid fa-star"></i> 4.8
                     </div>
@@ -355,7 +372,7 @@
             
             <div class="carousel-item">
                 <div class="product-image-wrapper">
-                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/48870ed260-bde48a1c7ea8473e1e41.png" alt="navy blue satin chemise with lace details on model, luxury nightwear photography" loading="lazy">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/48870ed260-bde48a1c7ea8473e1e41.png" alt="navy blue satin chemise with lace details on model, luxury nightwear photography" loading="lazy" decoding="async" width="600" height="800">
                     <div class="product-overlay">
                         <a href="catalog.html" class="quick-view-btn">БЫСТРЫЙ ПРОСМОТР</a>
                     </div>
@@ -367,7 +384,7 @@
             
             <div class="carousel-item">
                 <div class="product-image-wrapper">
-                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/8ec3f80d6a-ff62832bf3e5711e34a5.png" alt="peach silk bralette and shorts pajama set on model, luxury loungewear photography" loading="lazy">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/8ec3f80d6a-ff62832bf3e5711e34a5.png" alt="peach silk bralette and shorts pajama set on model, luxury loungewear photography" loading="lazy" decoding="async" width="600" height="800">
                     <div class="rating-badge">
                         <i class="fa-solid fa-star"></i> 4.7
                     </div>
@@ -393,7 +410,7 @@
         
         <div class="new-arrivals-grid">
             <div class="featured-large">
-                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/18e9a25748-4b11a0bfe27d58a635f0.png" alt="luxury champagne silk pajama set on model in elegant bedroom setting, high-end fashion photography, soft natural lighting" loading="lazy">
+                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/18e9a25748-4b11a0bfe27d58a635f0.png" alt="luxury champagne silk pajama set on model in elegant bedroom setting, high-end fashion photography, soft natural lighting" loading="lazy" decoding="async" width="800" height="1000">
                 <div class="featured-overlay"></div>
                 <div class="featured-content">
                     <div class="featured-info">
@@ -409,7 +426,7 @@
             
             <div class="featured-small-grid">
                 <div class="featured-small">
-                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/425b0cfdf7-0c3bc91ccd1a89de7620.png" alt="dusty rose lace bralette and high waist panty set on model, luxury lingerie photography" loading="lazy">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/425b0cfdf7-0c3bc91ccd1a89de7620.png" alt="dusty rose lace bralette and high waist panty set on model, luxury lingerie photography" loading="lazy" decoding="async" width="600" height="800">
                     <div class="featured-small-overlay">
                         <h4 class="featured-small-title">Комплект Rose Garden</h4>
                         <p class="featured-small-price">8 800 ₽</p>
@@ -417,7 +434,7 @@
                 </div>
                 
                 <div class="featured-small">
-                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/9748b8f173-db06ed5110f8b9df1561.png" alt="sage green silk camisole with lace trim on model, luxury sleepwear photography, minimalist aesthetic" loading="lazy">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/9748b8f173-db06ed5110f8b9df1561.png" alt="sage green silk camisole with lace trim on model, luxury sleepwear photography, minimalist aesthetic" loading="lazy" decoding="async" width="600" height="800">
                     <div class="featured-small-overlay">
                         <h4 class="featured-small-title">Cami Sage Silk</h4>
                         <p class="featured-small-price">7 200 ₽</p>
@@ -436,7 +453,7 @@
         </div>
         <div class="shop-category-grid-large">
             <div class="shop-category-card shop-category-card-large">
-                <img class="shop-category-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/e1c675aa23-2d4d9f46c0df38e78bd4.png" alt="luxury lingerie collection display, elegant intimate apparel, premium bras and panties, sophisticated styling" loading="lazy">
+                <img class="shop-category-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/e1c675aa23-2d4d9f46c0df38e78bd4.png" alt="luxury lingerie collection display, elegant intimate apparel, premium bras and panties, sophisticated styling" loading="lazy" decoding="async" width="800" height="600">
                 <div class="shop-category-overlay"></div>
                 <div class="shop-category-content">
                     <h3 class="shop-category-card-title">Нижнее Белье</h3>
@@ -448,7 +465,7 @@
                     </div>
                 </div>
             <div class="shop-category-card shop-category-card-large">
-                <img class="shop-category-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/8d22e8b917-45930bbd52832d16a866.png" alt="luxury sleepwear collection, silk pajamas and robes, elegant nightwear display, premium fabrics" loading="lazy">
+                <img class="shop-category-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/8d22e8b917-45930bbd52832d16a866.png" alt="luxury sleepwear collection, silk pajamas and robes, elegant nightwear display, premium fabrics" loading="lazy" decoding="async" width="800" height="600">
                 <div class="shop-category-overlay"></div>
                 <div class="shop-category-content">
                     <h3 class="shop-category-card-title">Домашняя Одежда</h3>
@@ -462,7 +479,7 @@
             </div>
         <div class="shop-category-grid-small">
             <div class="shop-category-card shop-category-card-small">
-                <img class="shop-category-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/e60a5848a9-ff667377d0accce2d5da.png" alt="luxury lingerie accessories, elegant garter belts and stockings, premium intimate accessories display" loading="lazy">
+                <img class="shop-category-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/e60a5848a9-ff667377d0accce2d5da.png" alt="luxury lingerie accessories, elegant garter belts and stockings, premium intimate accessories display" loading="lazy" decoding="async" width="800" height="600">
                 <div class="shop-category-overlay"></div>
                 <div class="shop-category-content shop-category-content-small">
                     <h3 class="shop-category-card-title shop-category-card-title-small">Аксессуары</h3>

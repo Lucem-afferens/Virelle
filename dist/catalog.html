@@ -36,6 +36,16 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://storage.googleapis.com">
     
+    <!-- Синхронная установка темы ДО рендеринга страницы -->
+    <script>
+        (function() {
+            // Читаем сохраненную тему из localStorage
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            // Устанавливаем data-theme на <html> синхронно, до рендеринга
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+    
     <!-- External Resources -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
@@ -44,7 +54,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet"></noscript>
-  <script type="module" crossorigin src="/assets/script-BGU8S1Tu.js"></script>
+  <script type="module" crossorigin src="/assets/script-C3iXYfC7.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/script-D9GSZqeu.css">
 </head>
 <body>
