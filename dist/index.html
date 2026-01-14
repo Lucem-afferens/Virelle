@@ -27,7 +27,6 @@
     <meta property="og:image:alt" content="Chill Out Lingerie - Премиальное нижнее белье">
     <meta property="og:image:type" content="image/png">
     <meta property="og:locale" content="ru_RU">
-    <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Chill Out Lingerie">
     
     <!-- Twitter Card -->
@@ -62,7 +61,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://storage.googleapis.com">
-    <link rel="preload" as="image" href="https://storage.googleapis.com/uxpilot-auth.appspot.com/6555e7d064-c3b9b19a9e4b32d7ad33.png" fetchpriority="high" type="image/png">
+    <link rel="preload" as="image" href="/main_for_dark_theme.png" fetchpriority="high" type="image/png">
+    <link rel="preload" as="image" href="/main_for_light_theme.png" fetchpriority="high" type="image/png">
     
     <!-- External Resources -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -73,7 +73,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet"></noscript>
     <script src="src/script.js" defer></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-CQ_Si-8S.css">
+  <link rel="stylesheet" crossorigin href="/assets/style-D9GSZqeu.css">
 </head>
 <body>
 
@@ -86,12 +86,12 @@
             <i class="fa-solid fa-times" aria-hidden="true"></i>
         </button>
         <nav class="menu-nav">
-            <a href="index.html" onclick="closeMenu()" data-i18n="menu.home">ГЛАВНАЯ</a>
-            <a href="catalog.html" onclick="closeMenu()" data-i18n="menu.catalog">КАТАЛОГ</a>
-            <a href="#bestsellers" onclick="closeMenu()" data-i18n="menu.bestsellers">ХИТЫ ПРОДАЖ</a>
-            <a href="#new-arrivals" onclick="closeMenu()" data-i18n="menu.newArrivals">НОВИНКИ</a>
-            <a href="#about" onclick="closeMenu()" data-i18n="menu.about">О НАС</a>
-            <a href="#contact" onclick="closeMenu()" data-i18n="menu.contact">КОНТАКТЫ</a>
+            <a href="index.html" onclick="closeMenu()">ГЛАВНАЯ</a>
+            <a href="catalog.html" onclick="closeMenu()">КАТАЛОГ</a>
+            <a href="#bestsellers" onclick="closeMenu()">ХИТЫ ПРОДАЖ</a>
+            <a href="#new-arrivals" onclick="closeMenu()">НОВИНКИ</a>
+            <a href="#about" onclick="closeMenu()">О НАС</a>
+            <a href="#contact" onclick="closeMenu()">КОНТАКТЫ</a>
         </nav>
         <div class="menu-social">
             <a href="#"><i class="fa-brands fa-instagram"></i></a>
@@ -114,8 +114,13 @@
         </a>
         
         <div class="header-actions">
-            <button onclick="toggleLanguage()" class="lang-switcher" title="Переключить язык" aria-label="Переключить язык">
-                <span class="lang-switcher-text" aria-live="polite">RU</span>
+            <button onclick="toggleTheme()" id="theme-toggle" class="icon-btn theme-toggle" title="Переключить тему" aria-label="Переключить на темную тему">
+                <span class="icon icon--current">
+                    <i class="fa-solid fa-sun" aria-hidden="true"></i>
+                </span>
+                <span class="icon icon--next">
+                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                </span>
             </button>
             <a href="https://vk.com" target="_blank" class="icon-btn" title="ВКонтакте" aria-label="Наша группа ВКонтакте" rel="noopener noreferrer">
                 <i class="fa-brands fa-vk" aria-hidden="true"></i>
@@ -130,7 +135,8 @@
 <main id="main-content">
 <section id="hero" aria-label="Главная секция">
     <div class="hero-bg">
-        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/6555e7d064-c3b9b19a9e4b32d7ad33.png" alt="elegant woman in luxury black silk lingerie in dark moody bedroom setting, soft golden hour lighting from window, premium intimate apparel photography, charcoal and gold tones, sophisticated boudoir aesthetic" fetchpriority="high" loading="eager">
+        <img src="/main_for_dark_theme.png" alt="elegant woman in luxury black silk lingerie in dark moody bedroom setting, soft golden hour lighting from window, premium intimate apparel photography, charcoal and gold tones, sophisticated boudoir aesthetic" class="hero-image hero-image-dark" fetchpriority="high" loading="eager">
+        <img src="/main_for_light_theme.png" alt="elegant woman in luxury pink silk lingerie in bright minimalist bedroom setting, soft natural lighting, premium intimate apparel photography, light and elegant tones, sophisticated boudoir aesthetic" class="hero-image hero-image-light" fetchpriority="high" loading="eager">
         <div class="hero-overlay"></div>
     </div>
     
@@ -138,16 +144,16 @@
         <h1 class="hero-title">
             <span class="text-gold">Chill Out Lingerie®</span>
         </h1>
-        <h3 class="hero-subtitle" data-i18n="hero.subtitle">Пижамы и нижнее бельё</h3>
-        <p class="hero-text" data-i18n="hero.text">
+        <h3 class="hero-subtitle">Пижамы и нижнее бельё</h3>
+        <p class="hero-text">
             Где элегантность встречается с комфортом. Откройте для себя нашу тщательно подобранную коллекцию премиального нижнего белья, созданного для современной женщины.
         </p>
         <div class="hero-buttons">
             <a href="catalog.html" class="cta-button btn-outline" style="text-decoration: none;">
-                <span data-i18n="hero.exploreCollections">СМОТРЕТЬ КОЛЛЕКЦИИ</span>
+                <span>СМОТРЕТЬ КОЛЛЕКЦИИ</span>
             </a>
             <a href="#bestsellers" class="cta-button btn-solid" style="text-decoration: none;">
-                <span data-i18n="hero.shopBestsellers">ХИТЫ ПРОДАЖ</span>
+                <span>ХИТЫ ПРОДАЖ</span>
             </a>
         </div>
     </div>
@@ -165,15 +171,15 @@
                     <i class="fa-brands fa-vk"></i>
                 </div>
                 <div>
-                    <h3 class="vk-notice-title" data-i18n="vkNotice.title">Покупайте через ВКонтакте</h3>
-                    <p class="vk-notice-text" data-i18n="vkNotice.text">
+                    <h3 class="vk-notice-title">Покупайте через ВКонтакте</h3>
+                    <p class="vk-notice-text">
                         Этот сайт создан для ознакомления с коллекцией. Все заказы принимаются в нашей группе ВКонтакте
                     </p>
                 </div>
             </div>
             <a href="https://vk.com" target="_blank" class="btn-vk-large">
                 <i class="fa-brands fa-vk"></i>
-                <span data-i18n="vkNotice.button">ПЕРЕЙТИ В VK</span>
+                <span>ПЕРЕЙТИ В VK</span>
             </a>
         </div>
     </div>
@@ -186,8 +192,8 @@
                 <div class="value-icon">
                     <i class="fa-solid fa-gem"></i>
                 </div>
-                <h3 class="value-title" data-i18n="value.premiumQuality.title">Премиум Качество</h3>
-                <p class="value-text" data-i18n="value.premiumQuality.text">
+                <h3 class="value-title">Премиум Качество</h3>
+                <p class="value-text">
                     Ткани, отобранные вручную на лучших фабриках. Каждая вещь создана с тщательным вниманием к деталям и роскошными материалами.
                 </p>
             </div>
@@ -196,8 +202,8 @@
                 <div class="value-icon">
                     <i class="fa-solid fa-heart"></i>
                 </div>
-                <h3 class="value-title" data-i18n="value.inclusiveSizing.title">Расширенный Размерный Ряд</h3>
-                <p class="value-text" data-i18n="value.inclusiveSizing.text">
+                <h3 class="value-title">Расширенный Размерный Ряд</h3>
+                <p class="value-text">
                     Празднуем каждое тело. Наша коллекция представлена размерами от XS до 4XL, обеспечивая идеальную посадку и уверенность для всех.
                 </p>
             </div>
@@ -206,8 +212,8 @@
                 <div class="value-icon">
                     <i class="fa-solid fa-truck"></i>
                 </div>
-                <h3 class="value-title" data-i18n="value.freeShipping.title">Бесплатная Доставка</h3>
-                <p class="value-text" data-i18n="value.freeShipping.text">
+                <h3 class="value-title">Бесплатная Доставка</h3>
+                <p class="value-text">
                     Бесплатная экспресс-доставка по всем заказам. Ненавязчивая упаковка и легкий возврат в течение 30 дней.
                 </p>
             </div>
@@ -221,8 +227,8 @@
     
     <div class="container">
         <div class="section-header">
-            <h2 class="section-title" data-i18n="featuredCollection.title">Избранная Коллекция</h2>
-            <p class="section-subtitle" data-i18n="featuredCollection.subtitle">Вневременные вещи на любой случай</p>
+            <h2 class="section-title">Избранная Коллекция</h2>
+            <p class="section-subtitle">Вневременные вещи на любой случай</p>
         </div>
         
         <div class="product-grid">
@@ -230,11 +236,11 @@
                 <div class="product-image-wrapper">
                     <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/8f519f1bef-1895a91e1bd88105cd4a.png" alt="elegant black lace bralette on model, luxury lingerie photography, studio lighting" loading="lazy">
                     <div class="product-overlay">
-                        <button class="quick-view-btn" data-i18n="product.quickView">БЫСТРЫЙ ПРОСМОТР</button>
+                        <button class="quick-view-btn">БЫСТРЫЙ ПРОСМОТР</button>
                     </div>
                 </div>
-                <h4 class="product-name" data-i18n="product.items.midnightLaceBralette.title">Бюстгальтер Midnight Lace</h4>
-                <p class="product-desc" data-i18n="product.items.midnightLaceBralette.description">Нежное французское кружево</p>
+                <h4 class="product-name">Бюстгальтер Midnight Lace</h4>
+                <p class="product-desc">Нежное французское кружево</p>
                 <p class="product-price">7 800 ₽</p>
             </div>
             
@@ -242,12 +248,12 @@
                 <div class="product-image-wrapper">
                     <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b56beff876-e29888d5a8ccd0f22677.png" alt="champagne silk slip dress lingerie on model, luxury sleepwear photography, elegant pose" loading="lazy">
                     <div class="product-overlay">
-                        <button class="quick-view-btn" data-i18n="product.quickView">БЫСТРЫЙ ПРОСМОТР</button>
+                        <button class="quick-view-btn">БЫСТРЫЙ ПРОСМОТР</button>
                     </div>
-                    <div class="product-badge" data-i18n="product.badge.new">NEW</div>
+                    <div class="product-badge">NEW</div>
                 </div>
-                <h4 class="product-name" data-i18n="product.items.champagneSilkSlip.title">Champagne Silk Slip</h4>
-                <p class="product-desc" data-i18n="product.items.champagneSilkSlip.description">Чистый шелк тутового дерева</p>
+                <h4 class="product-name">Champagne Silk Slip</h4>
+                <p class="product-desc">Чистый шелк тутового дерева</p>
                 <p class="product-price">14 500 ₽</p>
             </div>
             
@@ -255,11 +261,11 @@
                 <div class="product-image-wrapper">
                     <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/96fccf4507-ee48a6038febd71fdd60.png" alt="blush pink satin and lace bodysuit lingerie on model, high-end intimate apparel photography" loading="lazy">
                     <div class="product-overlay">
-                        <button class="quick-view-btn" data-i18n="product.quickView">БЫСТРЫЙ ПРОСМОТР</button>
+                        <button class="quick-view-btn">БЫСТРЫЙ ПРОСМОТР</button>
                     </div>
                 </div>
-                <h4 class="product-name" data-i18n="product.items.roseSatinBodysuit.title">Боди Rose Satin</h4>
-                <p class="product-desc" data-i18n="product.items.roseSatinBodysuit.description">Итальянская атласная смесь</p>
+                <h4 class="product-name">Боди Rose Satin</h4>
+                <p class="product-desc">Итальянская атласная смесь</p>
                 <p class="product-price">9 200 ₽</p>
             </div>
             
@@ -267,19 +273,19 @@
                 <div class="product-image-wrapper">
                     <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/d34cd14776-fd8800389b5e3f0b7c82.png" alt="ivory lace teddy lingerie on model, bridal lingerie photography, romantic lighting" loading="lazy">
                     <div class="product-overlay">
-                        <button class="quick-view-btn" data-i18n="product.quickView">БЫСТРЫЙ ПРОСМОТР</button>
+                        <button class="quick-view-btn">БЫСТРЫЙ ПРОСМОТР</button>
                     </div>
-                    <div class="product-badge bestseller" data-i18n="product.badge.bestseller">BESTSELLER</div>
+                    <div class="product-badge bestseller">BESTSELLER</div>
                 </div>
-                <h4 class="product-name" data-i18n="product.items.ivoryLaceTeddy.title">Тедди Ivory Lace</h4>
-                <p class="product-desc" data-i18n="product.items.ivoryLaceTeddy.description">Кружево Шантильи</p>
+                <h4 class="product-name">Тедди Ivory Lace</h4>
+                <p class="product-desc">Кружево Шантильи</p>
                 <p class="product-price">11 800 ₽</p>
             </div>
         </div>
         
         <div class="section-cta">
             <a href="catalog.html" class="cta-button btn-outline" style="text-decoration: none;">
-                <span data-i18n="featuredCollection.viewAll">СМОТРЕТЬ ВСЕ ТОВАРЫ</span>
+                <span>СМОТРЕТЬ ВСЕ ТОВАРЫ</span>
             </a>
         </div>
     </div>
@@ -289,8 +295,8 @@
     <div class="container">
         <div class="bestsellers-header">
             <div>
-                <h2 class="section-title" data-i18n="bestsellers.title">Хиты Продаж</h2>
-                <p class="section-subtitle" data-i18n="bestsellers.subtitle">Фавориты клиентов, которые никогда не выходят из моды</p>
+                <h2 class="section-title">Хиты Продаж</h2>
+                <p class="section-subtitle">Фавориты клиентов, которые никогда не выходят из моды</p>
             </div>
         </div>
         
@@ -309,11 +315,11 @@
                 <div class="product-image-wrapper">
                     <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/5c08a7f1c6-b1f2b1fff0aab95f6104.png" alt="emerald green silk robe with lace trim on model, luxury sleepwear photography" loading="lazy">
                     <div class="product-overlay">
-                        <a href="catalog.html" class="quick-view-btn" data-i18n="product.quickView">БЫСТРЫЙ ПРОСМОТР</a>
+                        <a href="catalog.html" class="quick-view-btn">БЫСТРЫЙ ПРОСМОТР</a>
                     </div>
                 </div>
-                <h4 class="product-name" data-i18n="product.items.emeraldSilkRobe.title">Халат Emerald Silk</h4>
-                <p class="product-desc" data-i18n="product.items.emeraldSilkRobe.description">Роскошный шелковый шармюз</p>
+                <h4 class="product-name">Халат Emerald Silk</h4>
+                <p class="product-desc">Роскошный шелковый шармюз</p>
                 <p class="product-price">16 800 ₽</p>
             </div>
             
@@ -324,11 +330,11 @@
                         <i class="fa-solid fa-star"></i> 5.0
                     </div>
                     <div class="product-overlay">
-                        <a href="catalog.html" class="quick-view-btn" data-i18n="product.quickView">БЫСТРЫЙ ПРОСМОТР</a>
+                        <a href="catalog.html" class="quick-view-btn">БЫСТРЫЙ ПРОСМОТР</a>
                 </div>
                 </div>
-                <h4 class="product-name" data-i18n="product.items.burgundyLaceSet.title">Комплект Burgundy Lace</h4>
-                <p class="product-desc" data-i18n="product.items.burgundyLaceSet.description">Цветочное вышитое кружево</p>
+                <h4 class="product-name">Комплект Burgundy Lace</h4>
+                <p class="product-desc">Цветочное вышитое кружево</p>
                 <p class="product-price">9 500 ₽</p>
             </div>
             
@@ -339,11 +345,11 @@
                         <i class="fa-solid fa-star"></i> 4.8
                     </div>
                     <div class="product-overlay">
-                        <a href="catalog.html" class="quick-view-btn" data-i18n="product.quickView">БЫСТРЫЙ ПРОСМОТР</a>
+                        <a href="catalog.html" class="quick-view-btn">БЫСТРЫЙ ПРОСМОТР</a>
                 </div>
                 </div>
-                <h4 class="product-name" data-i18n="product.items.cloudCamisoleSet.title">Комплект Cloud Camisole</h4>
-                <p class="product-desc" data-i18n="product.items.cloudCamisoleSet.description">Хлопок пима и кружево</p>
+                <h4 class="product-name">Комплект Cloud Camisole</h4>
+                <p class="product-desc">Хлопок пима и кружево</p>
                 <p class="product-price">8 200 ₽</p>
             </div>
             
@@ -351,11 +357,11 @@
                 <div class="product-image-wrapper">
                     <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/48870ed260-bde48a1c7ea8473e1e41.png" alt="navy blue satin chemise with lace details on model, luxury nightwear photography" loading="lazy">
                     <div class="product-overlay">
-                        <a href="catalog.html" class="quick-view-btn" data-i18n="product.quickView">БЫСТРЫЙ ПРОСМОТР</a>
+                        <a href="catalog.html" class="quick-view-btn">БЫСТРЫЙ ПРОСМОТР</a>
                     </div>
                 </div>
-                <h4 class="product-name" data-i18n="product.items.midnightChemise.title">Ночная сорочка Midnight</h4>
-                <p class="product-desc" data-i18n="product.items.midnightChemise.description">Атлас с кружевными акцентами</p>
+                <h4 class="product-name">Ночная сорочка Midnight</h4>
+                <p class="product-desc">Атлас с кружевными акцентами</p>
                 <p class="product-price">10 500 ₽</p>
             </div>
             
@@ -366,11 +372,11 @@
                         <i class="fa-solid fa-star"></i> 4.7
                     </div>
                     <div class="product-overlay">
-                        <a href="catalog.html" class="quick-view-btn" data-i18n="product.quickView">БЫСТРЫЙ ПРОСМОТР</a>
+                        <a href="catalog.html" class="quick-view-btn">БЫСТРЫЙ ПРОСМОТР</a>
                 </div>
                 </div>
-                <h4 class="product-name" data-i18n="product.items.peachDreamSet.title">Комплект Peach Dream</h4>
-                <p class="product-desc" data-i18n="product.items.peachDreamSet.description">Шелковый бралетт и шорты</p>
+                <h4 class="product-name">Комплект Peach Dream</h4>
+                <p class="product-desc">Шелковый бралетт и шорты</p>
                 <p class="product-price">12 500 ₽</p>
             </div>
             </div>
@@ -381,8 +387,8 @@
 <section id="new-arrivals">
     <div class="container">
         <div class="section-header">
-            <h2 class="section-title" data-i18n="newArrivals.title">Новинки</h2>
-            <p class="section-subtitle" data-i18n="newArrivals.subtitle">Новые стили, только что добавленные в нашу коллекцию</p>
+            <h2 class="section-title">Новинки</h2>
+            <p class="section-subtitle">Новые стили, только что добавленные в нашу коллекцию</p>
         </div>
         
         <div class="new-arrivals-grid">
@@ -391,11 +397,11 @@
                 <div class="featured-overlay"></div>
                 <div class="featured-content">
                     <div class="featured-info">
-                        <span class="new-badge" data-i18n="newArrivals.badge">НОВИНКА</span>
-                        <h3 class="featured-title" data-i18n="newArrivals.collectionTitle">Коллекция Champagne Dreams</h3>
-                        <p class="featured-text" data-i18n="newArrivals.collectionText">Насладитесь чистой роскошью с нашей фирменной шелковой смесью. Создано для максимального комфорта и вневременной элегантности.</p>
+                        <span class="new-badge">НОВИНКА</span>
+                        <h3 class="featured-title">Коллекция Champagne Dreams</h3>
+                        <p class="featured-text">Насладитесь чистой роскошью с нашей фирменной шелковой смесью. Создано для максимального комфорта и вневременной элегантности.</p>
                         <a href="catalog.html" class="cta-button btn-solid" style="text-decoration: none;">
-                            <span data-i18n="newArrivals.shopNow">КУПИТЬ СЕЙЧАС</span>
+                            <span>КУПИТЬ СЕЙЧАС</span>
                         </a>
                     </div>
                 </div>
@@ -405,7 +411,7 @@
                 <div class="featured-small">
                     <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/425b0cfdf7-0c3bc91ccd1a89de7620.png" alt="dusty rose lace bralette and high waist panty set on model, luxury lingerie photography" loading="lazy">
                     <div class="featured-small-overlay">
-                        <h4 class="featured-small-title" data-i18n="product.items.roseGardenSet.title">Комплект Rose Garden</h4>
+                        <h4 class="featured-small-title">Комплект Rose Garden</h4>
                         <p class="featured-small-price">8 800 ₽</p>
                     </div>
                 </div>
@@ -413,7 +419,7 @@
                 <div class="featured-small">
                     <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/9748b8f173-db06ed5110f8b9df1561.png" alt="sage green silk camisole with lace trim on model, luxury sleepwear photography, minimalist aesthetic" loading="lazy">
                     <div class="featured-small-overlay">
-                        <h4 class="featured-small-title" data-i18n="product.items.sageSilkCami.title">Cami Sage Silk</h4>
+                        <h4 class="featured-small-title">Cami Sage Silk</h4>
                         <p class="featured-small-price">7 200 ₽</p>
                     </div>
                 </div>
@@ -425,18 +431,18 @@
 <section id="shop-by-category">
     <div class="shop-category-container">
         <div class="shop-category-header">
-            <p class="shop-category-label" data-i18n="shopByCategory.label">Откройте</p>
-            <h2 class="shop-category-title" data-i18n="shopByCategory.title">Покупка По Категориям</h2>
+            <p class="shop-category-label">Откройте</p>
+            <h2 class="shop-category-title">Покупка По Категориям</h2>
         </div>
         <div class="shop-category-grid-large">
             <div class="shop-category-card shop-category-card-large">
                 <img class="shop-category-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/e1c675aa23-2d4d9f46c0df38e78bd4.png" alt="luxury lingerie collection display, elegant intimate apparel, premium bras and panties, sophisticated styling" loading="lazy">
                 <div class="shop-category-overlay"></div>
                 <div class="shop-category-content">
-                    <h3 class="shop-category-card-title" data-i18n="shopByCategory.lingerie">Нижнее Белье</h3>
-                    <p class="shop-category-card-desc" data-i18n="shopByCategory.lingerieDesc">Бюстгальтеры, Трусики, Боди и Больше</p>
+                    <h3 class="shop-category-card-title">Нижнее Белье</h3>
+                    <p class="shop-category-card-desc">Бюстгальтеры, Трусики, Боди и Больше</p>
                     <a href="catalog.html" class="shop-category-link">
-                        <span data-i18n="shopByCategory.explore">СМОТРЕТЬ КОЛЛЕКЦИЮ</span>
+                        <span>СМОТРЕТЬ КОЛЛЕКЦИЮ</span>
                         <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
@@ -445,10 +451,10 @@
                 <img class="shop-category-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/8d22e8b917-45930bbd52832d16a866.png" alt="luxury sleepwear collection, silk pajamas and robes, elegant nightwear display, premium fabrics" loading="lazy">
                 <div class="shop-category-overlay"></div>
                 <div class="shop-category-content">
-                    <h3 class="shop-category-card-title" data-i18n="shopByCategory.sleepwear">Домашняя Одежда</h3>
-                    <p class="shop-category-card-desc" data-i18n="shopByCategory.sleepwearDesc">Пижамы, Халаты, Ночные Сорочки и Комплекты</p>
+                    <h3 class="shop-category-card-title">Домашняя Одежда</h3>
+                    <p class="shop-category-card-desc">Пижамы, Халаты, Ночные Сорочки и Комплекты</p>
                     <a href="catalog.html" class="shop-category-link">
-                        <span data-i18n="shopByCategory.explore">СМОТРЕТЬ КОЛЛЕКЦИЮ</span>
+                        <span>СМОТРЕТЬ КОЛЛЕКЦИЮ</span>
                         <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
@@ -459,10 +465,10 @@
                 <img class="shop-category-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/e60a5848a9-ff667377d0accce2d5da.png" alt="luxury lingerie accessories, elegant garter belts and stockings, premium intimate accessories display" loading="lazy">
                 <div class="shop-category-overlay"></div>
                 <div class="shop-category-content shop-category-content-small">
-                    <h3 class="shop-category-card-title shop-category-card-title-small" data-i18n="shopByCategory.accessories">Аксессуары</h3>
-                    <p class="shop-category-card-desc shop-category-card-desc-small" data-i18n="shopByCategory.accessoriesDesc">Дополните Ваш Образ</p>
+                    <h3 class="shop-category-card-title shop-category-card-title-small">Аксессуары</h3>
+                    <p class="shop-category-card-desc shop-category-card-desc-small">Дополните Ваш Образ</p>
                     <a href="catalog.html" class="shop-category-link">
-                        <span data-i18n="shopByCategory.shopNow">КУПИТЬ СЕЙЧАС</span>
+                        <span>КУПИТЬ СЕЙЧАС</span>
                         <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
@@ -471,10 +477,10 @@
                 <img class="shop-category-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/f7310dd007-d20be4269f968db0562f.png" alt="luxury bridal lingerie, white lace wedding night lingerie, elegant bridal intimate apparel" loading="lazy">
                 <div class="shop-category-overlay"></div>
                 <div class="shop-category-content shop-category-content-small">
-                    <h3 class="shop-category-card-title shop-category-card-title-small" data-i18n="shopByCategory.bridal">Свадебное</h3>
-                    <p class="shop-category-card-desc shop-category-card-desc-small" data-i18n="shopByCategory.bridalDesc">Для Вашего Особенного Дня</p>
+                    <h3 class="shop-category-card-title shop-category-card-title-small">Свадебное</h3>
+                    <p class="shop-category-card-desc shop-category-card-desc-small">Для Вашего Особенного Дня</p>
                     <a href="catalog.html" class="shop-category-link">
-                        <span data-i18n="shopByCategory.shopNow">КУПИТЬ СЕЙЧАС</span>
+                        <span>КУПИТЬ СЕЙЧАС</span>
                         <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
@@ -483,10 +489,10 @@
                 <img class="shop-category-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/ab6d4f4aea-48414ec65d2704a7fe52.png" alt="luxury loungewear, comfortable elegant homewear, premium casual intimate apparel" loading="lazy">
                 <div class="shop-category-overlay"></div>
                 <div class="shop-category-content shop-category-content-small">
-                    <h3 class="shop-category-card-title shop-category-card-title-small" data-i18n="shopByCategory.loungewear">Для Дома</h3>
-                    <p class="shop-category-card-desc shop-category-card-desc-small" data-i18n="shopByCategory.loungewearDesc">Комфорт Встречается Со Стилем</p>
+                    <h3 class="shop-category-card-title shop-category-card-title-small">Для Дома</h3>
+                    <p class="shop-category-card-desc shop-category-card-desc-small">Комфорт Встречается Со Стилем</p>
                     <a href="catalog.html" class="shop-category-link">
-                        <span data-i18n="shopByCategory.shopNow">КУПИТЬ СЕЙЧАС</span>
+                        <span>КУПИТЬ СЕЙЧАС</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
@@ -500,8 +506,8 @@
     
     <div class="container">
         <div class="section-header">
-            <h2 class="section-title" data-i18n="testimonials.title">Что Говорят Наши Клиенты</h2>
-            <p class="section-subtitle" data-i18n="testimonials.subtitle">Настоящие отзывы от реальных людей</p>
+            <h2 class="section-title">Что Говорят Наши Клиенты</h2>
+            <p class="section-subtitle">Настоящие отзывы от реальных людей</p>
         </div>
         
         <div class="testimonials-grid">
@@ -519,7 +525,7 @@
                         </div>
                     </div>
                 </div>
-                <p class="testimonial-text" data-i18n="testimonials.review1">
+                <p class="testimonial-text">
                     "Качество абсолютно исключительное. Шелк ощущается невероятно приятно на коже, а внимание к деталям замечательное. Стоит каждой копейки!"
                 </p>
             </div>
@@ -538,7 +544,7 @@
                         </div>
                     </div>
                 </div>
-                <p class="testimonial-text" data-i18n="testimonials.review2">
+                <p class="testimonial-text">
                     "Наконец-то нашла бренд, который предлагает действительно расширенный размерный ряд без ущерба стилю. Посадка идеальна, и я чувствую себя абсолютно красивой!"
                 </p>
             </div>
@@ -557,7 +563,7 @@
                         </div>
                     </div>
                 </div>
-                <p class="testimonial-text" data-i18n="testimonials.review3">
+                <p class="testimonial-text">
                     "Служба поддержки клиентов превосходна! Мой заказ прибыл красиво упакованным, а бесплатная доставка была невероятно быстрой. Очень рекомендую!"
                 </p>
             </div>
@@ -569,8 +575,8 @@
     <div class="container">
         <div class="size-guide-grid">
             <div>
-                <h2 class="size-guide-title" data-i18n="sizeGuide.title">Найдите Ваш Идеальный Размер</h2>
-                <p class="size-guide-text" data-i18n="sizeGuide.text">
+                <h2 class="size-guide-title">Найдите Ваш Идеальный Размер</h2>
+                <p class="size-guide-text">
                     Не уверены в своем размере? Наше подробное руководство по размерам и эксперты по подбору здесь, чтобы помочь вам найти вещи, которые идеально сидят и ощущаются невероятно.
                 </p>
                 
@@ -580,8 +586,8 @@
                             <i class="fa-solid fa-ruler"></i>
                         </div>
                         <div>
-                            <h4 class="feature-title" data-i18n="sizeGuide.detailedMeasurements.title">Подробные Измерения</h4>
-                            <p class="feature-text" data-i18n="sizeGuide.detailedMeasurements.text">Пошаговое руководство с визуальными подсказками для точного измерения себя дома.</p>
+                            <h4 class="feature-title">Подробные Измерения</h4>
+                            <p class="feature-text">Пошаговое руководство с визуальными подсказками для точного измерения себя дома.</p>
                         </div>
                     </div>
                     
@@ -590,8 +596,8 @@
                             <i class="fa-solid fa-comments"></i>
                         </div>
                         <div>
-                            <h4 class="feature-title" data-i18n="sizeGuide.expertConsultation.title">Консультация Эксперта</h4>
-                            <p class="feature-text" data-i18n="sizeGuide.expertConsultation.text">Общайтесь с нашими специалистами по подбору для персональных рекомендаций.</p>
+                            <h4 class="feature-title">Консультация Эксперта</h4>
+                            <p class="feature-text">Общайтесь с нашими специалистами по подбору для персональных рекомендаций.</p>
                         </div>
                     </div>
                     
@@ -600,47 +606,77 @@
                             <i class="fa-solid fa-sync"></i>
                         </div>
                         <div>
-                            <h4 class="feature-title" data-i18n="sizeGuide.easyExchanges.title">Легкий Обмен</h4>
-                            <p class="feature-text" data-i18n="sizeGuide.easyExchanges.text">Бесплатный обмен в течение 30 дней, если размер не совсем подходит.</p>
+                            <h4 class="feature-title">Легкий Обмен</h4>
+                            <p class="feature-text">Бесплатный обмен в течение 30 дней, если размер не совсем подходит.</p>
                         </div>
                     </div>
                 </div>
                 
-                <a href="#size-guide" class="cta-button btn-solid" style="text-decoration: none;">
-                    <span data-i18n="sizeGuide.viewGuide">СМОТРЕТЬ РУКОВОДСТВО ПО РАЗМЕРАМ</span>
-                </a>
+                <button onclick="openSizeGuideModal()" class="cta-button btn-solid" style="text-decoration: none; border: none; cursor: pointer;">
+                    <span>СМОТРЕТЬ РУКОВОДСТВО ПО РАЗМЕРАМ</span>
+                </button>
             </div>
             
             <div class="size-calculator">
-                <h3 class="calculator-title" data-i18n="sizeGuide.calculator.title">Быстрый Калькулятор Размеров</h3>
+                <h3 class="calculator-title">Быстрый Калькулятор Размеров</h3>
                 <form class="calculator-form" onsubmit="handleSizeCalculatorSubmit(event)" novalidate>
                     <div class="form-group">
-                        <label for="band-size" data-i18n="sizeGuide.calculator.bandSize">Обхват Под Грудью (см)</label>
-                        <input type="number" id="band-size" placeholder="например, 75" data-i18n-placeholder="sizeGuide.calculator.bandSizePlaceholder" aria-label="Обхват под грудью в сантиметрах" min="60" max="150" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="bust-size" data-i18n="sizeGuide.calculator.bustSize">Обхват Груди (см)</label>
-                        <input type="number" id="bust-size" placeholder="например, 85" data-i18n-placeholder="sizeGuide.calculator.bustSizePlaceholder" aria-label="Обхват груди в сантиметрах" min="70" max="160" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="body-type" data-i18n="sizeGuide.calculator.bodyType">Тип Телосложения</label>
-                        <select id="body-type" aria-label="Выберите тип телосложения" required>
-                            <option value="" data-i18n="sizeGuide.calculator.selectBodyType">Выберите тип телосложения</option>
-                            <option value="petite" data-i18n="sizeGuide.calculator.petite">Маленькое</option>
-                            <option value="average" data-i18n="sizeGuide.calculator.average">Среднее</option>
-                            <option value="tall" data-i18n="sizeGuide.calculator.tall">Высокое</option>
-                            <option value="plusSize" data-i18n="sizeGuide.calculator.plusSize">Большое</option>
+                        <label for="product-type">Что нужно рассчитать?</label>
+                        <select id="product-type" aria-label="Выберите тип товара" required onchange="updateCalculatorFields()">
+                            <option value="">Выберите тип товара</option>
+                            <option value="bra">Бюстгальтер</option>
+                            <option value="panties">Трусы</option>
+                            <option value="clothing">Одежда/Пижама</option>
                         </select>
                     </div>
                     
-                    <button type="submit" class="form-submit" data-i18n="sizeGuide.calculator.calculate" aria-label="Рассчитать размер">
+                    <!-- Поля для бюстгальтера -->
+                    <div id="bra-fields" class="calculator-fields" style="display: none;">
+                        <div class="form-group">
+                            <label for="band-size">Обхват Под Грудью (см)</label>
+                            <input type="number" id="band-size" placeholder="например, 75" aria-label="Обхват под грудью в сантиметрах" min="60" max="150">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="bust-size">Обхват Груди (см)</label>
+                            <input type="number" id="bust-size" placeholder="например, 90" aria-label="Обхват груди в сантиметрах" min="70" max="160">
+                        </div>
+                    </div>
+                    
+                    <!-- Поля для трусов -->
+                    <div id="panties-fields" class="calculator-fields" style="display: none;">
+                        <div class="form-group">
+                            <label for="hip-size">Обхват Бёдер (см)</label>
+                            <input type="number" id="hip-size" placeholder="например, 95" aria-label="Обхват бёдер в сантиметрах" min="80" max="120">
+                        </div>
+                    </div>
+                    
+                    <!-- Поля для одежды/пижамы -->
+                    <div id="clothing-fields" class="calculator-fields" style="display: none;">
+                        <div class="form-group">
+                            <label for="clothing-bust-size">Обхват Груди (см)</label>
+                            <input type="number" id="clothing-bust-size" placeholder="например, 84" aria-label="Обхват груди в сантиметрах" min="70" max="120">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="clothing-waist-size">Обхват Талии (см)</label>
+                            <input type="number" id="clothing-waist-size" placeholder="например, 64" aria-label="Обхват талии в сантиметрах" min="50" max="100">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="clothing-hip-size">Обхват Бёдер (см)</label>
+                            <input type="number" id="clothing-hip-size" placeholder="например, 92" aria-label="Обхват бёдер в сантиметрах" min="80" max="120">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="form-submit" aria-label="Рассчитать размер">
                         РАССЧИТАТЬ РАЗМЕР
                     </button>
                 </form>
                 
-                <p class="form-note" data-i18n="sizeGuide.calculator.note">
+                <div id="calculator-result" class="calculator-result" style="display: none;"></div>
+                
+                <p class="form-note">
                     Результаты являются рекомендациями. Посадка может варьироваться в зависимости от стиля.
                 </p>
             </div>
@@ -652,18 +688,18 @@
     <div class="container">
         <div class="about-grid">
             <div>
-                <h2 class="size-guide-title" data-i18n="about.title">Наша История</h2>
-                <p class="size-guide-text" data-i18n="about.text1">
+                <h2 class="size-guide-title">Наша История</h2>
+                <p class="size-guide-text">
                     Основанная в 2018 году, Chill Out Lingerie родилась из простой веры: каждая женщина заслуживает чувствовать себя красивой, комфортной и уверенной в своем нижнем белье.
                 </p>
-                <p class="size-guide-text" data-i18n="about.text2">
+                <p class="size-guide-text">
                     Мы тщательно отбираем лучшие ткани со всего мира, работая с ремесленными фабриками во Франции, Италии и Швейцарии, чтобы создавать вещи, которые так же роскошны, как и удобны.
                 </p>
-                <p class="size-guide-text" data-i18n="about.text3">
+                <p class="size-guide-text">
                     Наша приверженность расширенному размерному ряду и устойчивым практикам гарантирует, что элегантность доступна всем, не жертвуя нашей планетой.
                 </p>
                 <a href="#about" class="cta-button btn-outline" style="text-decoration: none;">
-                    <span data-i18n="about.learnMore">УЗНАТЬ БОЛЬШЕ</span>
+                    <span>УЗНАТЬ БОЛЬШЕ</span>
                 </a>
             </div>
             
@@ -693,26 +729,26 @@
     <div class="container">
         <div class="sustainability-card">
             <i class="fa-solid fa-leaf sustainability-icon"></i>
-            <h2 class="sustainability-title" data-i18n="sustainability.title">Приверженность Устойчивому Развитию</h2>
-            <p class="sustainability-text" data-i18n="sustainability.text">
+            <h2 class="sustainability-title">Приверженность Устойчивому Развитию</h2>
+            <p class="sustainability-text">
                 Мы верим, что роскошь и ответственность идут рука об руку. Наша упаковка на 100% перерабатываемая, мы используем этично полученные материалы и сотрудничаем с производителями, которые разделяют нашу приверженность справедливым трудовым практикам и заботе об окружающей среде.
             </p>
             <div class="sustainability-stats">
                 <div>
                     <p class="stat-number">100%</p>
-                    <p class="stat-label" data-i18n="sustainability.stats.recyclable">Перерабатываемая Упаковка</p>
+                    <p class="stat-label">Перерабатываемая Упаковка</p>
                 </div>
                 <div>
                     <p class="stat-number">50+</p>
-                    <p class="stat-label" data-i18n="sustainability.stats.partners">Этичные Партнеры</p>
+                    <p class="stat-label">Этичные Партнеры</p>
                 </div>
                 <div>
                     <p class="stat-number">0</p>
-                    <p class="stat-label" data-i18n="sustainability.stats.animal">Продуктов Животного Происхождения</p>
+                    <p class="stat-label">Продуктов Животного Происхождения</p>
                 </div>
                 <div>
                     <p class="stat-number">5★</p>
-                    <p class="stat-label" data-i18n="sustainability.stats.rating">Рейтинг Клиентов</p>
+                    <p class="stat-label">Рейтинг Клиентов</p>
                 </div>
             </div>
         </div>
@@ -722,17 +758,17 @@
 <section id="newsletter">
     <div class="container">
         <div class="newsletter-content">
-            <h2 class="newsletter-title" data-i18n="newsletter.title">Присоединяйтесь К Нашему Сообществу</h2>
-            <p class="newsletter-text" data-i18n="newsletter.text">
+            <h2 class="newsletter-title">Присоединяйтесь К Нашему Сообществу</h2>
+            <p class="newsletter-text">
                 Подпишитесь, чтобы получать эксклюзивные предложения, советы по стилю и ранний доступ к новым коллекциям.
             </p>
             <form class="newsletter-form">
-                <input type="email" placeholder="Введите ваш email адрес" class="newsletter-input" data-i18n-placeholder="newsletter.placeholder">
+                <input type="email" placeholder="Введите ваш email адрес" class="newsletter-input">
                 <button type="submit" class="cta-button btn-solid">
-                    <span data-i18n="newsletter.subscribe">ПОДПИСАТЬСЯ</span>
+                    <span>ПОДПИСАТЬСЯ</span>
                 </button>
             </form>
-            <p class="newsletter-note" data-i18n="newsletter.note">
+            <p class="newsletter-note">
                 Подписываясь, вы соглашаетесь с нашей Политикой Конфиденциальности и даете согласие на получение обновлений.
             </p>
         </div>
@@ -743,8 +779,8 @@
     <div class="container">
         <div class="contact-grid">
             <div>
-                <h2 class="contact-title" data-i18n="contact.title">Свяжитесь С Нами</h2>
-                <p class="contact-text" data-i18n="contact.text">
+                <h2 class="contact-title">Свяжитесь С Нами</h2>
+                <p class="contact-text">
                     Есть вопрос? Наша команда заботы о клиентах здесь, чтобы помочь. Свяжитесь с нами, и мы ответим в течение 24 часов.
                 </p>
                 
@@ -754,9 +790,9 @@
                             <i class="fa-solid fa-phone"></i>
                         </div>
                         <div>
-                            <h4 class="contact-item-title" data-i18n="contact.phone.title">Телефон</h4>
+                            <h4 class="contact-item-title">Телефон</h4>
                             <p class="contact-item-text">+1 (555) 123-4567</p>
-                            <p class="contact-item-note" data-i18n="contact.phone.note">Пн-Пт, 9:00-18:00 EST</p>
+                            <p class="contact-item-note">Пн-Пт, 9:00-18:00 EST</p>
                         </div>
                     </div>
                     
@@ -765,9 +801,9 @@
                             <i class="fa-solid fa-envelope"></i>
                         </div>
                         <div>
-                            <h4 class="contact-item-title" data-i18n="contact.email.title">Email</h4>
+                            <h4 class="contact-item-title">Email</h4>
                             <p class="contact-item-text">hello@chilloutlingerie.com</p>
-                            <p class="contact-item-note" data-i18n="contact.email.note">Мы ответим в течение 24 часов</p>
+                            <p class="contact-item-note">Мы ответим в течение 24 часов</p>
                         </div>
                     </div>
                     
@@ -776,35 +812,35 @@
                             <i class="fa-solid fa-location-dot"></i>
                         </div>
                         <div>
-                            <h4 class="contact-item-title" data-i18n="contact.showroom.title">Шоурум</h4>
+                            <h4 class="contact-item-title">Шоурум</h4>
                             <p class="contact-item-text">123 Madison Avenue<br>New York, NY 10016</p>
-                            <p class="contact-item-note" data-i18n="contact.showroom.note">Только по предварительной записи</p>
+                            <p class="contact-item-note">Только по предварительной записи</p>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div class="contact-form">
-                <h3 class="contact-form-title" data-i18n="contact.form.title">Отправьте Нам Сообщение</h3>
+                <h3 class="contact-form-title">Отправьте Нам Сообщение</h3>
                 <form class="contact-form-fields" onsubmit="handleContactSubmit(event)" novalidate>
                     <div>
-                        <label for="contact-name" class="sr-only" data-i18n="contact.form.namePlaceholder">Ваше Имя</label>
-                        <input type="text" id="contact-name" placeholder="Ваше Имя" data-i18n-placeholder="contact.form.namePlaceholder" aria-label="Ваше имя" required>
+                        <label for="contact-name" class="sr-only">Ваше Имя</label>
+                        <input type="text" id="contact-name" placeholder="Ваше Имя" aria-label="Ваше имя" required>
                     </div>
                     <div>
-                        <label for="contact-email" class="sr-only" data-i18n="contact.form.emailPlaceholder">Ваш Email</label>
-                        <input type="email" id="contact-email" placeholder="Ваш Email" data-i18n-placeholder="contact.form.emailPlaceholder" aria-label="Ваш email" required>
+                        <label for="contact-email" class="sr-only">Ваш Email</label>
+                        <input type="email" id="contact-email" placeholder="Ваш Email" aria-label="Ваш email" required>
                     </div>
                     <div>
-                        <label for="contact-subject" class="sr-only" data-i18n="contact.form.subjectPlaceholder">Тема</label>
-                        <input type="text" id="contact-subject" placeholder="Тема" data-i18n-placeholder="contact.form.subjectPlaceholder" aria-label="Тема сообщения" required>
+                        <label for="contact-subject" class="sr-only">Тема</label>
+                        <input type="text" id="contact-subject" placeholder="Тема" aria-label="Тема сообщения" required>
                     </div>
                     <div>
-                        <label for="contact-message" class="sr-only" data-i18n="contact.form.messagePlaceholder">Ваше Сообщение</label>
-                        <textarea id="contact-message" rows="5" placeholder="Ваше Сообщение" data-i18n-placeholder="contact.form.messagePlaceholder" aria-label="Ваше сообщение" required></textarea>
+                        <label for="contact-message" class="sr-only">Ваше Сообщение</label>
+                        <textarea id="contact-message" rows="5" placeholder="Ваше Сообщение" aria-label="Ваше сообщение" required></textarea>
                     </div>
                     <button type="submit" class="cta-button btn-solid" style="width: 100%;" aria-label="Отправить сообщение">
-                        <span data-i18n="contact.form.send">ОТПРАВИТЬ СООБЩЕНИЕ</span>
+                        <span>ОТПРАВИТЬ СООБЩЕНИЕ</span>
                     </button>
                 </form>
             </div>
@@ -818,7 +854,7 @@
         <div class="footer-main">
             <div>
                 <h3 class="footer-brand">Chill Out Lingerie</h3>
-                <p class="footer-desc" data-i18n="footer.description">
+                <p class="footer-desc">
                     Повышаем уровень интимного белья с вневременной элегантностью, премиальным качеством и инклюзивными дизайнами для современной женщины.
                 </p>
                 <div class="footer-social">
@@ -846,6 +882,272 @@
         </div>
     </div>
 </footer>
+
+<!-- Модальное окно руководства по размерам -->
+<div id="size-guide-modal" class="size-guide-modal" role="dialog" aria-modal="true" aria-labelledby="size-guide-modal-title">
+    <div class="size-guide-modal-overlay" onclick="closeSizeGuideModal()"></div>
+    <div class="size-guide-modal-content">
+        <div class="size-guide-modal-header">
+            <h2 id="size-guide-modal-title" class="size-guide-modal-title">Руководство По Размерам</h2>
+            <button onclick="closeSizeGuideModal()" class="size-guide-modal-close" aria-label="Закрыть руководство по размерам">
+                <i class="fa-solid fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="size-guide-modal-body">
+            <!-- Таблица размеров бюстгальтеров -->
+            <div class="size-table-section">
+                <h3 class="size-table-title">Размер Бюстгальтеров с Чашкой</h3>
+                <div class="size-table-wrapper">
+                    <table class="size-table">
+                        <thead>
+                            <tr>
+                                <th>Размер</th>
+                                <th>65</th>
+                                <th>70</th>
+                                <th>75</th>
+                                <th>80</th>
+                                <th>85</th>
+                                <th>90</th>
+                                <th>95</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="size-table-label">Объём под грудью (см)</td>
+                                <td>63-67</td>
+                                <td>66-72</td>
+                                <td>73-77</td>
+                                <td>78-82</td>
+                                <td>83-87</td>
+                                <td>88-92</td>
+                                <td>93-97</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h4 class="size-table-subtitle">Объём груди (см)</h4>
+                    <table class="size-table">
+                        <thead>
+                            <tr>
+                                <th>Чашка</th>
+                                <th>65</th>
+                                <th>70</th>
+                                <th>75</th>
+                                <th>80</th>
+                                <th>85</th>
+                                <th>90</th>
+                                <th>95</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="size-table-label">A</td>
+                                <td>77-79</td>
+                                <td>82-84</td>
+                                <td>87-89</td>
+                                <td>92-94</td>
+                                <td>97-99</td>
+                                <td>102-104</td>
+                                <td>107-109</td>
+                            </tr>
+                            <tr>
+                                <td class="size-table-label">B</td>
+                                <td>79-81</td>
+                                <td>84-86</td>
+                                <td>89-91</td>
+                                <td>94-96</td>
+                                <td>99-101</td>
+                                <td>104-106</td>
+                                <td>109-111</td>
+                            </tr>
+                            <tr>
+                                <td class="size-table-label">C</td>
+                                <td>81-83</td>
+                                <td>86-88</td>
+                                <td>91-93</td>
+                                <td>96-98</td>
+                                <td>101-103</td>
+                                <td>106-108</td>
+                                <td>111-113</td>
+                            </tr>
+                            <tr>
+                                <td class="size-table-label">D</td>
+                                <td>83-85</td>
+                                <td>88-90</td>
+                                <td>93-95</td>
+                                <td>98-100</td>
+                                <td>103-105</td>
+                                <td>108-110</td>
+                                <td>113-115</td>
+                            </tr>
+                            <tr>
+                                <td class="size-table-label">E</td>
+                                <td>—</td>
+                                <td>90-92</td>
+                                <td>95-97</td>
+                                <td>100-102</td>
+                                <td>105-107</td>
+                                <td>110-112</td>
+                                <td>115-117</td>
+                            </tr>
+                            <tr>
+                                <td class="size-table-label">F</td>
+                                <td>—</td>
+                                <td>92-94</td>
+                                <td>97-99</td>
+                                <td>102-104</td>
+                                <td>107-109</td>
+                                <td>112-114</td>
+                                <td>117-119</td>
+                            </tr>
+                            <tr>
+                                <td class="size-table-label">G</td>
+                                <td>—</td>
+                                <td>94-96</td>
+                                <td>99-101</td>
+                                <td>104-106</td>
+                                <td>109-111</td>
+                                <td>114-116</td>
+                                <td>119-121</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Таблица размеров трусов -->
+            <div class="size-table-section">
+                <h3 class="size-table-title">Размер Трусов</h3>
+                <div class="size-table-wrapper">
+                    <table class="size-table">
+                        <thead>
+                            <tr>
+                                <th>Обхват бёдер (см)</th>
+                                <th>86-90</th>
+                                <th>91-95</th>
+                                <th>96-100</th>
+                                <th>101-105</th>
+                                <th>106-110</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="size-table-label">Размер Российский</td>
+                                <td>40</td>
+                                <td>42</td>
+                                <td>44</td>
+                                <td>46</td>
+                                <td>48</td>
+                            </tr>
+                            <tr>
+                                <td class="size-table-label">Размер Европейский</td>
+                                <td>38</td>
+                                <td>40</td>
+                                <td>42</td>
+                                <td>44</td>
+                                <td>46</td>
+                            </tr>
+                            <tr>
+                                <td class="size-table-label">Размер Международный</td>
+                                <td>XS</td>
+                                <td>S</td>
+                                <td>M</td>
+                                <td>L</td>
+                                <td>XL</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Таблица размеров одежды -->
+            <div class="size-table-section">
+                <h3 class="size-table-title">Размер Одежды</h3>
+                <div class="size-table-wrapper">
+                    <table class="size-table">
+                        <thead>
+                            <tr>
+                                <th>Размер Международный</th>
+                                <th>Размер Российский</th>
+                                <th>Размер Европейский</th>
+                                <th>Обхват груди (см)</th>
+                                <th>Обхват талии (см)</th>
+                                <th>Обхват бёдер (см)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="size-table-label">XS</td>
+                                <td>40</td>
+                                <td>38</td>
+                                <td>78–82</td>
+                                <td>58–62</td>
+                                <td>86–90</td>
+                            </tr>
+                            <tr>
+                                <td class="size-table-label">S</td>
+                                <td>42</td>
+                                <td>40</td>
+                                <td>82–86</td>
+                                <td>62–66</td>
+                                <td>90–94</td>
+                            </tr>
+                            <tr>
+                                <td class="size-table-label">M</td>
+                                <td>44</td>
+                                <td>42</td>
+                                <td>86–90</td>
+                                <td>66–70</td>
+                                <td>94–98</td>
+                            </tr>
+                            <tr>
+                                <td class="size-table-label">L</td>
+                                <td>46</td>
+                                <td>44</td>
+                                <td>90–96</td>
+                                <td>70–76</td>
+                                <td>98–104</td>
+                            </tr>
+                            <tr>
+                                <td class="size-table-label">XL</td>
+                                <td>48</td>
+                                <td>46</td>
+                                <td>96–102</td>
+                                <td>76–82</td>
+                                <td>104–110</td>
+                            </tr>
+                            <tr>
+                                <td class="size-table-label">XXL</td>
+                                <td>50</td>
+                                <td>48</td>
+                                <td>102–108</td>
+                                <td>82–88</td>
+                                <td>110–116</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Уведомление о статусе отправки формы -->
+<div id="notification" class="notification" role="alert" aria-live="polite" aria-atomic="true">
+    <div class="notification-overlay"></div>
+    <div class="notification-content">
+        <div class="notification-icon">
+            <i></i>
+        </div>
+        <div class="notification-message">
+            <h4 class="notification-title"></h4>
+            <p class="notification-text"></p>
+        </div>
+        <button class="notification-close" aria-label="Закрыть уведомление">
+            <i class="fa-solid fa-times"></i>
+        </button>
+    </div>
+</div>
 
 </body>
 </html>
