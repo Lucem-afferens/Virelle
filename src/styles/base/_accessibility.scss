@@ -1,0 +1,39 @@
+/* ==========================================================================
+   ДОСТУПНОСТЬ
+   ========================================================================== */
+
+/* Skip link - переход к основному контенту */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: var(--color-gold);
+    color: var(--color-text-inverse);
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+    z-index: 10000;
+    border-radius: 0 0 8px 0;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid var(--color-pink-light);
+    outline-offset: 2px;
+}
+
+/* Screen reader only - скрытый текст для доступности */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+

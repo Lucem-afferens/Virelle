@@ -1,0 +1,60 @@
+/* ==========================================================================
+   УТИЛИТЫ (Вспомогательные классы)
+   ========================================================================== */
+
+/* Шрифты */
+.font-serif {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.font-sans {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Контейнер */
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    /* Улучшение для маленьких экранов - предотвращение переполнения */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Цвета */
+.text-gold {
+    color: var(--color-gold);
+}
+
+.bg-charcoal {
+    background-color: var(--color-bg-primary);
+}
+
+.bg-neutral-900 {
+    background-color: var(--color-bg-secondary);
+}
+
+.bg-neutral-800 {
+    background-color: var(--color-bg-tertiary);
+}
+
+/* Эффекты */
+.glassmorphism {
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--color-glass-border);
+}
+
+.gold-gradient {
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-pink-light) 40%, var(--color-pink) 60%, var(--color-gold) 100%);
+}
+
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px var(--color-shadow-black);
+}
+

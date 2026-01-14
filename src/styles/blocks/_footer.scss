@@ -1,0 +1,263 @@
+#footer {
+    background: var(--color-bg-secondary);
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    border-top: 1px solid var(--color-border-pink);
+}
+
+.footer-main {
+    margin-bottom: 3rem;
+}
+
+.footer-brand {
+    font-size: 1.875rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: bold;
+    color: var(--color-gold);
+    margin-bottom: 1.5rem;
+}
+
+.footer-desc {
+    color: var(--color-text-muted);
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-social a {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid var(--color-border-pink-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-gold);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-social a.vk {
+    border: 2px solid var(--color-gold);
+    background: var(--color-glass-bg);
+}
+
+.footer-social a:hover,
+.footer-social a:focus-visible {
+    background: var(--color-gold);
+    color: var(--color-text-inverse);
+}
+
+.footer-title {
+    font-size: 1.125rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--color-gold);
+    margin-bottom: 1.5rem;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer-links a {
+    color: var(--color-text-muted);
+    font-weight: 300;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+    color: var(--color-gold);
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--color-border-pink);
+    padding-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-copyright {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
+
+.footer-legal {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-legal a {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-legal a:hover,
+.footer-legal a:focus-visible {
+    color: var(--color-gold);
+}
+
+/* ==========================================================================
+   SHOP BY CATEGORY СЕКЦИЯ (Покупка по категориям)
+   ========================================================================== */
+#shop-by-category {
+    padding: 6rem 0;
+    background: var(--color-bg-secondary);
+}
+
+.shop-category-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.shop-category-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.shop-category-label {
+    color: var(--color-gold);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.875rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    font-weight: 300;
+}
+
+.shop-category-title {
+    font-size: 4rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+}
+
+.shop-category-grid-large {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.shop-category-grid-small {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.shop-category-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.shop-category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px var(--color-shadow-black);
+}
+
+.shop-category-card-large {
+    height: 450px;
+}
+
+.shop-category-card-small {
+    height: 320px;
+}
+
+.shop-category-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.shop-category-card:hover .shop-category-image {
+    transform: scale(1.05);
+}
+
+.shop-category-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--color-overlay-bg), var(--color-overlay-bg-light), transparent);
+}
+
+.shop-category-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 3rem;
+}
+
+.shop-category-content-small {
+    padding: 2rem;
+}
+
+.shop-category-card-title {
+    font-size: 2.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    color: var(--color-text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.shop-category-card-title-small {
+    font-size: 1.875rem;
+}
+
+.shop-category-card-desc {
+    color: var(--color-text-primary);
+    opacity: 0.9;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.shop-category-card-desc-small {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.shop-category-link {
+    color: var(--color-text-primary);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.shop-category-link:hover,
+.shop-category-link:focus-visible {
+    color: var(--color-gold);
+}
+
+.shop-category-link i {
+    transition: transform 0.3s ease;
+}
+
+.shop-category-link:hover i,
+.shop-category-link:focus-visible i {
+    transform: translateX(4px);
+}
+
+/* Адаптивные стили для всех устройств - детальная настройка */

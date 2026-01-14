@@ -1,0 +1,1761 @@
+/* ==========================================================================
+   VK NOTICE СЕКЦИЯ (Уведомление о ВКонтакте)
+   ========================================================================== */
+#vk-notice {
+    padding: 4rem 0;
+    background: var(--gradient-bg-vk-notice);
+    border-top: 1px solid var(--color-border-pink);
+    border-bottom: 1px solid var(--color-border-pink);
+}
+
+.vk-notice-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.vk-notice-info {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex: 1;
+}
+
+.vk-icon-wrapper {
+    width: 5rem;
+    height: 5rem;
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-pink-light) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px var(--color-carousel-shadow);
+}
+
+.vk-icon-wrapper i {
+    font-size: 2.5rem;
+    color: var(--color-text-inverse);
+}
+
+.vk-notice-title {
+    font-size: 1.875rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+.vk-notice-text {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    font-weight: 300;
+    line-height: 1.6;
+    max-width: 35rem;
+}
+
+.btn-vk-large {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-pink-light) 50%, var(--color-pink) 100%);
+    color: var(--color-text-inverse);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px var(--color-shadow-pink);
+    white-space: nowrap;
+}
+
+.btn-vk-large:hover,
+.btn-vk-large:focus-visible {
+    background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-pink-light) 50%, var(--color-gold) 100%);
+    box-shadow: 0 6px 20px var(--color-shadow-pink-strong);
+    transform: translateY(-2px);
+}
+
+.btn-vk-large i {
+    font-size: 1.25rem;
+}
+
+/* ==========================================================================
+   VALUE PROPOSITION СЕКЦИЯ (Преимущества)
+   ========================================================================== */
+#value-proposition {
+    padding: 6rem 0;
+    background: var(--color-bg-primary);
+}
+
+.value-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+}
+
+.value-item {
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.value-item:hover {
+    transform: translateY(-8px);
+}
+
+.value-icon {
+    width: 5rem;
+    height: 5rem;
+    background: var(--color-glass-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.value-item:hover .value-icon {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(255, 182, 193, 0.2) 100%);
+    box-shadow: 0 8px 20px var(--color-carousel-shadow);
+}
+
+.value-icon i {
+    color: var(--color-gold);
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.value-item:hover .value-icon i {
+    transform: scale(1.1);
+}
+
+.value-title {
+    font-size: 1.875rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.value-text {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   FEATURED COLLECTION СЕКЦИЯ (Избранная коллекция)
+   ========================================================================== */
+#featured-collection {
+    padding: 6rem 0 8rem 0;
+    position: relative;
+    overflow: visible;
+}
+
+/* ==========================================================================
+   BESTSELLERS СЕКЦИЯ (Хиты продаж)
+   ========================================================================== */
+#bestsellers {
+    padding: 6rem 0;
+    background: var(--color-bg-primary);
+}
+
+.bestsellers-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+}
+
+/* Удаляем старые стили для carousel-controls - больше не нужны */
+.carousel-controls {
+    display: none;
+}
+
+/* Премиальный дизайн стрелок карусели - внутри контейнера, по бокам */
+/* Обертка для карусели - позиционирование кнопок относительно этой обертки */
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.carousel-container {
+    position: relative;
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    padding: 2rem 4rem;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Стрелки управления каруселью - фиксированы относительно обертки, не прокручиваются */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3.5rem;
+    height: 3.5rem;
+    background: var(--color-carousel-bg);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--color-carousel-border);
+    border-radius: 50%;
+    color: var(--color-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    opacity: 0.7;
+    box-shadow: 0 4px 15px var(--color-shadow-black);
+    pointer-events: all;
+}
+
+.carousel-btn-left {
+    left: 0.5rem;
+}
+
+.carousel-btn-right {
+    right: 0.5rem;
+}
+
+/* При hover на обертке карусели - стрелки становятся более заметными */
+.carousel-wrapper:hover .carousel-btn {
+    opacity: 1;
+    background: var(--color-carousel-bg-hover);
+    border-color: var(--color-gold);
+    box-shadow: 0 6px 20px var(--color-carousel-shadow-hover);
+}
+
+.carousel-btn:hover,
+.carousel-btn:focus-visible {
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-pink-light) 100%);
+    color: var(--color-text-inverse);
+    border-color: var(--color-gold);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 8px 25px var(--color-carousel-shadow-strong);
+    opacity: 1;
+}
+
+.carousel-btn:active {
+    transform: translateY(-50%) scale(0.95) !important;
+}
+
+/* Убеждаемся, что кнопки всегда видны и правильно позиционированы */
+.carousel-btn:focus {
+    transform: translateY(-50%) !important;
+    opacity: 1 !important;
+}
+
+.carousel-btn i {
+    font-size: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.carousel-btn:hover i {
+    transform: scale(1.2);
+}
+
+.carousel-item {
+    flex: 0 0 20rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.carousel-item .product-image-wrapper {
+    height: 28rem;
+    position: relative;
+}
+
+.carousel-item .product-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--color-overlay-bg), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+    z-index: 2;
+}
+
+/* Для тач-устройств: overlay всегда видим */
+@media (hover: none) and (pointer: coarse) {
+    .carousel-item .product-overlay {
+        opacity: 1;
+        background: linear-gradient(to top, var(--color-overlay-bg-light), transparent);
+    }
+}
+
+
+/* ==========================================================================
+   NEW ARRIVALS СЕКЦИЯ (Новинки)
+   ========================================================================== */
+#new-arrivals {
+    padding: 6rem 0;
+    background: var(--gradient-bg-section);
+}
+
+.new-arrivals-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+}
+
+.featured-large {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-bg-tertiary);
+    height: 42rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-large:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px var(--color-shadow-black);
+}
+
+.featured-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.featured-large:hover img {
+    transform: scale(1.05);
+}
+
+.featured-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--color-bg-primary), transparent, transparent);
+}
+
+.featured-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 3rem;
+}
+
+.featured-info {
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--color-glass-border);
+    padding: 2rem;
+}
+
+.new-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-pink-light) 100%);
+    color: var(--color-text-inverse);
+    font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.featured-title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.featured-text {
+    font-size: clamp(0.9375rem, 2vw, 1.125rem);
+    color: var(--color-text-secondary);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.featured-small-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.featured-small {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-bg-tertiary);
+    height: 20rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-small:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px var(--color-shadow-black);
+}
+
+.featured-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.featured-small:hover img {
+    transform: scale(1.1);
+}
+
+.featured-small-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--color-overlay-bg), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem 1.5rem;
+    min-height: 40%;
+}
+
+.featured-small:hover .featured-small-overlay {
+    opacity: 1;
+}
+
+/* Для тач-устройств: overlay всегда видим, но менее заметен */
+@media (hover: none) and (pointer: coarse) {
+    .featured-small-overlay {
+        opacity: 1;
+        background: linear-gradient(to top, var(--color-overlay-bg-light), transparent 50%);
+    }
+}
+
+.featured-small-title {
+    font-size: 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--color-text-primary);
+    opacity: 0.95;
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+}
+
+.featured-small-price {
+    font-size: 1.25rem;
+    color: var(--color-gold);
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   CATALOG СЕКЦИЯ (Каталог на главной странице)
+   ========================================================================== */
+#catalog {
+    padding: 6rem 0;
+    background: var(--color-bg-secondary);
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.catalog-item-large {
+    position: relative;
+    height: 500px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.catalog-item-large:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px var(--color-shadow-black);
+}
+
+.catalog-item-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.catalog-item-large:hover img {
+    transform: scale(1.1);
+}
+
+.catalog-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--color-bg-primary), var(--color-overlay-bg-light), transparent);
+}
+
+.catalog-content {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.catalog-title {
+    font-size: 3rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    color: var(--color-text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.catalog-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+}
+
+.catalog-small-grid {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.catalog-item-small {
+    position: relative;
+    height: 246px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.catalog-item-small:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px var(--color-shadow-black);
+}
+
+.catalog-item-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.catalog-item-small:hover img {
+    transform: scale(1.1);
+}
+
+.catalog-small-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--color-overlay-bg), transparent);
+}
+
+.catalog-small-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+}
+
+.catalog-small-title {
+    font-size: 1.875rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.catalog-small-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.catalog-link {
+    color: var(--color-gold);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.catalog-link:hover {
+    color: var(--color-text-primary);
+}
+
+/* ==========================================================================
+   TESTIMONIALS СЕКЦИЯ (Отзывы)
+   ========================================================================== */
+#testimonials {
+    padding: 6rem 0;
+    background: var(--color-bg-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonials-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: var(--color-glass-bg);
+    border-radius: 50%;
+    filter: blur(80px);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.testimonial-card {
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--color-glass-border);
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px var(--color-shadow-black);
+}
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
+}
+
+.testimonial-name {
+    font-size: 1.125rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--color-text-primary);
+}
+
+.testimonial-rating {
+    display: flex;
+    color: var(--color-gold);
+    font-size: 0.875rem;
+}
+
+.testimonial-text {
+    color: var(--color-text-secondary);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   SIZE GUIDE СЕКЦИЯ (Таблица размеров)
+   ========================================================================== */
+#size-guide {
+    padding: 6rem 0;
+    background: var(--gradient-bg-section);
+}
+
+.size-guide-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    align-items: center;
+}
+
+.size-guide-title {
+    font-size: 4rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    color: var(--color-gold);
+    margin-bottom: 2rem;
+}
+
+.size-guide-text {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.size-guide-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.size-guide-feature {
+    display: flex;
+    align-items: flex-start;
+}
+
+.feature-icon {
+    width: 3rem;
+    height: 3rem;
+    background: var(--color-glass-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+}
+
+.feature-icon i {
+    color: var(--color-gold);
+    font-size: 1.25rem;
+}
+
+.feature-title {
+    font-size: 1.25rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.feature-text {
+    color: var(--color-text-muted);
+    font-weight: 300;
+}
+
+.size-calculator {
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--color-glass-border);
+    padding: 3rem;
+}
+
+.calculator-title {
+    font-size: 1.875rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--color-text-primary);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.calculator-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border-pink-light);
+    color: var(--color-text-primary);
+    font-family: 'Montserrat', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+    border-color: var(--color-gold);
+}
+
+.form-submit {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-pink-light) 100%);
+    color: var(--color-text-inverse);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-submit:hover,
+.form-submit:focus-visible {
+    background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-pink-light) 100%);
+    color: var(--color-text-inverse);
+}
+
+.form-note {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-top: 1.5rem;
+}
+
+/* Результат расчета */
+.calculator-result {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-glass-border);
+    border-radius: 12px;
+    animation: fadeIn 0.5s ease;
+}
+
+.calculator-result-content {
+    text-align: center;
+}
+
+.calculator-result-title {
+    font-size: 1.25rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-md);
+    font-weight: 500;
+}
+
+.calculator-result-size {
+    font-size: 2.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    background: linear-gradient(135deg, #d4af37 0%, #ffb6c1 50%, #ffc0cb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: var(--spacing-md) 0;
+    letter-spacing: 0.05em;
+}
+
+.calculator-result-details {
+    margin-top: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.calculator-result-details p {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+.calculator-result-details strong {
+    color: var(--color-text-primary);
+    font-weight: 600;
+}
+
+.calculator-result-sizes {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.calculator-result-size-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.calculator-result-label {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+.calculator-result-value {
+    font-size: 1.25rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--color-gold);
+    font-weight: 600;
+}
+
+.calculator-result-error {
+    color: var(--color-text-secondary);
+}
+
+.calculator-result-error p {
+    margin: var(--spacing-sm) 0;
+    font-size: 0.9375rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.calculator-result-hint {
+    font-size: 0.875rem !important;
+    color: var(--color-text-muted) !important;
+    font-style: italic;
+}
+
+.calculator-result-match {
+    font-size: 0.9375rem;
+    font-family: 'Montserrat', sans-serif;
+    margin: var(--spacing-sm) 0;
+    padding: var(--spacing-sm);
+    border-radius: 6px;
+    text-align: center;
+}
+
+.calculator-result-match-success {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.calculator-result-match-warning {
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.calculator-fields {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   ABOUT СЕКЦИЯ (О компании)
+   ========================================================================== */
+#about {
+    padding: 6rem 0;
+    background: var(--gradient-bg-section);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.about-col-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.about-col-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.about-image {
+    overflow: hidden;
+    background: var(--color-bg-tertiary);
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-image-1 { height: 16rem; }
+.about-image-2 { height: 20rem; }
+.about-image-3 { height: 20rem; }
+.about-image-4 { height: 16rem; }
+
+/* ==========================================================================
+   SUSTAINABILITY СЕКЦИЯ (Устойчивое развитие)
+   ========================================================================== */
+#sustainability {
+    padding: 6rem 0;
+    background: var(--color-bg-secondary);
+}
+
+.sustainability-card {
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--color-glass-border);
+    padding: 4rem;
+    text-align: center;
+}
+
+.sustainability-icon {
+    font-size: 4rem;
+    color: var(--color-gold);
+    margin-bottom: 2rem;
+}
+
+.sustainability-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    color: var(--color-text-primary);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.sustainability-text {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    font-weight: 300;
+    line-height: 1.6;
+    max-width: 48rem;
+    margin: 0 auto 2rem;
+}
+
+.sustainability-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: bold;
+    color: var(--color-gold);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   NEWSLETTER СЕКЦИЯ (Подписка на рассылку)
+   ========================================================================== */
+#newsletter {
+    padding: 6rem 0;
+    background: var(--color-bg-primary);
+}
+
+.newsletter-content {
+    max-width: 48rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.newsletter-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    color: var(--color-gold);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.newsletter-text {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    font-weight: 300;
+    margin-bottom: 3rem;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 1rem;
+    max-width: 42rem;
+    margin: 0 auto;
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border-pink-light);
+    color: var(--color-text-primary);
+    font-family: 'Montserrat', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.newsletter-input:focus {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+    border-color: var(--color-gold);
+}
+
+.newsletter-note {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-top: 1.5rem;
+}
+
+/* ==========================================================================
+   CONTACT СЕКЦИЯ (Контакты)
+   ========================================================================== */
+#contact {
+    padding: 6rem 0;
+    background: var(--gradient-bg-section);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+}
+
+.contact-title {
+    font-size: 3rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    color: var(--color-gold);
+    margin-bottom: 2rem;
+}
+
+.contact-text {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    font-weight: 300;
+    margin-bottom: 3rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.contact-icon {
+    width: 3rem;
+    height: 3rem;
+    background: var(--color-glass-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+}
+
+.contact-icon i {
+    color: var(--color-gold);
+    font-size: 1.25rem;
+}
+
+.contact-item-title {
+    font-size: 1.125rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.contact-item-text {
+    color: var(--color-text-muted);
+}
+
+.contact-item-note {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-top: 0.25rem;
+}
+
+.contact-form {
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--color-glass-border);
+    padding: 2.5rem;
+}
+
+.contact-form-title {
+    font-size: 1.875rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--color-text-primary);
+    margin-bottom: 2rem;
+}
+
+.contact-form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border-pink-light);
+    color: var(--color-text-primary);
+    font-family: 'Montserrat', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+    border-color: var(--color-gold);
+}
+
+.contact-form textarea {
+    resize: none;
+}
+
+/* ==========================================================================
+   МОДАЛЬНОЕ ОКНО РУКОВОДСТВА ПО РАЗМЕРАМ
+   ========================================================================== */
+
+.size-guide-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height для мобильных устройств */
+    min-height: 100vh;
+    min-height: 100dvh;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+}
+
+.size-guide-modal.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+/* Overlay - затемнение фона */
+.size-guide-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height для мобильных устройств */
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: var(--color-modal-overlay);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    cursor: pointer;
+    transition: background 0.4s ease;
+}
+
+.size-guide-modal.active .size-guide-modal-overlay {
+    background: var(--color-modal-overlay-active);
+}
+
+/* Контент модального окна */
+.size-guide-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    max-height: 90vh;
+    max-height: 90dvh; /* Dynamic viewport height для мобильных устройств */
+    height: auto;
+    background: var(--color-modal-bg);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1.5px solid var(--color-modal-border);
+    border-radius: 24px;
+    box-shadow: var(--color-modal-shadow);
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.9) translateY(30px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
+    overflow: hidden;
+    z-index: 1001;
+}
+
+.size-guide-modal-content::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--color-modal-bg-overlay);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.size-guide-modal.active .size-guide-modal-content {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/* Заголовок модального окна */
+.size-guide-modal-header {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-bottom: 1px solid var(--color-modal-header-border);
+    background: var(--color-modal-header-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.size-guide-modal-title {
+    font-size: 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    background: linear-gradient(135deg, #d4af37 0%, #ffb6c1 40%, #ffc0cb 60%, #d4af37 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    animation: gradientShift 5s ease infinite;
+    letter-spacing: 0.02em;
+}
+
+/* Кнопка закрытия */
+.size-guide-modal-close {
+    width: 2.75rem;
+    height: 2.75rem;
+    min-width: 44px;
+    min-height: 44px;
+    background: var(--color-modal-close-bg);
+    border: 1.5px solid var(--color-modal-close-border);
+    border-radius: 50%;
+    color: var(--color-pink-light);
+    font-size: 1.375rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--color-modal-close-shadow);
+    will-change: transform, background, border-color;
+}
+
+.size-guide-modal-close:hover,
+.size-guide-modal-close:focus-visible {
+    background: var(--color-modal-close-bg-hover);
+    border-color: var(--color-gold);
+    color: var(--color-text-primary);
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: var(--color-modal-close-shadow-hover);
+    outline: 2px solid var(--color-text-primary);
+    outline-offset: 2px;
+}
+
+/* Тело модального окна - прокручиваемая область */
+.size-guide-modal-body {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: var(--spacing-xl);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(212, 175, 55, 0.4) transparent;
+    -webkit-overflow-scrolling: touch;
+}
+
+.size-guide-modal-body::-webkit-scrollbar {
+    width: 10px;
+}
+
+.size-guide-modal-body::-webkit-scrollbar-track {
+    background: rgba(255, 182, 193, 0.05);
+    border-radius: 10px;
+    margin: 0.5rem 0;
+}
+
+.size-guide-modal-body::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, 
+        rgba(212, 175, 55, 0.5) 0%, 
+        rgba(255, 182, 193, 0.4) 100%);
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    transition: background 0.3s ease;
+}
+
+.size-guide-modal-body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, 
+        rgba(212, 175, 55, 0.7) 0%, 
+        rgba(255, 182, 193, 0.6) 100%);
+}
+
+/* Секции таблиц размеров */
+.size-table-section {
+    margin-bottom: var(--spacing-3xl);
+}
+
+.size-table-section:last-child {
+    margin-bottom: 0;
+}
+
+.size-table-title {
+    font-size: 1.875rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.size-table-subtitle {
+    font-size: 1.25rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    margin: var(--spacing-lg) 0 var(--spacing-md) 0;
+    text-align: center;
+}
+
+.size-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 auto;
+}
+
+/* Таблицы размеров */
+.size-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--color-shadow-black);
+}
+
+.size-table thead {
+    background: var(--color-table-header-bg);
+}
+
+.size-table th {
+    padding: var(--spacing-md) var(--spacing-sm);
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    border-bottom: 2px solid rgba(255, 182, 193, 0.3);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.size-table tbody tr {
+    border-bottom: 1px solid var(--color-table-row-border);
+    transition: background-color 0.3s ease;
+}
+
+.size-table tbody tr:hover {
+    background-color: var(--color-table-row-hover);
+}
+
+.size-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.size-table td {
+    padding: var(--spacing-md) var(--spacing-sm);
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    font-weight: 400;
+}
+
+.size-table-label {
+    font-weight: 600 !important;
+    color: var(--color-text-primary) !important;
+    background: var(--color-table-label-bg);
+    text-align: left !important;
+    padding-left: var(--spacing-md) !important;
+}
+
+.size-table td:not(.size-table-label) {
+    font-weight: 300;
+}
+
+/* Анимация для градиента в заголовке */
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* ==========================================================================
+   УВЕДОМЛЕНИЕ О СТАТУСЕ ОТПРАВКИ ФОРМЫ
+   ========================================================================== */
+
+.notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+}
+
+.notification.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+/* Overlay - затемнение фона */
+.notification-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(0, 0, 0, 0.6) 0%, 
+        rgba(20, 15, 18, 0.65) 50%, 
+        rgba(0, 0, 0, 0.6) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.notification.active .notification-overlay {
+    background: linear-gradient(135deg, 
+        rgba(0, 0, 0, 0.7) 0%, 
+        rgba(20, 15, 18, 0.75) 50%, 
+        rgba(0, 0, 0, 0.7) 100%);
+}
+
+/* Контент уведомления */
+.notification-content {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    background: linear-gradient(135deg, 
+        rgba(43, 43, 43, 0.98) 0%, 
+        rgba(38, 35, 37, 0.98) 50%, 
+        rgba(43, 43, 43, 0.98) 100%);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1.5px solid rgba(212, 175, 55, 0.3);
+    border-radius: 20px;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 8px 25px rgba(212, 175, 55, 0.2),
+        0 0 0 1px rgba(255, 182, 193, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-xl);
+    transform: scale(0.9) translateY(30px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
+    z-index: 2001;
+}
+
+.notification-content::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, 
+        rgba(212, 175, 55, 0.05) 0%, 
+        rgba(255, 182, 193, 0.03) 50%, 
+        rgba(255, 192, 203, 0.02) 100%);
+    border-radius: 20px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.notification.active .notification-content {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/* Иконка уведомления */
+.notification-icon {
+    position: relative;
+    z-index: 1;
+    width: 3.5rem;
+    height: 3.5rem;
+    min-width: 3.5rem;
+    min-height: 3.5rem;
+    background: linear-gradient(135deg, 
+        rgba(212, 175, 55, 0.2) 0%, 
+        rgba(255, 182, 193, 0.15) 50%, 
+        rgba(255, 192, 203, 0.1) 100%);
+    border: 1.5px solid rgba(212, 175, 55, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.notification-icon i {
+    font-size: 1.75rem;
+    color: var(--color-gold);
+    animation: notificationIconPulse 2s ease-in-out infinite;
+}
+
+@keyframes notificationIconPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.9;
+    }
+}
+
+/* Сообщение уведомления */
+.notification-message {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    min-width: 0;
+}
+
+.notification-title {
+    font-size: 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-sm) 0;
+    line-height: 1.3;
+}
+
+.notification-text {
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    color: var(--color-text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Кнопка закрытия */
+.notification-close {
+    position: relative;
+    z-index: 1;
+    width: 2.5rem;
+    height: 2.5rem;
+    min-width: 44px;
+    min-height: 44px;
+    background: rgba(255, 182, 193, 0.15);
+    border: 1.5px solid rgba(255, 182, 193, 0.3);
+    border-radius: 50%;
+    color: #ffb6c1;
+    font-size: 1.125rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0;
+}
+
+.notification-close:hover,
+.notification-close:focus-visible {
+    background: rgba(255, 182, 193, 0.25);
+    border-color: rgba(255, 182, 193, 0.5);
+    color: #ffc0cb;
+    transform: scale(1.1) rotate(90deg);
+    outline: none;
+}
+
+.notification-close:active {
+    transform: scale(0.95) rotate(90deg);
+}
+
+.notification-close i {
+    pointer-events: none;
+}
+
+/* Варианты уведомлений */
+.notification.notification-success .notification-icon {
+    background: linear-gradient(135deg, 
+        rgba(34, 197, 94, 0.2) 0%, 
+        rgba(212, 175, 55, 0.15) 50%, 
+        rgba(255, 182, 193, 0.1) 100%);
+    border-color: rgba(34, 197, 94, 0.4);
+}
+
+.notification.notification-success .notification-icon i {
+    color: #22c55e;
+}
+
+.notification.notification-error .notification-icon {
+    background: linear-gradient(135deg, 
+        rgba(239, 68, 68, 0.2) 0%, 
+        rgba(212, 175, 55, 0.15) 50%, 
+        rgba(255, 182, 193, 0.1) 100%);
+    border-color: rgba(239, 68, 68, 0.4);
+}
+
+.notification.notification-error .notification-icon i {
+    color: #ef4444;
+}
+
+/* ==========================================================================
+   FOOTER (Подвал сайта)
+   ========================================================================== */

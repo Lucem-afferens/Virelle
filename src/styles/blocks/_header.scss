@@ -1,0 +1,185 @@
+/* ==========================================================================
+   HEADER И НАВИГАЦИЯ
+   ========================================================================== */
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--color-glass-border);
+    box-shadow: 0 4px 20px var(--color-shadow-pink);
+    transition: all 0.3s ease;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    position: relative;
+    max-width: 100%;
+    transition: padding 0.3s ease;
+}
+
+/* Ссылка с логотипом в шапке */
+.header-container > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-decoration: none;
+    color: inherit;
+    z-index: 1;
+}
+
+/* Логотип изображение */
+.header-logo-image {
+    height: auto;
+    max-height: 3rem;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+    margin-right: 0.75rem;
+    display: block;
+    transition: max-height 0.3s ease, max-width 0.3s ease;
+    flex-shrink: 0;
+}
+
+.header-logo {
+    font-size: 1.875rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: bold;
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-pink-light) 50%, var(--color-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.05em;
+    transition: font-size 0.3s ease;
+    white-space: nowrap;
+    text-align: center;
+    margin: 0;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    transition: gap 0.3s ease;
+}
+
+.header-actions a, 
+.header-actions button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-vk {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-pink-light) 50%, var(--color-pink) 100%);
+    color: var(--color-text-inverse);
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px var(--color-shadow-pink);
+}
+
+.btn-vk:hover {
+    background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-pink-light) 50%, var(--color-gold) 100%);
+    box-shadow: 0 6px 20px var(--color-shadow-pink-strong);
+    transform: translateY(-2px);
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: var(--color-pink-light);
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn:hover,
+.icon-btn:focus-visible {
+    color: var(--color-pink);
+}
+
+// Стили переключателя темы - простая плавная смена иконки
+.theme-toggle {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+// Общие стили иконок
+.theme-toggle .icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.4rem;
+    color: inherit;
+    
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+    i,
+    svg {
+        display: block;
+    }
+}
+
+// Текущая иконка - видимая
+.theme-toggle .icon--current {
+    opacity: 1 !important;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 2;
+}
+
+// Следующая иконка - скрыта
+.theme-toggle .icon--next {
+    opacity: 0 !important;
+    transform: translate(-50%, -50%) scale(0.8);
+    z-index: 1;
+    pointer-events: none;
+}
+
+
+.menu-btn {
+    background: none;
+    border: none;
+    color: var(--color-pink-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-btn:hover,
+.menu-btn:focus-visible {
+    transform: scale(1.1);
+    color: var(--color-pink);
+}
+

@@ -1,0 +1,87 @@
+/* ==========================================================================
+   MENU OVERLAY (Мобильное меню)
+   ========================================================================== */
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: var(--gradient-bg-menu);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-overlay.active {
+    left: 0;
+}
+
+.menu-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 0 2rem;
+}
+
+.menu-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    color: var(--color-pink-light);
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-close:hover,
+.menu-close:focus-visible {
+    transform: rotate(90deg);
+    color: var(--color-pink);
+}
+
+.menu-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.menu-nav a {
+    font-size: 3.75rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.menu-nav a:hover,
+.menu-nav a:focus-visible {
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-pink-light) 50%, var(--color-pink) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.menu-social {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 4rem;
+}
+
+.menu-social a {
+    color: var(--color-pink-light);
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.menu-social a:hover,
+.menu-social a:focus-visible {
+    transform: scale(1.1);
+    color: var(--color-pink);
+}
+

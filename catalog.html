@@ -1,635 +1,182 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalog</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Primary Meta Tags -->
+    <title>Chill Out Lingerie - Каталог товаров | Премиальное нижнее белье</title>
+    <meta name="title" content="Chill Out Lingerie - Каталог товаров | Премиальное нижнее белье">
+    <meta name="description" content="Каталог премиального нижнего белья Chill Out Lingerie. Бюстгальтеры, трусы, пижамы и комплекты. Фильтры по типу, категории и размеру. Бесплатная доставка по России.">
+    <meta name="keywords" content="каталог нижнего белья, лингерье каталог, премиум белье, бюстгальтеры, трусы, пижамы, Chill Out Lingerie">
+    <meta name="author" content="Chill Out Lingerie">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://chilloutlingerie.com/catalog.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chilloutlingerie.com/catalog.html">
+    <meta property="og:title" content="Chill Out Lingerie - Каталог товаров">
+    <meta property="og:description" content="Откройте для себя нашу коллекцию премиального нижнего белья. Фильтры и сортировка для удобного поиска.">
+    <meta property="og:image" content="https://storage.googleapis.com/uxpilot-auth.appspot.com/6555e7d064-c3b9b19a9e4b32d7ad33.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="Chill Out Lingerie">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chill Out Lingerie - Каталог товаров">
+    <meta name="twitter:description" content="Каталог премиального нижнего белья с фильтрами и сортировкой.">
+    <meta name="twitter:image" content="https://storage.googleapis.com/uxpilot-auth.appspot.com/6555e7d064-c3b9b19a9e4b32d7ad33.png">
+    
+    <!-- Предзагрузка критических ресурсов -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://storage.googleapis.com">
+    
+    <!-- External Resources -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="src/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="src/styles/style.scss">
+    <script src="src/script.js" defer></script>
 </head>
 <body>
 
-    <div id="menu-overlay" class="menu-overlay" role="dialog" aria-modal="true" aria-label="Главное меню">
-        <div class="menu-content container">
-            <button onclick="closeMenu()" class="menu-close" aria-label="Закрыть меню">
-                <i class="fa-solid fa-times" aria-hidden="true"></i>
-            </button>
-            <nav class="menu-nav">
-                <a href="index.html" onclick="closeMenu()" data-i18n="menu.home">ГЛАВНАЯ</a>
-                <a href="catalog.html" onclick="closeMenu()" data-i18n="menu.catalog">КАТАЛОГ</a>
-                <a href="#bestsellers" onclick="closeMenu()" data-i18n="menu.bestsellers">ХИТЫ ПРОДАЖ</a>
-                <a href="#new-arrivals" onclick="closeMenu()" data-i18n="menu.newArrivals">НОВИНКИ</a>
-                <a href="#about" onclick="closeMenu()" data-i18n="menu.about">О НАС</a>
-                <a href="#contact" onclick="closeMenu()" data-i18n="menu.contact">КОНТАКТЫ</a>
-            </nav>
-            <div class="menu-social">
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-pinterest"></i></a>
-                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-            </div>
-        </div>
-    </div>
-    
-    <header id="header">
-        <div class="header-container container">
-            <button onclick="openMenu()" class="menu-btn" aria-label="Открыть меню" aria-expanded="false">
-                <i class="fa-solid fa-bars" aria-hidden="true"></i>
-            </button>
-            
-            <a href="index.html" style="text-decoration: none; color: inherit;">
-                <img src="/logo.svg" alt="Chill Out Lingerie" class="header-logo-image">
-            <h2 class="header-logo">Chill Out Lingerie®</h2>
-            </a>
-            
-            <div class="header-actions">
-                <button onclick="toggleLanguage()" class="lang-switcher" title="Переключить язык" aria-label="Переключить язык">
-                    <span class="lang-switcher-text" aria-live="polite">RU</span>
-                </button>
-                <a href="https://vk.com" target="_blank" class="icon-btn" title="ВКонтакте" aria-label="Наша группа ВКонтакте" rel="noopener noreferrer">
-                    <i class="fa-brands fa-vk" aria-hidden="true"></i>
-                </a>
-                <a href="catalog.html" class="icon-btn" title="Перейти в каталог" aria-label="Перейти в каталог товаров">
-                    <i class="fa-solid fa-search" aria-hidden="true"></i>
-                </a>
-            </div>
-        </div>
-    </header>
+<!-- Skip to main content link для доступности -->
+<a href="#main-content" class="skip-link" aria-label="Перейти к основному содержимому">Перейти к содержимому</a>
 
-<section id="catalog-hero" class="catalog-hero">
-    <div class="catalog-hero-bg"></div>
-    
-    <div class="catalog-hero-content">
-        <h2>Our Collection</h2>
-        <p>Discover 156 pieces of premium lingerie designed for every occasion</p>
-    </div>
-</section>
-
-<section id="catalog-main" class="catalog-main">
-    <div class="catalog-container">
-        <div class="filter-toggle">
-            <button onclick="toggleFilters()" class="filter-toggle-btn">
-                <i class="fa-solid fa-filter"></i>
-                <span>Filters</span>
-                <span id="filter-count" class="filter-count" style="display: none;">0</span>
-            </button>
-            <select class="sort-select">
-                <option>Featured</option>
-                <option>Price: Low to High</option>
-                <option>Price: High to Low</option>
-                <option>Newest</option>
-                <option>Best Selling</option>
-            </select>
-        </div>
-
-        <div class="products-header">
-            <p class="products-count">
-                Showing <span>156</span> products
-            </p>
-        </div>
-        
-        <div class="products-container">
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img class="product-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/6555e7d064-c3b9b19a9e4b32d7ad33.png" alt="elegant black lace bralette">
-                    <div class="product-overlay">
-                        <button class="quick-view-btn">QUICK VIEW</button>
-                    </div>
-                    <button class="wishlist-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-                    <div class="product-badge badge-new">NEW</div>
-                </div>
-                <h4 class="product-title">Midnight Lace Bralette</h4>
-                <p class="product-description">Delicate French lace</p>
-                <div class="product-rating">
-                    <div class="product-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <span class="product-reviews">(127)</span>
-                </div>
-                <p class="product-price">$78.00</p>
-            </div>
-            
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img class="product-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b56beff876-e29888d5a8ccd0f22677.png" alt="champagne silk slip dress">
-                    <div class="product-overlay">
-                        <button class="quick-view-btn">QUICK VIEW</button>
-                    </div>
-                    <button class="wishlist-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-                    <div class="product-badge badge-bestseller">BESTSELLER</div>
-                </div>
-                <h4 class="product-title">Champagne Silk Slip</h4>
-                <p class="product-description">Pure mulberry silk</p>
-                <div class="product-rating">
-                    <div class="product-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <span class="product-reviews">(284)</span>
-                </div>
-                <p class="product-price">$145.00</p>
-            </div>
-            
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img class="product-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/0ff1edacf9-0d1b5003996b1b432a27.png" alt="burgundy lace set">
-                    <div class="product-overlay">
-                        <button class="quick-view-btn">QUICK VIEW</button>
-                    </div>
-                    <button class="wishlist-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-                </div>
-                <h4 class="product-title">Rose Satin Bodysuit</h4>
-                <p class="product-description">Italian satin blend</p>
-                <div class="product-rating">
-                    <div class="product-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                    </div>
-                    <span class="product-reviews">(92)</span>
-                </div>
-                <p class="product-price">$92.00</p>
-            </div>
-            
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img class="product-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/d34cd14776-fd8800389b5e3f0b7c82.png" alt="ivory lace teddy">
-                    <div class="product-overlay">
-                        <button class="quick-view-btn">QUICK VIEW</button>
-                    </div>
-                    <button class="wishlist-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-                </div>
-                <h4 class="product-title">Ivory Lace Teddy</h4>
-                <p class="product-description">Chantilly lace</p>
-                <div class="product-rating">
-                    <div class="product-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <span class="product-reviews">(215)</span>
-                </div>
-                <p class="product-price">$118.00</p>
-            </div>
-            
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img class="product-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/5c08a7f1c6-b1f2b1fff0aab95f6104.png" alt="emerald silk robe">
-                    <div class="product-overlay">
-                        <button class="quick-view-btn">QUICK VIEW</button>
-                    </div>
-                    <button class="wishlist-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-                </div>
-                <h4 class="product-title">Emerald Silk Robe</h4>
-                <p class="product-description">Luxurious silk charmeuse</p>
-                <div class="product-rating">
-                    <div class="product-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <span class="product-reviews">(178)</span>
-                </div>
-                <p class="product-price">$168.00</p>
-            </div>
-            
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img class="product-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a550f76729-2f940b8687fba9bc8a11.png" alt="white cotton camisole set">
-                    <div class="product-overlay">
-                        <button class="quick-view-btn">QUICK VIEW</button>
-                    </div>
-                    <button class="wishlist-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-                </div>
-                <h4 class="product-title">Cloud Camisole Set</h4>
-                <p class="product-description">Pima cotton & lace</p>
-                <div class="product-rating">
-                    <div class="product-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                    </div>
-                    <span class="product-reviews">(156)</span>
-                </div>
-                <p class="product-price">$82.00</p>
-            </div>
-            
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img class="product-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/48870ed260-bde48a1c7ea8473e1e41.png" alt="navy satin chemise">
-                    <div class="product-overlay">
-                        <button class="quick-view-btn">QUICK VIEW</button>
-                    </div>
-                    <button class="wishlist-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-                    <div class="product-badge badge-sale">-20%</div>
-                </div>
-                <h4 class="product-title">Midnight Chemise</h4>
-                <p class="product-description">Satin with lace accents</p>
-                <div class="product-rating">
-                    <div class="product-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <span class="product-reviews">(203)</span>
-                </div>
-                <div class="price-wrapper">
-                    <p class="product-price">$84.00</p>
-                    <p class="price-old">$105.00</p>
-                </div>
-            </div>
-            
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img class="product-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/8ec3f80d6a-ff62832bf3e5711e34a5.png" alt="peach silk set">
-                    <div class="product-overlay">
-                        <button class="quick-view-btn">QUICK VIEW</button>
-                    </div>
-                    <button class="wishlist-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-                </div>
-                <h4 class="product-title">Peach Dream Set</h4>
-                <p class="product-description">Silk bralette & shorts</p>
-                <div class="product-rating">
-                    <div class="product-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                    </div>
-                    <span class="product-reviews">(134)</span>
-                </div>
-                <p class="product-price">$125.00</p>
-            </div>
-            
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img class="product-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/18e9a25748-4b11a0bfe27d58a635f0.png" alt="champagne pajama set">
-                    <div class="product-overlay">
-                        <button class="quick-view-btn">QUICK VIEW</button>
-                    </div>
-                    <button class="wishlist-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-                    <div class="product-badge badge-new">NEW</div>
-                </div>
-                <h4 class="product-title">Champagne Dreams PJ Set</h4>
-                <p class="product-description">Signature silk blend</p>
-                <div class="product-rating">
-                    <div class="product-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <span class="product-reviews">(89)</span>
-                </div>
-                <p class="product-price">$195.00</p>
-            </div>
-            
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img class="product-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/425b0cfdf7-0c3bc91ccd1a89de7620.png" alt="rose lace set">
-                    <div class="product-overlay">
-                        <button class="quick-view-btn">QUICK VIEW</button>
-                    </div>
-                    <button class="wishlist-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-                </div>
-                <h4 class="product-title">Rose Garden Set</h4>
-                <p class="product-description">Floral lace design</p>
-                <div class="product-rating">
-                    <div class="product-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                    </div>
-                    <span class="product-reviews">(167)</span>
-                </div>
-                <p class="product-price">$88.00</p>
-            </div>
-            
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img class="product-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/9748b8f173-db06ed5110f8b9df1561.png" alt="sage silk cami">
-                    <div class="product-overlay">
-                        <button class="quick-view-btn">QUICK VIEW</button>
-                    </div>
-                    <button class="wishlist-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-                </div>
-                <h4 class="product-title">Sage Silk Cami</h4>
-                <p class="product-description">Minimalist elegance</p>
-                <div class="product-rating">
-                    <div class="product-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <span class="product-reviews">(112)</span>
-                </div>
-                <p class="product-price">$72.00</p>
-            </div>
-            
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img class="product-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/2fcc1bf8a5-be70f47eadce17c0083c.png" alt="luxury lace bras">
-                    <div class="product-overlay">
-                        <button class="quick-view-btn">QUICK VIEW</button>
-                    </div>
-                    <button class="wishlist-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-                    <div class="product-badge badge-bestseller">BESTSELLER</div>
-                </div>
-                <h4 class="product-title">Velvet Noir Bralette</h4>
-                <p class="product-description">Soft cup design</p>
-                <div class="product-rating">
-                    <div class="product-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <span class="product-reviews">(298)</span>
-                </div>
-                <p class="product-price">$65.00</p>
-            </div>
-        </div>
-        
-        <div id="pagination" class="pagination">
-            <div class="pagination-content">
-                <button class="page-btn">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </button>
-                <button class="page-btn active">1</button>
-                <button class="page-btn">2</button>
-                <button class="page-btn">3</button>
-                <span class="page-dots">...</span>
-                <button class="page-btn">13</button>
-                <button class="page-btn">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div id="filters-drawer" class="filters-drawer">
-    <div class="filters-header">
-        <h3>Filters</h3>
-        <button onclick="closeFilters()" class="filters-close">
-            <i class="fa-solid fa-times"></i>
+<div id="menu-overlay" class="menu-overlay" role="dialog" aria-modal="true" aria-label="Главное меню">
+    <div class="menu-content container">
+        <button onclick="closeMenu()" class="menu-close" aria-label="Закрыть меню">
+            <i class="fa-solid fa-times" aria-hidden="true"></i>
         </button>
-    </div>
-    
-    <div class="filters-content">
-        <div class="filter-section">
-            <div class="filter-section-header" onclick="toggleFilterSection(this)">
-                <h4>Category</h4>
-                <i class="fa-solid fa-chevron-up filter-section-icon"></i>
-            </div>
-            <div class="filter-options">
-                <input type="checkbox" id="cat-bras" class="filter-checkbox">
-                <label for="cat-bras" class="filter-label">
-                    <span>Bras & Bralettes</span>
-                    <span>(32)</span>
-                </label>
-                
-                <input type="checkbox" id="cat-panties" class="filter-checkbox">
-                <label for="cat-panties" class="filter-label">
-                    <span>Panties</span>
-                    <span>(45)</span>
-                </label>
-                
-                <input type="checkbox" id="cat-sleepwear" class="filter-checkbox">
-                <label for="cat-sleepwear" class="filter-label">
-                    <span>Sleepwear</span>
-                    <span>(28)</span>
-                </label>
-                
-                <input type="checkbox" id="cat-bodysuits" class="filter-checkbox">
-                <label for="cat-bodysuits" class="filter-label">
-                    <span>Bodysuits</span>
-                    <span>(19)</span>
-                </label>
-                
-                <input type="checkbox" id="cat-robes" class="filter-checkbox">
-                <label for="cat-robes" class="filter-label">
-                    <span>Robes & Kimonos</span>
-                    <span>(15)</span>
-                </label>
-                
-                <input type="checkbox" id="cat-bridal" class="filter-checkbox">
-                <label for="cat-bridal" class="filter-label">
-                    <span>Bridal Collection</span>
-                    <span>(17)</span>
-                </label>
-            </div>
+        <nav class="menu-nav">
+            <a href="index.html" onclick="closeMenu()">ГЛАВНАЯ</a>
+            <a href="catalog.html" onclick="closeMenu()">КАТАЛОГ</a>
+            <a href="index.html#bestsellers" onclick="closeMenu()">ХИТЫ ПРОДАЖ</a>
+            <a href="index.html#new-arrivals" onclick="closeMenu()">НОВИНКИ</a>
+            <a href="index.html#about" onclick="closeMenu()">О НАС</a>
+            <a href="index.html#contact" onclick="closeMenu()">КОНТАКТЫ</a>
+        </nav>
+        <div class="menu-social">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://vk.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-vk"></i></a>
         </div>
-        
-        <div class="filter-section">
-            <div class="filter-section-header" onclick="toggleFilterSection(this)">
-                <h4>Price Range</h4>
-                <i class="fa-solid fa-chevron-up filter-section-icon"></i>
-            </div>
-            <div class="price-slider-wrapper">
-                <input type="range" min="0" max="300" value="150" class="price-slider" id="mobile-price-slider">
-                <div class="price-range">
-                    <span>$0</span>
-                    <span id="mobile-price-value">$150</span>
-                    <span>$300+</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="filter-section">
-            <div class="filter-section-header" onclick="toggleFilterSection(this)">
-                <h4>Size</h4>
-                <i class="fa-solid fa-chevron-up filter-section-icon"></i>
-            </div>
-            <div class="size-grid">
-                <button class="size-btn" onclick="toggleSize(this)">XS</button>
-                <button class="size-btn" onclick="toggleSize(this)">S</button>
-                <button class="size-btn" onclick="toggleSize(this)">M</button>
-                <button class="size-btn" onclick="toggleSize(this)">L</button>
-                <button class="size-btn" onclick="toggleSize(this)">XL</button>
-                <button class="size-btn" onclick="toggleSize(this)">2XL</button>
-                <button class="size-btn" onclick="toggleSize(this)">3XL</button>
-                <button class="size-btn" onclick="toggleSize(this)">4XL</button>
-            </div>
-        </div>
-        
-        <div class="filter-section">
-            <div class="filter-section-header" onclick="toggleFilterSection(this)">
-                <h4>Color</h4>
-                <i class="fa-solid fa-chevron-up filter-section-icon"></i>
-            </div>
-            <div class="color-grid">
-                <button class="color-btn" style="background: black;" onclick="toggleColor(this)"></button>
-                <button class="color-btn" style="background: white;" onclick="toggleColor(this)"></button>
-                <button class="color-btn" style="background: #dc2626;" onclick="toggleColor(this)"></button>
-                <button class="color-btn" style="background: #fda4af;" onclick="toggleColor(this)"></button>
-                <button class="color-btn" style="background: #1e3a8a;" onclick="toggleColor(this)"></button>
-                <button class="color-btn" style="background: #059669;" onclick="toggleColor(this)"></button>
-                <button class="color-btn" style="background: #9333ea;" onclick="toggleColor(this)"></button>
-                <button class="color-btn" style="background: #fef3c7;" onclick="toggleColor(this)"></button>
-                <button class="color-btn" style="background: #9ca3af;" onclick="toggleColor(this)"></button>
-                <button class="color-btn" style="background: #fb7185;" onclick="toggleColor(this)"></button>
-                <button class="color-btn" style="background: #0d9488;" onclick="toggleColor(this)"></button>
-                <button class="color-btn" style="background: #ea580c;" onclick="toggleColor(this)"></button>
-            </div>
-        </div>
-        
-        <div class="filter-section">
-            <div class="filter-section-header" onclick="toggleFilterSection(this)">
-                <h4>Material</h4>
-                <i class="fa-solid fa-chevron-up filter-section-icon"></i>
-            </div>
-            <div class="filter-options">
-                <input type="checkbox" id="mat-silk" class="filter-checkbox">
-                <label for="mat-silk" class="filter-label">
-                    <span>Silk</span>
-                    <span>(42)</span>
-                </label>
-                
-                <input type="checkbox" id="mat-lace" class="filter-checkbox">
-                <label for="mat-lace" class="filter-label">
-                    <span>Lace</span>
-                    <span>(68)</span>
-                </label>
-                
-                <input type="checkbox" id="mat-satin" class="filter-checkbox">
-                <label for="mat-satin" class="filter-label">
-                    <span>Satin</span>
-                    <span>(35)</span>
-                </label>
-                
-                <input type="checkbox" id="mat-cotton" class="filter-checkbox">
-                <label for="mat-cotton" class="filter-label">
-                    <span>Cotton</span>
-                    <span>(23)</span>
-                </label>
-            </div>
-        </div>
-    </div>
-    
-    <div class="filters-actions">
-        <button onclick="clearAllFilters()" class="clear-filters-btn">CLEAR ALL</button>
-        <button onclick="applyFilters()" class="apply-filters-btn">APPLY FILTERS</button>
     </div>
 </div>
 
-<section id="featured-categories" class="featured-categories">
-    <div class="section-header">
-        <h2>Shop by Style</h2>
-        <p>Find your perfect match</p>
-    </div>
-    
-    <div class="categories-grid">
-        <div class="category-card">
-            <img class="category-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/adb8294d8c-f1aa37cfc2108dacaf05.png" alt="romantic lace collection">
-            <div class="category-overlay"></div>
-            <div class="category-content">
-                <h3>Romantic</h3>
-                <p>42 items</p>
-            </div>
-        </div>
+<header id="header">
+    <div class="header-container container">
+        <button onclick="openMenu()" class="menu-btn" aria-label="Открыть меню" aria-expanded="false">
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
         
-        <div class="category-card">
-            <img class="category-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/22b45282c5-14a43d12bcbfd0bb3828.png" alt="elegant silk sleepwear">
-            <div class="category-overlay"></div>
-            <div class="category-content">
-                <h3>Elegant</h3>
-                <p>38 items</p>
-            </div>
-        </div>
+        <a href="index.html" style="text-decoration: none; color: inherit;">
+            <img src="/logo.svg" alt="Chill Out Lingerie" class="header-logo-image">
+            <h2 class="header-logo">Chill Out Lingerie®</h2>
+        </a>
         
-        <div class="category-card">
-            <img class="category-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b4b7c4de51-082c1749c35819c5b24b.png" alt="sexy black lingerie">
-            <div class="category-overlay"></div>
-            <div class="category-content">
-                <h3>Seductive</h3>
-                <p>51 items</p>
-            </div>
-        </div>
-        
-        <div class="category-card">
-            <img class="category-image" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b968491bc7-138dd7e45dcca10c68bc.png" alt="comfortable loungewear">
-            <div class="category-overlay"></div>
-            <div class="category-content">
-                <h3>Comfort</h3>
-                <p>25 items</p>
-            </div>
+        <div class="header-actions">
+            <button onclick="toggleTheme()" id="theme-toggle" class="icon-btn theme-toggle" title="Переключить тему" aria-label="Переключить на светлую тему">
+                <span class="icon icon--current">
+                    <i class="fa-solid fa-sun" aria-hidden="true"></i>
+                </span>
+                <span class="icon icon--next">
+                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                </span>
+            </button>
+            <a href="https://vk.com" target="_blank" class="icon-btn" title="ВКонтакте" aria-label="Наша группа ВКонтакте" rel="noopener noreferrer">
+                <i class="fa-brands fa-vk" aria-hidden="true"></i>
+            </a>
+            <a href="catalog.html" class="icon-btn" title="Перейти в каталог" aria-label="Перейти в каталог товаров">
+                <i class="fa-solid fa-search" aria-hidden="true"></i>
+            </a>
         </div>
     </div>
-</section>
+</header>
 
-<section id="newsletter" class="newsletter">
-    <div class="newsletter-content">
-        <h2>Join Our Community</h2>
-        <p>Subscribe to receive exclusive offers, styling tips, and early access to new collections.</p>
-        <form class="newsletter-form">
-            <input type="email" placeholder="Enter your email address" class="newsletter-input">
-            <button type="submit" class="newsletter-btn">SUBSCRIBE</button>
-        </form>
-        <p class="newsletter-disclaimer">By subscribing, you agree to our Privacy Policy and consent to receive updates.</p>
+<main id="main-content">
+<section id="catalog-page" class="catalog-page">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-title">Каталог Товаров</h1>
+            <p class="section-subtitle">Откройте для себя нашу коллекцию премиального нижнего белья</p>
+        </div>
+        
+        <!-- Панель инструментов с фильтрами и сортировкой -->
+        <div class="catalog-toolbar">
+            <div class="toolbar-left">
+                <button onclick="openFiltersModal()" class="filter-btn cta-button btn-outline" aria-label="Открыть фильтры" aria-expanded="false" id="filter-btn">
+                    <i class="fa-solid fa-filter" aria-hidden="true"></i>
+                    <span>ФИЛЬТР</span>
+                    <span class="filter-count" id="filter-count" aria-label="Количество активных фильтров" style="display: none;">0</span>
+                </button>
+            </div>
+            
+            <div class="toolbar-right">
+                <div class="products-count-wrapper">
+                    <span class="products-count" id="products-count" aria-live="polite">0 товаров</span>
+                </div>
+                <div class="sort-wrapper">
+                    <label for="sort-select" class="sr-only">Сортировка товаров</label>
+                    <select id="sort-select" class="sort-select" aria-label="Сортировка товаров" onchange="handleSortChange(event)">
+                        <option value="popularity">По популярности</option>
+                        <option value="price-asc">Цена: по возрастанию</option>
+                        <option value="price-desc">Цена: по убыванию</option>
+                        <option value="discount">По скидкам</option>
+                        <option value="newest">По новизне</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Сетка товаров -->
+        <div id="products-grid" class="product-grid" role="region" aria-label="Сетка товаров">
+            <!-- Товары будут добавлены через JavaScript -->
+        </div>
+        
+        <!-- Состояние пустого результата -->
+        <div id="empty-state" class="empty-state" style="display: none;" role="status" aria-live="polite">
+            <i class="fa-solid fa-search empty-state-icon" aria-hidden="true"></i>
+            <h3 class="empty-state-title">Товары не найдены</h3>
+            <p class="empty-state-text">Попробуйте изменить параметры фильтрации</p>
+            <button onclick="resetFilters()" class="cta-button btn-outline">
+                <span>СБРОСИТЬ ФИЛЬТРЫ</span>
+            </button>
+        </div>
+        
+        <!-- Пагинация -->
+        <div id="pagination" class="pagination" style="display: none;" role="navigation" aria-label="Пагинация страниц">
+            <button onclick="goToPage(currentPage - 1)" id="pagination-prev" class="pagination-btn pagination-btn-arrow" aria-label="Предыдущая страница" disabled>
+                <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <div class="pagination-pages" id="pagination-pages" role="list">
+                <!-- Страницы будут добавлены через JavaScript -->
+            </div>
+            <button onclick="goToPage(currentPage + 1)" id="pagination-next" class="pagination-btn pagination-btn-arrow" aria-label="Следующая страница">
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+            </button>
+        </div>
     </div>
 </section>
+</main>
 
 <footer id="footer">
     <div class="container">
         <div class="footer-main">
             <div>
                 <h3 class="footer-brand">Chill Out Lingerie</h3>
-                <p class="footer-desc" data-i18n="footer.description">
+                <p class="footer-desc">
                     Повышаем уровень интимного белья с вневременной элегантностью, премиальным качеством и инклюзивными дизайнами для современной женщины.
                 </p>
                 <div class="footer-social">
@@ -658,110 +205,395 @@
     </div>
 </footer>
 
-<script>
-    let activeFilters = 0;
-    
-    function openMenu() {
-        document.getElementById('menu-overlay').classList.add('active');
-    }
-    
-    function closeMenu() {
-        document.getElementById('menu-overlay').classList.remove('active');
-    }
-    
-    function toggleSearchBar() {
-        const searchBar = document.getElementById('search-bar');
-        searchBar.classList.toggle('active');
-    }
-    
-    function toggleFilters() {
-        document.getElementById('filters-drawer').classList.add('active');
-    }
-    
-    function closeFilters() {
-        document.getElementById('filters-drawer').classList.remove('active');
-    }
-    
-    function applyFilters() {
-        closeFilters();
-        updateFilterCount();
-    }
-    
-    function clearAllFilters() {
-        const checkboxes = document.querySelectorAll('.filter-checkbox');
-        checkboxes.forEach(checkbox => {
-            checkbox.checked = false;
-        });
+<!-- Модальное окно фильтров -->
+<div id="filters-modal" class="filters-modal" role="dialog" aria-modal="true" aria-labelledby="filters-modal-title">
+    <div class="filters-modal-overlay" onclick="closeFiltersModal()"></div>
+    <div class="filters-modal-content">
+        <div class="filters-modal-header">
+            <h2 id="filters-modal-title" class="filters-modal-title">Фильтры</h2>
+            <button onclick="closeFiltersModal()" class="filters-modal-close" aria-label="Закрыть фильтры">
+                <i class="fa-solid fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
         
-        document.querySelectorAll('.size-btn.active').forEach(btn => {
-            btn.classList.remove('active');
-        });
+        <div class="filters-modal-body">
+            <!-- Фильтр по типу белья -->
+            <div class="filter-section">
+                <div class="filter-section-header">
+                    <h4>Тип белья</h4>
+                </div>
+                <div class="filter-options">
+                    <label class="filter-checkbox">
+                        <input type="checkbox" name="type" value="bra" class="filter-input" onchange="updateFilterCount()">
+                        <span class="filter-checkbox-label">Бюстгальтеры</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" name="type" value="panties" class="filter-input" onchange="updateFilterCount()">
+                        <span class="filter-checkbox-label">Трусы</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" name="type" value="pajamas" class="filter-input" onchange="updateFilterCount()">
+                        <span class="filter-checkbox-label">Пижамы</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" name="type" value="teddy" class="filter-input" onchange="updateFilterCount()">
+                        <span class="filter-checkbox-label">Тедди</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" name="type" value="set" class="filter-input" onchange="updateFilterCount()">
+                        <span class="filter-checkbox-label">Комплекты</span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Фильтр по категориям -->
+            <div class="filter-section">
+                <div class="filter-section-header">
+                    <h4>Категории</h4>
+                </div>
+                <div class="filter-options">
+                    <label class="filter-checkbox">
+                        <input type="checkbox" name="category" value="cozy" class="filter-input" onchange="updateFilterCount()">
+                        <span class="filter-checkbox-label">Домашнее/Уютное</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" name="category" value="bridal" class="filter-input" onchange="updateFilterCount()">
+                        <span class="filter-checkbox-label">Свадебное</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" name="category" value="sexy" class="filter-input" onchange="updateFilterCount()">
+                        <span class="filter-checkbox-label">Сексуальное</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" name="category" value="everyday" class="filter-input" onchange="updateFilterCount()">
+                        <span class="filter-checkbox-label">Повседневное</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" name="category" value="sport" class="filter-input" onchange="updateFilterCount()">
+                        <span class="filter-checkbox-label">Спортивное</span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Фильтр по размерам -->
+            <div class="filter-section">
+                <div class="filter-section-header">
+                    <h4>Размеры</h4>
+                </div>
+                
+                <!-- Стандартные размеры -->
+                <div class="size-group">
+                    <h5 class="size-group-title">Стандартные размеры</h5>
+                    <div class="filter-options filter-options-inline">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="size" value="XS" class="filter-input" onchange="updateFilterCount()">
+                            <span class="filter-checkbox-label">XS</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="size" value="S" class="filter-input" onchange="updateFilterCount()">
+                            <span class="filter-checkbox-label">S</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="size" value="M" class="filter-input" onchange="updateFilterCount()">
+                            <span class="filter-checkbox-label">M</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="size" value="L" class="filter-input" onchange="updateFilterCount()">
+                            <span class="filter-checkbox-label">L</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="size" value="XL" class="filter-input" onchange="updateFilterCount()">
+                            <span class="filter-checkbox-label">XL</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="size" value="XXL" class="filter-input" onchange="updateFilterCount()">
+                            <span class="filter-checkbox-label">XXL</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="size" value="3XL" class="filter-input" onchange="updateFilterCount()">
+                            <span class="filter-checkbox-label">3XL</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="size" value="4XL" class="filter-input" onchange="updateFilterCount()">
+                            <span class="filter-checkbox-label">4XL</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Размеры бюстгальтеров -->
+                <div class="size-group">
+                    <h5 class="size-group-title">Размеры бюстгальтеров</h5>
+                    <div class="bra-sizes-grid">
+                        <div class="bra-size-group">
+                            <h6 class="bra-size-group-title">65</h6>
+                            <div class="filter-options filter-options-inline">
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="65A" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">A</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="65B" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">B</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="65C" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">C</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="65D" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">D</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="65E" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">E</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="65F" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">F</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="65G" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">G</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="bra-size-group">
+                            <h6 class="bra-size-group-title">70</h6>
+                            <div class="filter-options filter-options-inline">
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="70A" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">A</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="70B" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">B</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="70C" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">C</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="70D" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">D</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="70E" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">E</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="70F" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">F</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="70G" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">G</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="bra-size-group">
+                            <h6 class="bra-size-group-title">75</h6>
+                            <div class="filter-options filter-options-inline">
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="75A" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">A</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="75B" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">B</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="75C" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">C</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="75D" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">D</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="75E" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">E</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="75F" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">F</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="75G" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">G</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="bra-size-group">
+                            <h6 class="bra-size-group-title">80</h6>
+                            <div class="filter-options filter-options-inline">
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="80A" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">A</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="80B" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">B</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="80C" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">C</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="80D" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">D</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="80E" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">E</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="80F" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">F</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="80G" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">G</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="bra-size-group">
+                            <h6 class="bra-size-group-title">85</h6>
+                            <div class="filter-options filter-options-inline">
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="85A" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">A</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="85B" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">B</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="85C" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">C</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="85D" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">D</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="85E" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">E</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="85F" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">F</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="85G" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">G</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="bra-size-group">
+                            <h6 class="bra-size-group-title">90</h6>
+                            <div class="filter-options filter-options-inline">
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="90A" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">A</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="90B" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">B</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="90C" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">C</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="90D" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">D</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="90E" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">E</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="90F" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">F</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="90G" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">G</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="bra-size-group">
+                            <h6 class="bra-size-group-title">95</h6>
+                            <div class="filter-options filter-options-inline">
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="95A" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">A</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="95B" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">B</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="95C" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">C</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="95D" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">D</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="95E" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">E</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="95F" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">F</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="size" value="95G" class="filter-input" onchange="updateFilterCount()">
+                                    <span class="filter-checkbox-label">G</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         
-        document.querySelectorAll('.color-btn.active').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        
-        activeFilters = 0;
-        updateFilterCount();
-    }
-    
-    function updateFilterCount() {
-        const filterCountBadge = document.getElementById('filter-count');
-        if (activeFilters > 0) {
-            filterCountBadge.textContent = activeFilters;
-            filterCountBadge.style.display = 'flex';
-        } else {
-            filterCountBadge.style.display = 'none';
-        }
-    }
-    
-    function toggleFilterSection(header) {
-        const section = header.parentElement;
-        section.classList.toggle('collapsed');
-    }
-    
-    function toggleSize(btn) {
-        btn.classList.toggle('active');
-        if (btn.classList.contains('active')) {
-            activeFilters++;
-        } else {
-            activeFilters--;
-        }
-    }
-    
-    function toggleColor(btn) {
-        btn.classList.toggle('active');
-        if (btn.classList.contains('active')) {
-            activeFilters++;
-        } else {
-            activeFilters--;
-        }
-    }
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        const priceSlider = document.getElementById('mobile-price-slider');
-        if (priceSlider) {
-            priceSlider.addEventListener('input', function() {
-                const value = this.value;
-                const priceValue = document.getElementById('mobile-price-value');
-                if (priceValue) {
-                    priceValue.textContent = '$' + value;
-                }
-            });
-        }
-        
-        const checkboxes = document.querySelectorAll('.filter-checkbox');
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', function() {
-                if (this.checked) {
-                    activeFilters++;
-                } else {
-                    activeFilters--;
-                }
-            });
-        });
-    });
-</script>
+        <div class="filters-modal-footer">
+            <button onclick="resetFilters()" class="filters-modal-btn filters-modal-btn-secondary" aria-label="Сбросить все фильтры">
+                СБРОСИТЬ
+            </button>
+            <button onclick="applyFilters()" class="filters-modal-btn filters-modal-btn-primary" aria-label="Применить фильтры">
+                ПРИМЕНИТЬ
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Уведомление о статусе отправки формы -->
+<div id="notification" class="notification" role="alert" aria-live="polite" aria-atomic="true">
+    <div class="notification-overlay"></div>
+    <div class="notification-content">
+        <div class="notification-icon">
+            <i></i>
+        </div>
+        <div class="notification-message">
+            <h4 class="notification-title"></h4>
+            <p class="notification-text"></p>
+        </div>
+        <button class="notification-close" aria-label="Закрыть уведомление">
+            <i class="fa-solid fa-times"></i>
+        </button>
+    </div>
+</div>
 
 </body>
 </html>
+
