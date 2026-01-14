@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,7 +45,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet"></noscript>
     <link rel="stylesheet" href="src/styles/style.scss">
-    <script src="src/script.js" defer></script>
+    <script type="module" src="src/script.js" defer></script>
 </head>
 <body>
 
@@ -157,13 +157,13 @@
         
         <!-- Пагинация -->
         <div id="pagination" class="pagination" style="display: none;" role="navigation" aria-label="Пагинация страниц">
-            <button onclick="goToPage(currentPage - 1)" id="pagination-prev" class="pagination-btn pagination-btn-arrow" aria-label="Предыдущая страница" disabled>
+            <button onclick="goToPrevPage()" id="pagination-prev" class="pagination-btn pagination-btn-arrow" aria-label="Предыдущая страница" disabled>
                 <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
             </button>
             <div class="pagination-pages" id="pagination-pages" role="list">
                 <!-- Страницы будут добавлены через JavaScript -->
             </div>
-            <button onclick="goToPage(currentPage + 1)" id="pagination-next" class="pagination-btn pagination-btn-arrow" aria-label="Следующая страница">
+            <button onclick="goToNextPage()" id="pagination-next" class="pagination-btn pagination-btn-arrow" aria-label="Следующая страница">
                 <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
             </button>
         </div>

@@ -659,7 +659,7 @@ function toggleTheme() {
     }
     
     // Обновляем aria-label
-    themeToggle.setAttribute('aria-label', newTheme === 'light' ? 'Переключить на темную тему' : 'Переключить на светлую тему');
+        themeToggle.setAttribute('aria-label', newTheme === 'light' ? 'Переключить на темную тему' : 'Переключить на светлую тему');
 }
 
 // Инициализация темы при загрузке
@@ -2085,6 +2085,20 @@ let activeFilters = {
 let currentPage = 1;
 const itemsPerPage = 30;
 
+// Функции-обертки для пагинации (для использования в onclick)
+function goToPrevPage() {
+    if (currentPage > 1) {
+        goToPage(currentPage - 1);
+    }
+}
+
+function goToNextPage() {
+    const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+    if (currentPage < totalPages) {
+        goToPage(currentPage + 1);
+    }
+}
+
 // Функции управления модальным окном фильтров
 function openFiltersModal() {
     const modal = document.getElementById('filters-modal');
@@ -2559,4 +2573,26 @@ function initCatalog() {
         overlay.setAttribute('data-listener-added', 'true');
     }
 }
+
+// Экспортируем функции в window для доступа из HTML (onclick)
+// Это нужно для работы с type="module" в Vite
+window.openMenu = openMenu;
+window.closeMenu = closeMenu;
+window.toggleTheme = toggleTheme;
+window.showNotification = showNotification;
+window.hideNotification = hideNotification;
+window.handleContactSubmit = handleContactSubmit;
+window.updateCalculatorFields = updateCalculatorFields;
+window.handleSizeCalculatorSubmit = handleSizeCalculatorSubmit;
+window.openSizeGuideModal = openSizeGuideModal;
+window.closeSizeGuideModal = closeSizeGuideModal;
+window.scrollCarousel = scrollCarousel;
+window.openFiltersModal = openFiltersModal;
+window.closeFiltersModal = closeFiltersModal;
+window.applyFilters = applyFilters;
+window.resetFilters = resetFilters;
+window.handleSortChange = handleSortChange;
+window.goToPage = goToPage;
+window.goToPrevPage = goToPrevPage;
+window.goToNextPage = goToNextPage;
 
