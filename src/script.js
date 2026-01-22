@@ -3027,4 +3027,8 @@ window.handleSortChange = handleSortChange;
 window.goToPage = goToPage;
 window.goToPrevPage = goToPrevPage;
 window.goToNextPage = goToNextPage;
-// Функции уже экспортированы выше после их определения
+// Экспортируем функции быстрого просмотра для доступа из HTML (onclick)
+window.openQuickViewModal = openQuickViewModal;
+window.openQuickViewModalWithData = openQuickViewModalWithData;
+window.closeQuickViewModal = closeQuickViewModal;
+window.openQuickViewFromCard = openQuickViewFromCard;
