@@ -718,6 +718,232 @@ function initTheme() {
     }, 50); // Уменьшил задержку до 50ms для более быстрого обновления
 }
 
+// ==========================================================================
+// МОДАЛЬНОЕ ОКНО БЫСТРОГО ПРОСМОТРА ТОВАРА
+// Определяем функции ДО DOMContentLoaded, чтобы они были доступны из onclick
+// ==========================================================================
+
+// Вспомогательная функция для открытия модального окна из карточки товара
+function openQuickViewFromCard(button) {
+    if (!button) return;
+    
+    // Находим родительскую карточку товара или элемент карусели
+    const productCard = button.closest('.product-card');
+    const carouselItem = button.closest('.carousel-item');
+    const container = productCard || carouselItem;
+    
+    if (!container) return;
+    
+    // Получаем данные из карточки
+    const name = container.querySelector('.product-name')?.textContent || '';
+    const description = container.querySelector('.product-desc')?.textContent || '';
+    const priceText = container.querySelector('.product-price')?.textContent || '';
+    const image = container.querySelector('img')?.src || '';
+    const badge = container.querySelector('.product-badge');
+    
+    // Парсим цену
+    const priceMatch = priceText.match(/[\d\s]+/);
+    const price = priceMatch ? parseInt(priceMatch[0].replace(/\s/g, '')) : 0;
+    
+    // Получаем ID товара, если есть
+    const productId = productCard?.getAttribute('data-product-id');
+    
+    // Создаем объект товара
+    const product = {
+        id: productId ? parseInt(productId) : Date.now(),
+        name: name,
+        description: description,
+        price: price,
+        originalPrice: null,
+        image: image,
+        sizes: ['S', 'M', 'L', 'XL'], // По умолчанию
+        isNew: badge?.classList.contains('badge-new') || false,
+        isBestseller: badge?.classList.contains('bestseller') || false
+    };
+    
+    // Открываем модальное окно
+    if (window.openQuickViewModalWithData) {
+        window.openQuickViewModalWithData(product);
+    } else if (typeof openQuickViewModalWithData === 'function') {
+        openQuickViewModalWithData(product);
+    } else {
+        console.error('Функция openQuickViewModalWithData не доступна');
+    }
+}
+
+// Функция открытия модального окна быстрого просмотра с данными товара
+function openQuickViewModalWithData(product) {
+    // Заполняем модальное окно данными товара
+    const modal = document.getElementById('quick-view-modal');
+    if (!modal) {
+        console.error('Модальное окно quick-view-modal не найдено в DOM');
+        return;
+    }
+    
+    if (!product) {
+        console.error('Данные товара не переданы в openQuickViewModalWithData');
+        return;
+    }
+    
+    // Изображение
+    const imageEl = document.getElementById('quick-view-image');
+    if (imageEl) {
+        imageEl.src = product.image;
+        imageEl.alt = product.name;
+    }
+    
+    // Название
+    const nameEl = document.getElementById('quick-view-name');
+    if (nameEl) {
+        nameEl.textContent = product.name;
+    }
+    
+    // Описание
+    const descriptionEl = document.getElementById('quick-view-description');
+    if (descriptionEl) {
+        descriptionEl.textContent = product.description;
+    }
+    
+    // Цена
+    const priceEl = document.getElementById('quick-view-price');
+    const originalPriceEl = document.getElementById('quick-view-original-price');
+    if (priceEl) {
+        if (product.originalPrice) {
+            priceEl.textContent = `${product.price.toLocaleString('ru-RU')} ₽`;
+            if (originalPriceEl) {
+                originalPriceEl.textContent = `${product.originalPrice.toLocaleString('ru-RU')} ₽`;
+                originalPriceEl.style.display = 'block';
+            }
+        } else {
+            priceEl.textContent = `${product.price.toLocaleString('ru-RU')} ₽`;
+            if (originalPriceEl) {
+                originalPriceEl.style.display = 'none';
+            }
+        }
+    }
+    
+    // Размеры
+    const sizesListEl = document.getElementById('quick-view-sizes-list');
+    if (sizesListEl && product.sizes) {
+        sizesListEl.innerHTML = product.sizes.map(size => 
+            `<span class="quick-view-size-item">${size}</span>`
+        ).join('');
+    }
+    
+    // Бейдж
+    const badgeEl = document.getElementById('quick-view-badge');
+    if (badgeEl) {
+        if (product.isNew) {
+            badgeEl.textContent = 'NEW';
+            badgeEl.className = 'quick-view-badge badge-new';
+            badgeEl.style.display = 'block';
+        } else if (product.isBestseller) {
+            badgeEl.textContent = 'BESTSELLER';
+            badgeEl.className = 'quick-view-badge bestseller';
+            badgeEl.style.display = 'block';
+        } else {
+            badgeEl.style.display = 'none';
+        }
+    }
+    
+    // Кнопка заказа - добавляем название товара в ссылку ВК
+    const orderBtn = document.getElementById('quick-view-order-btn');
+    if (orderBtn) {
+        // Можно добавить параметры в URL для передачи информации о товаре
+        const vkUrl = new URL('https://vk.com/chilloutlingerie');
+        // Если нужно, можно добавить параметры запроса
+        orderBtn.href = vkUrl.toString();
+    }
+    
+    // Открываем модальное окно
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    // Устанавливаем aria-hidden для основного контента
+    const mainContent = document.getElementById('main-content');
+    if (mainContent) {
+        mainContent.setAttribute('aria-hidden', 'true');
+    }
+    
+    // Фокус на кнопке закрытия для доступности
+    const closeBtn = modal.querySelector('.quick-view-modal-close');
+    if (closeBtn) {
+        setTimeout(() => closeBtn.focus(), 100);
+    }
+}
+
+// Функция открытия модального окна быстрого просмотра
+function openQuickViewModal(productId) {
+    // Находим товар по ID
+    let product = null;
+    
+    // Ищем в каталоге товаров
+    if (typeof catalogProducts !== 'undefined') {
+        product = catalogProducts.find(p => p.id === productId);
+    }
+    
+    // Если не нашли в каталоге, ищем в статических товарах на главной странице
+    if (!product) {
+        // Получаем данные из карточки товара на странице
+        const productCard = document.querySelector(`[data-product-id="${productId}"]`);
+        if (productCard) {
+            const name = productCard.querySelector('.product-name')?.textContent || '';
+            const description = productCard.querySelector('.product-desc')?.textContent || '';
+            const priceText = productCard.querySelector('.product-price')?.textContent || '';
+            const image = productCard.querySelector('img')?.src || '';
+            const badge = productCard.querySelector('.product-badge');
+            
+            // Парсим цену
+            const priceMatch = priceText.match(/[\d\s]+/);
+            const price = priceMatch ? parseInt(priceMatch[0].replace(/\s/g, '')) : 0;
+            
+            product = {
+                id: productId,
+                name: name,
+                description: description,
+                price: price,
+                originalPrice: null,
+                image: image,
+                sizes: ['S', 'M', 'L', 'XL'], // По умолчанию
+                isNew: badge?.classList.contains('badge-new') || false,
+                isBestseller: badge?.classList.contains('bestseller') || false
+            };
+        }
+    }
+    
+    // Если товар не найден, выходим
+    if (!product) {
+        console.error('Товар не найден:', productId);
+        return;
+    }
+    
+    // Используем общую функцию для заполнения модального окна
+    openQuickViewModalWithData(product);
+}
+
+// Функция закрытия модального окна быстрого просмотра
+function closeQuickViewModal() {
+    const modal = document.getElementById('quick-view-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        
+        // Убираем aria-hidden с основного контента
+        const mainContent = document.getElementById('main-content');
+        if (mainContent) {
+            mainContent.removeAttribute('aria-hidden');
+        }
+    }
+}
+
+// Экспортируем функции в window сразу после определения для надежности
+if (typeof window !== 'undefined') {
+    window.openQuickViewModal = openQuickViewModal;
+    window.openQuickViewModalWithData = openQuickViewModalWithData;
+    window.closeQuickViewModal = closeQuickViewModal;
+    window.openQuickViewFromCard = openQuickViewFromCard;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Инициализация темы
     initTheme();
@@ -2769,181 +2995,8 @@ function initCatalog() {
     }
 }
 
-// ==========================================================================
-// МОДАЛЬНОЕ ОКНО БЫСТРОГО ПРОСМОТРА ТОВАРА
-// ==========================================================================
-
-// Функция открытия модального окна быстрого просмотра с данными товара
-function openQuickViewModalWithData(product) {
-    // Заполняем модальное окно данными товара
-    const modal = document.getElementById('quick-view-modal');
-    if (!modal) {
-        console.error('Модальное окно quick-view-modal не найдено в DOM');
-        return;
-    }
-    
-    if (!product) {
-        console.error('Данные товара не переданы в openQuickViewModalWithData');
-        return;
-    }
-    
-    // Изображение
-    const imageEl = document.getElementById('quick-view-image');
-    if (imageEl) {
-        imageEl.src = product.image;
-        imageEl.alt = product.name;
-    }
-    
-    // Название
-    const nameEl = document.getElementById('quick-view-name');
-    if (nameEl) {
-        nameEl.textContent = product.name;
-    }
-    
-    // Описание
-    const descriptionEl = document.getElementById('quick-view-description');
-    if (descriptionEl) {
-        descriptionEl.textContent = product.description;
-    }
-    
-    // Цена
-    const priceEl = document.getElementById('quick-view-price');
-    const originalPriceEl = document.getElementById('quick-view-original-price');
-    if (priceEl) {
-        if (product.originalPrice) {
-            priceEl.textContent = `${product.price.toLocaleString('ru-RU')} ₽`;
-            if (originalPriceEl) {
-                originalPriceEl.textContent = `${product.originalPrice.toLocaleString('ru-RU')} ₽`;
-                originalPriceEl.style.display = 'block';
-            }
-        } else {
-            priceEl.textContent = `${product.price.toLocaleString('ru-RU')} ₽`;
-            if (originalPriceEl) {
-                originalPriceEl.style.display = 'none';
-            }
-        }
-    }
-    
-    // Размеры
-    const sizesListEl = document.getElementById('quick-view-sizes-list');
-    if (sizesListEl && product.sizes) {
-        sizesListEl.innerHTML = product.sizes.map(size => 
-            `<span class="quick-view-size-item">${size}</span>`
-        ).join('');
-    }
-    
-    // Бейдж
-    const badgeEl = document.getElementById('quick-view-badge');
-    if (badgeEl) {
-        if (product.isNew) {
-            badgeEl.textContent = 'NEW';
-            badgeEl.className = 'quick-view-badge badge-new';
-            badgeEl.style.display = 'block';
-        } else if (product.isBestseller) {
-            badgeEl.textContent = 'BESTSELLER';
-            badgeEl.className = 'quick-view-badge bestseller';
-            badgeEl.style.display = 'block';
-        } else {
-            badgeEl.style.display = 'none';
-        }
-    }
-    
-    // Кнопка заказа - добавляем название товара в ссылку ВК
-    const orderBtn = document.getElementById('quick-view-order-btn');
-    if (orderBtn) {
-        // Можно добавить параметры в URL для передачи информации о товаре
-        const vkUrl = new URL('https://vk.com/chilloutlingerie');
-        // Если нужно, можно добавить параметры запроса
-        orderBtn.href = vkUrl.toString();
-    }
-    
-    // Открываем модальное окно
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    
-    // Устанавливаем aria-hidden для основного контента
-    const mainContent = document.getElementById('main-content');
-    if (mainContent) {
-        mainContent.setAttribute('aria-hidden', 'true');
-    }
-    
-    // Фокус на кнопке закрытия для доступности
-    const closeBtn = modal.querySelector('.quick-view-modal-close');
-    if (closeBtn) {
-        setTimeout(() => closeBtn.focus(), 100);
-    }
-}
-
-// Функция открытия модального окна быстрого просмотра
-function openQuickViewModal(productId) {
-    // Находим товар по ID
-    let product = null;
-    
-    // Ищем в каталоге товаров
-    if (typeof catalogProducts !== 'undefined') {
-        product = catalogProducts.find(p => p.id === productId);
-    }
-    
-    // Если не нашли в каталоге, ищем в статических товарах на главной странице
-    if (!product) {
-        // Получаем данные из карточки товара на странице
-        const productCard = document.querySelector(`[data-product-id="${productId}"]`);
-        if (productCard) {
-            const name = productCard.querySelector('.product-name')?.textContent || '';
-            const description = productCard.querySelector('.product-desc')?.textContent || '';
-            const priceText = productCard.querySelector('.product-price')?.textContent || '';
-            const image = productCard.querySelector('img')?.src || '';
-            const badge = productCard.querySelector('.product-badge');
-            
-            // Парсим цену
-            const priceMatch = priceText.match(/[\d\s]+/);
-            const price = priceMatch ? parseInt(priceMatch[0].replace(/\s/g, '')) : 0;
-            
-            product = {
-                id: productId,
-                name: name,
-                description: description,
-                price: price,
-                originalPrice: null,
-                image: image,
-                sizes: ['S', 'M', 'L', 'XL'], // По умолчанию
-                isNew: badge?.classList.contains('badge-new') || false,
-                isBestseller: badge?.classList.contains('bestseller') || false
-            };
-        }
-    }
-    
-    // Если товар не найден, выходим
-    if (!product) {
-        console.error('Товар не найден:', productId);
-        return;
-    }
-    
-    // Используем общую функцию для заполнения модального окна
-    openQuickViewModalWithData(product);
-}
-
-// Функция закрытия модального окна быстрого просмотра
-function closeQuickViewModal() {
-    const modal = document.getElementById('quick-view-modal');
-    if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-        
-        // Убираем aria-hidden с основного контента
-        const mainContent = document.getElementById('main-content');
-        if (mainContent) {
-            mainContent.removeAttribute('aria-hidden');
-        }
-    }
-}
-
-// Экспортируем функции в window сразу после определения всех функций для надежности
-if (typeof window !== 'undefined') {
-    window.openQuickViewModal = openQuickViewModal;
-    window.openQuickViewModalWithData = openQuickViewModalWithData;
-    window.closeQuickViewModal = closeQuickViewModal;
-}
+// Функции модального окна уже определены выше перед DOMContentLoaded
+// Дубликаты удалены для избежания конфликтов
 
 // Экспортируем функции в window для доступа из HTML (onclick)
 // Это нужно для работы с type="module" в Vite
