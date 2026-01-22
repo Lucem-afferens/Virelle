@@ -874,51 +874,59 @@ function openQuickViewModalWithData(product) {
 
 // Функция открытия модального окна быстрого просмотра
 function openQuickViewModal(productId) {
-    // Находим товар по ID
-    let product = null;
+    // Сначала пытаемся найти товар в DOM (для главной страницы)
+    const productCard = document.querySelector(`[data-product-id="${productId}"]`);
     
-    // Ищем в каталоге товаров
-    if (typeof catalogProducts !== 'undefined') {
-        product = catalogProducts.find(p => p.id === productId);
-    }
-    
-    // Если не нашли в каталоге, ищем в статических товарах на главной странице
-    if (!product) {
+    if (productCard) {
         // Получаем данные из карточки товара на странице
-        const productCard = document.querySelector(`[data-product-id="${productId}"]`);
-        if (productCard) {
-            const name = productCard.querySelector('.product-name')?.textContent || '';
-            const description = productCard.querySelector('.product-desc')?.textContent || '';
-            const priceText = productCard.querySelector('.product-price')?.textContent || '';
-            const image = productCard.querySelector('img')?.src || '';
-            const badge = productCard.querySelector('.product-badge');
-            
-            // Парсим цену
-            const priceMatch = priceText.match(/[\d\s]+/);
-            const price = priceMatch ? parseInt(priceMatch[0].replace(/\s/g, '')) : 0;
-            
-            product = {
-                id: productId,
-                name: name,
-                description: description,
-                price: price,
-                originalPrice: null,
-                image: image,
-                sizes: ['S', 'M', 'L', 'XL'], // По умолчанию
-                isNew: badge?.classList.contains('badge-new') || false,
-                isBestseller: badge?.classList.contains('bestseller') || false
-            };
+        const name = productCard.querySelector('.product-name')?.textContent || '';
+        const description = productCard.querySelector('.product-desc')?.textContent || '';
+        const priceText = productCard.querySelector('.product-price')?.textContent || '';
+        const image = productCard.querySelector('img')?.src || '';
+        const badge = productCard.querySelector('.product-badge');
+        
+        // Парсим цену
+        const priceMatch = priceText.match(/[\d\s]+/);
+        const price = priceMatch ? parseInt(priceMatch[0].replace(/\s/g, '')) : 0;
+        
+        const product = {
+            id: productId,
+            name: name,
+            description: description,
+            price: price,
+            originalPrice: null,
+            image: image,
+            sizes: ['S', 'M', 'L', 'XL'], // По умолчанию
+            isNew: badge?.classList.contains('badge-new') || false,
+            isBestseller: badge?.classList.contains('bestseller') || false
+        };
+        
+        // Используем общую функцию для заполнения модального окна
+        if (typeof openQuickViewModalWithData === 'function') {
+            openQuickViewModalWithData(product);
+        } else if (window.openQuickViewModalWithData) {
+            window.openQuickViewModalWithData(product);
+        } else {
+            console.error('Функция openQuickViewModalWithData не доступна');
         }
-    }
-    
-    // Если товар не найден, выходим
-    if (!product) {
-        console.error('Товар не найден:', productId);
         return;
     }
     
-    // Используем общую функцию для заполнения модального окна
-    openQuickViewModalWithData(product);
+    // Если не нашли в DOM, ищем в каталоге товаров (для страницы каталога)
+    if (typeof catalogProducts !== 'undefined') {
+        const product = catalogProducts.find(p => p.id === productId);
+        if (product) {
+            if (typeof openQuickViewModalWithData === 'function') {
+                openQuickViewModalWithData(product);
+            } else if (window.openQuickViewModalWithData) {
+                window.openQuickViewModalWithData(product);
+            }
+            return;
+        }
+    }
+    
+    // Если товар не найден ни в DOM, ни в каталоге
+    console.error('Товар не найден:', productId);
 }
 
 // Функция закрытия модального окна быстрого просмотра
