@@ -881,8 +881,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Обработчики клика на кнопки "БЫСТРЫЙ ПРОСМОТР" для статических карточек на главной странице
     // Используем делегирование событий для надежности
     function handleQuickViewClick(e) {
+        // Проверяем, был ли клик по кнопке быстрого просмотра или её дочернему элементу
         const button = e.target.closest('.quick-view-btn');
-        if (!button) return;
+        if (!button) {
+            // Не клик по кнопке быстрого просмотра, игнорируем
+            return;
+        }
+        
+        // Клик по кнопке быстрого просмотра обнаружен
         
         // Пропускаем кнопки, которые уже имеют onclick (динамически созданные)
         if (button.hasAttribute('onclick')) {
@@ -896,6 +902,24 @@ document.addEventListener('DOMContentLoaded', function() {
         
         e.preventDefault();
         e.stopPropagation();
+        
+        // Используем window для доступа к функциям (на случай модульной загрузки)
+        // Пробуем получить функции из window, если они там есть
+        let openModal = window.openQuickViewModal;
+        let openModalWithData = window.openQuickViewModalWithData;
+        
+        // Если функции не в window, но доступны в области видимости, используем их напрямую
+        if (!openModalWithData && typeof openQuickViewModalWithData === 'function') {
+            openModalWithData = openQuickViewModalWithData;
+        }
+        if (!openModal && typeof openQuickViewModal === 'function') {
+            openModal = openQuickViewModal;
+        }
+        
+        if (!openModalWithData) {
+            console.error('Функция openQuickViewModalWithData не доступна. Попробуйте обновить страницу.');
+            return;
+        }
         
         // Находим родительскую карточку товара
         const productCard = button.closest('.product-card');
@@ -927,9 +951,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 };
                 
                 // Открываем модальное окно с данными товара
-                if (typeof openQuickViewModalWithData === 'function') {
-                    openQuickViewModalWithData(tempProduct);
-                }
+                openModalWithData(tempProduct);
                 return;
             }
             return;
@@ -937,10 +959,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Получаем ID товара из data-атрибута
         const productId = productCard.getAttribute('data-product-id');
-        if (productId) {
-            if (typeof openQuickViewModal === 'function') {
-                openQuickViewModal(parseInt(productId));
-            }
+        if (productId && openModal) {
+            openModal(parseInt(productId));
         } else {
             // Если нет ID, получаем данные напрямую из карточки
             const name = productCard.querySelector('.product-name')?.textContent || '';
@@ -967,20 +987,18 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             
             // Открываем модальное окно с данными товара
-            if (typeof openQuickViewModalWithData === 'function') {
-                openQuickViewModalWithData(tempProduct);
-            }
+            openModalWithData(tempProduct);
         }
     }
-    
-    // Используем делегирование событий на document для надежности
-    document.addEventListener('click', handleQuickViewClick);
     
     // Проверяем наличие модального окна в DOM
     const quickViewModal = document.getElementById('quick-view-modal');
     if (!quickViewModal) {
         console.error('Модальное окно quick-view-modal не найдено в DOM при инициализации');
     }
+    
+    // Используем делегирование событий на document для надежности
+    document.addEventListener('click', handleQuickViewClick);
     
     // Закрытие модального окна быстрого просмотра по ESC
     document.addEventListener('keydown', function(event) {
