@@ -18,6 +18,39 @@
     left: 0;
 }
 
+/* Десктоп: боковая панель слева (не на весь экран) */
+@media (min-width: 1024px) {
+    .menu-overlay {
+        left: -450px;
+        right: auto;
+        width: 450px;
+        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .menu-overlay.active {
+        left: 0;
+        right: auto;
+    }
+
+    .menu-content {
+        padding: 0 2.5rem;
+    }
+
+    .menu-nav {
+        gap: 2.5rem;
+    }
+
+    .menu-nav a {
+        font-size: 2rem;
+    }
+
+    .menu-close {
+        top: 1.5rem;
+        right: 1.5rem;
+        font-size: 2rem;
+    }
+}
+
 .menu-content {
     display: flex;
     flex-direction: column;
@@ -47,11 +80,11 @@
 .menu-nav {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .menu-nav a {
-    font-size: 3.75rem;
+    font-size: 3rem;
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
     color: var(--color-text-primary);

@@ -53,6 +53,7 @@
     position: absolute;
     inset: 0;
     background: var(--gradient-hero-overlay);
+    z-index: 2;
 }
 
 .hero-content {
@@ -85,7 +86,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
     margin-bottom: 2rem;
-    color: var(--color-text-secondary);
+    color: var(--color-text-accent);
 }
 
 .hero-text {
