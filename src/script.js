@@ -879,64 +879,35 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Обработчики клика на кнопки "БЫСТРЫЙ ПРОСМОТР" для статических карточек на главной странице
-    const quickViewButtons = document.querySelectorAll('.quick-view-btn');
-    quickViewButtons.forEach(button => {
+    // Используем делегирование событий для надежности
+    function handleQuickViewClick(e) {
+        const button = e.target.closest('.quick-view-btn');
+        if (!button) return;
+        
         // Пропускаем кнопки, которые уже имеют onclick (динамически созданные)
         if (button.hasAttribute('onclick')) {
             return;
         }
         
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            // Находим родительскую карточку товара
-            const productCard = this.closest('.product-card');
-            if (!productCard) {
-                // Если не нашли .product-card, ищем в карусели
-                const carouselItem = this.closest('.carousel-item');
-                if (carouselItem) {
-                    // Получаем данные из карусели
-                    const name = carouselItem.querySelector('.product-name')?.textContent || '';
-                    const description = carouselItem.querySelector('.product-desc')?.textContent || '';
-                    const priceText = carouselItem.querySelector('.product-price')?.textContent || '';
-                    const image = carouselItem.querySelector('img')?.src || '';
-                    
-                    // Парсим цену
-                    const priceMatch = priceText.match(/[\d\s]+/);
-                    const price = priceMatch ? parseInt(priceMatch[0].replace(/\s/g, '')) : 0;
-                    
-                    // Создаем временный объект товара
-                    const tempProduct = {
-                        id: Date.now(), // Временный ID
-                        name: name,
-                        description: description,
-                        price: price,
-                        originalPrice: null,
-                        image: image,
-                        sizes: ['S', 'M', 'L', 'XL'], // По умолчанию
-                        isNew: false,
-                        isBestseller: false
-                    };
-                    
-                    // Открываем модальное окно с данными товара
-                    openQuickViewModalWithData(tempProduct);
-                    return;
-                }
-                return;
-            }
-            
-            // Получаем ID товара из data-атрибута
-            const productId = productCard.getAttribute('data-product-id');
-            if (productId) {
-                openQuickViewModal(parseInt(productId));
-            } else {
-                // Если нет ID, получаем данные напрямую из карточки
-                const name = productCard.querySelector('.product-name')?.textContent || '';
-                const description = productCard.querySelector('.product-desc')?.textContent || '';
-                const priceText = productCard.querySelector('.product-price')?.textContent || '';
-                const image = productCard.querySelector('img')?.src || '';
-                const badge = productCard.querySelector('.product-badge');
+        // Пропускаем ссылки, которые ведут на другую страницу
+        if (button.tagName === 'A' && button.getAttribute('href') && !button.getAttribute('href').startsWith('#')) {
+            return;
+        }
+        
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Находим родительскую карточку товара
+        const productCard = button.closest('.product-card');
+        if (!productCard) {
+            // Если не нашли .product-card, ищем в карусели
+            const carouselItem = button.closest('.carousel-item');
+            if (carouselItem) {
+                // Получаем данные из карусели
+                const name = carouselItem.querySelector('.product-name')?.textContent || '';
+                const description = carouselItem.querySelector('.product-desc')?.textContent || '';
+                const priceText = carouselItem.querySelector('.product-price')?.textContent || '';
+                const image = carouselItem.querySelector('img')?.src || '';
                 
                 // Парсим цену
                 const priceMatch = priceText.match(/[\d\s]+/);
@@ -951,15 +922,65 @@ document.addEventListener('DOMContentLoaded', function() {
                     originalPrice: null,
                     image: image,
                     sizes: ['S', 'M', 'L', 'XL'], // По умолчанию
-                    isNew: badge?.classList.contains('badge-new') || false,
-                    isBestseller: badge?.classList.contains('bestseller') || false
+                    isNew: false,
+                    isBestseller: false
                 };
                 
                 // Открываем модальное окно с данными товара
+                if (typeof openQuickViewModalWithData === 'function') {
+                    openQuickViewModalWithData(tempProduct);
+                }
+                return;
+            }
+            return;
+        }
+        
+        // Получаем ID товара из data-атрибута
+        const productId = productCard.getAttribute('data-product-id');
+        if (productId) {
+            if (typeof openQuickViewModal === 'function') {
+                openQuickViewModal(parseInt(productId));
+            }
+        } else {
+            // Если нет ID, получаем данные напрямую из карточки
+            const name = productCard.querySelector('.product-name')?.textContent || '';
+            const description = productCard.querySelector('.product-desc')?.textContent || '';
+            const priceText = productCard.querySelector('.product-price')?.textContent || '';
+            const image = productCard.querySelector('img')?.src || '';
+            const badge = productCard.querySelector('.product-badge');
+            
+            // Парсим цену
+            const priceMatch = priceText.match(/[\d\s]+/);
+            const price = priceMatch ? parseInt(priceMatch[0].replace(/\s/g, '')) : 0;
+            
+            // Создаем временный объект товара
+            const tempProduct = {
+                id: Date.now(), // Временный ID
+                name: name,
+                description: description,
+                price: price,
+                originalPrice: null,
+                image: image,
+                sizes: ['S', 'M', 'L', 'XL'], // По умолчанию
+                isNew: badge?.classList.contains('badge-new') || false,
+                isBestseller: badge?.classList.contains('bestseller') || false
+            };
+            
+            // Открываем модальное окно с данными товара
+            if (typeof openQuickViewModalWithData === 'function') {
                 openQuickViewModalWithData(tempProduct);
             }
-        });
-    });
+        }
+    }
+    
+    // Используем делегирование событий на document для надежности
+    document.addEventListener('click', handleQuickViewClick);
+    
+    // Проверяем наличие модального окна в DOM
+    const quickViewModal = document.getElementById('quick-view-modal');
+    if (!quickViewModal) {
+        console.error('Модальное окно quick-view-modal не найдено в DOM при инициализации');
+    }
     
     // Закрытие модального окна быстрого просмотра по ESC
     document.addEventListener('keydown', function(event) {
@@ -2738,7 +2759,15 @@ function initCatalog() {
 function openQuickViewModalWithData(product) {
     // Заполняем модальное окно данными товара
     const modal = document.getElementById('quick-view-modal');
-    if (!modal) return;
+    if (!modal) {
+        console.error('Модальное окно quick-view-modal не найдено в DOM');
+        return;
+    }
+    
+    if (!product) {
+        console.error('Данные товара не переданы в openQuickViewModalWithData');
+        return;
+    }
     
     // Изображение
     const imageEl = document.getElementById('quick-view-image');
@@ -2891,6 +2920,13 @@ function closeQuickViewModal() {
     }
 }
 
+// Экспортируем функции в window сразу после определения всех функций для надежности
+if (typeof window !== 'undefined') {
+    window.openQuickViewModal = openQuickViewModal;
+    window.openQuickViewModalWithData = openQuickViewModalWithData;
+    window.closeQuickViewModal = closeQuickViewModal;
+}
+
 // Экспортируем функции в window для доступа из HTML (onclick)
 // Это нужно для работы с type="module" в Vite
 window.openMenu = openMenu;
@@ -2912,6 +2948,4 @@ window.handleSortChange = handleSortChange;
 window.goToPage = goToPage;
 window.goToPrevPage = goToPrevPage;
 window.goToNextPage = goToNextPage;
-window.openQuickViewModal = openQuickViewModal;
-window.openQuickViewModalWithData = openQuickViewModalWithData;
-window.closeQuickViewModal = closeQuickViewModal;
+// Функции уже экспортированы выше после их определения
