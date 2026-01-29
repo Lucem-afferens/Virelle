@@ -89,11 +89,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet"></noscript>
-    <!-- Основные стили: SCSS для Vite dev-сервера -->
-    <link rel="stylesheet" href="src/styles/style.scss">
-    <!-- Fallback CSS для прямого открытия файла -->
-    <link rel="stylesheet" href="dist/assets/script-D9GSZqeu.css" onerror="this.remove()">
-    <!-- Основной скрипт - всегда загружаем исходный, он работает через Vite или напрямую -->
+    <!-- Основной скрипт - стили импортируются через script.js для правильной работы Vite HMR -->
     <script type="module" src="src/script.js" defer></script>
 </head>
 <body>
@@ -129,7 +125,7 @@
             <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
         
-        <div style="text-decoration: none; color: inherit;">
+        <div class="no-decoration inherit-color">
             <img src="/logo.svg" alt="Chill Out Lingerie" class="header-logo-image" fetchpriority="high" loading="eager" decoding="async" width="40" height="40">
         <h2 class="header-logo">Chill Out Lingerie®</h2>
         </div>
@@ -167,10 +163,10 @@
             Где элегантность встречается с комфортом. Откройте для себя нашу тщательно подобранную коллекцию премиального нижнего белья, созданного для современной женщины.
         </p>
         <div class="hero-buttons">
-            <a href="catalog.html" class="cta-button btn-outline" style="text-decoration: none;">
+            <a href="catalog.html" class="cta-button btn-outline no-decoration">
                 <span>СМОТРЕТЬ КОЛЛЕКЦИИ</span>
             </a>
-            <a href="#bestsellers" class="cta-button btn-solid" style="text-decoration: none;">
+            <a href="#bestsellers" class="cta-button btn-solid no-decoration">
                 <span>ХИТЫ ПРОДАЖ</span>
             </a>
         </div>
@@ -302,7 +298,7 @@
         </div>
         
         <div class="section-cta">
-            <a href="catalog.html" class="cta-button btn-outline" style="text-decoration: none;">
+            <a href="catalog.html" class="cta-button btn-outline no-decoration">
                 <span>СМОТРЕТЬ ВСЕ ТОВАРЫ</span>
             </a>
         </div>
@@ -418,7 +414,7 @@
                         <span class="new-badge">НОВИНКА</span>
                         <h3 class="featured-title">Коллекция Champagne Dreams</h3>
                         <p class="featured-text">Насладитесь чистой роскошью с нашей фирменной шелковой смесью. Создано для максимального комфорта и вневременной элегантности.</p>
-                        <a href="catalog.html" class="cta-button btn-solid" style="text-decoration: none;">
+                        <a href="catalog.html" class="cta-button btn-solid no-decoration">
                             <span>КУПИТЬ СЕЙЧАС</span>
                         </a>
                     </div>
@@ -630,7 +626,7 @@
                     </div>
                 </div>
                 
-                <button onclick="openSizeGuideModal()" class="cta-button btn-solid" style="text-decoration: none; border: none; cursor: pointer;">
+                <button onclick="openSizeGuideModal()" class="cta-button btn-solid no-decoration">
                     <span>СМОТРЕТЬ РУКОВОДСТВО ПО РАЗМЕРАМ</span>
                 </button>
             </div>
@@ -649,7 +645,7 @@
                     </div>
                     
                     <!-- Поля для бюстгальтера -->
-                    <div id="bra-fields" class="calculator-fields" style="display: none;">
+                    <div id="bra-fields" class="calculator-fields hidden">
                         <div class="form-group">
                             <label for="band-size">Обхват Под Грудью (см)</label>
                             <input type="number" id="band-size" placeholder="например, 75" aria-label="Обхват под грудью в сантиметрах" min="60" max="150">
@@ -662,7 +658,7 @@
                     </div>
                     
                     <!-- Поля для трусов -->
-                    <div id="panties-fields" class="calculator-fields" style="display: none;">
+                    <div id="panties-fields" class="calculator-fields hidden">
                         <div class="form-group">
                             <label for="hip-size">Обхват Бёдер (см)</label>
                             <input type="number" id="hip-size" placeholder="например, 95" aria-label="Обхват бёдер в сантиметрах" min="80" max="120">
@@ -670,7 +666,7 @@
                     </div>
                     
                     <!-- Поля для одежды/пижамы -->
-                    <div id="clothing-fields" class="calculator-fields" style="display: none;">
+                    <div id="clothing-fields" class="calculator-fields hidden">
                         <div class="form-group">
                             <label for="clothing-bust-size">Обхват Груди (см)</label>
                             <input type="number" id="clothing-bust-size" placeholder="например, 84" aria-label="Обхват груди в сантиметрах" min="70" max="120">
@@ -692,7 +688,7 @@
                     </button>
                 </form>
                 
-                <div id="calculator-result" class="calculator-result" style="display: none;"></div>
+                <div id="calculator-result" class="calculator-result hidden"></div>
                 
                 <p class="form-note">
                     Результаты являются рекомендациями. Посадка может варьироваться в зависимости от стиля.
@@ -716,7 +712,7 @@
                 <p class="size-guide-text">
                     Наша приверженность расширенному размерному ряду и устойчивым практикам гарантирует, что элегантность доступна всем, не жертвуя нашей планетой.
                 </p>
-                <a href="#about" class="cta-button btn-outline" style="text-decoration: none;">
+                <a href="#about" class="cta-button btn-outline no-decoration">
                     <span>УЗНАТЬ БОЛЬШЕ</span>
                 </a>
             </div>
@@ -857,7 +853,7 @@
                         <label for="contact-message" class="sr-only">Ваше Сообщение</label>
                         <textarea id="contact-message" rows="5" placeholder="Ваше Сообщение" aria-label="Ваше сообщение" required></textarea>
                     </div>
-                    <button type="submit" class="cta-button btn-solid" style="width: 100%;" aria-label="Отправить сообщение">
+                    <button type="submit" class="cta-button btn-solid full-width" aria-label="Отправить сообщение">
                         <span>ОТПРАВИТЬ СООБЩЕНИЕ</span>
                     </button>
                 </form>
@@ -1171,13 +1167,13 @@
                     <p id="quick-view-description" class="quick-view-description"></p>
                     <div class="quick-view-price-wrapper">
                         <p id="quick-view-price" class="quick-view-price"></p>
-                        <p id="quick-view-original-price" class="quick-view-original-price" style="display: none;"></p>
+                        <p id="quick-view-original-price" class="quick-view-original-price hidden"></p>
                     </div>
                     <div class="quick-view-sizes">
                         <h4 class="quick-view-sizes-title">Доступные размеры:</h4>
                         <div id="quick-view-sizes-list" class="quick-view-sizes-list"></div>
                     </div>
-                    <a id="quick-view-order-btn" href="https://vk.com/chilloutlingerie" target="_blank" class="cta-button btn-solid quick-view-order-btn" style="text-decoration: none; margin-top: 2rem; display: inline-block; width: 100%; text-align: center;">
+                    <a id="quick-view-order-btn" href="https://vk.com/chilloutlingerie" target="_blank" class="cta-button btn-solid quick-view-order-btn no-decoration mt-2rem inline-block full-width text-center">
                         <span>ЗАКАЗАТЬ</span>
                     </a>
                 </div>

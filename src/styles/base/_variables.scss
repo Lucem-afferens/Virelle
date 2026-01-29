@@ -3,7 +3,7 @@
    ========================================================================== */
 
 :root {
-    // Spacing система
+    /* Spacing система */
     --spacing-xs: 0.25rem;    /* 4px */
     --spacing-sm: 0.5rem;     /* 8px */
     --spacing-md: 1rem;       /* 16px */
@@ -13,68 +13,68 @@
     --spacing-3xl: 4rem;      /* 64px */
     --spacing-4xl: 6rem;      /* 96px */
     
-    // Вертикальные ритмы для секций
+    /* Вертикальные ритмы для секций */
     --section-padding-y: 4rem;
     --section-padding-y-mobile: 2.5rem;
     
-    // Spacing для карточек товаров
+    /* Spacing для карточек товаров */
     --card-gap: 2rem;
     --card-gap-mobile: 1.25rem;
     --card-padding: 1.5rem;
     
-    // Spacing для toolbar
+    /* Spacing для toolbar */
     --toolbar-padding: 1.5rem;
     --toolbar-gap: 1.5rem;
     
-    // ==========================================================================
-    // ЦВЕТОВАЯ СИСТЕМА (ТЕМНАЯ ТЕМА - по умолчанию)
-    // ==========================================================================
+    /* ==========================================================================
+       ЦВЕТОВАЯ СИСТЕМА (ТЕМНАЯ ТЕМА - по умолчанию)
+       ========================================================================== */
     
-    // Акцентные цвета (одинаковые для обеих тем)
+    /* Акцентные цвета (одинаковые для обеих тем) */
     --color-gold: #d4af37;
     --color-pink-light: #ffb6c1;
     --color-pink: #ffc0cb;
     
-    // Фоновые цвета
+    /* Фоновые цвета */
     --color-bg-primary: #2b2b2b;      /* Charcoal - основной фон */
     --color-bg-secondary: #171717;    /* Neutral-900 - темный фон */
     --color-bg-tertiary: #262626;     /* Neutral-800 - средний фон */
     
-    // Цвета текста
-    --color-text-primary: #ffffff;    /* Основной текст */
-    --color-text-secondary: #d1d5db;  /* Второстепенный текст */
-    --color-text-tertiary: #d5c4cc;   /* Подзаголовки */
+    /* Цвета текста (контрастные для читаемости на темном фоне) */
+    --color-text-primary: #fafafa;    /* Основной текст - яркий белый */
+    --color-text-secondary: #e0d4dc;  /* Второстепенный текст - светлый контрастный */
+    --color-text-tertiary: #e8dce4;   /* Подзаголовки - светлый розовато-серый */
     --color-text-inverse: #2b2b2b;    /* Темный текст на светлом фоне */
     
-    // Цвета для glassmorphism
+    /* Цвета для glassmorphism */
     --color-glass-bg: rgba(255, 192, 203, 0.08);
     --color-glass-border: rgba(255, 182, 193, 0.15);
     
-    // Цвета теней
+    /* Цвета теней */
     --color-shadow-pink: rgba(255, 182, 193, 0.3);
     --color-shadow-pink-hover: rgba(255, 182, 193, 0.4);
     --color-shadow-pink-strong: rgba(255, 182, 193, 0.5);
     --color-shadow-black: rgba(0, 0, 0, 0.3);
     
-    // Цвета overlay
+    /* Цвета overlay */
     --color-overlay-bg: rgba(43, 43, 43, 0.8);
     --color-overlay-bg-light: rgba(43, 43, 43, 0.6);
     
-    // Градиенты для фонов секций
+    /* Градиенты для фонов секций */
     --gradient-bg-section: linear-gradient(to bottom, var(--color-bg-primary), var(--color-bg-secondary));
     --gradient-bg-vk-notice: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(255, 182, 193, 0.1) 100%);
     --gradient-bg-menu: linear-gradient(135deg, rgba(43, 43, 43, 0.85) 0%, rgba(60, 40, 45, 0.85) 50%, rgba(43, 43, 43, 0.85) 100%);
     --gradient-hero-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
     
-    // Цвета для границ
+    /* Цвета для границ */
     --color-border-pink: rgba(255, 182, 193, 0.2);
     --color-border-pink-light: rgba(255, 182, 193, 0.3);
     
-    // Дополнительные цвета для текста
-    --color-text-accent: #f5d5e0;
-    --color-text-muted: #9ca3af;
+    /* Дополнительные цвета для текста (контрастные) */
+    --color-text-accent: #f0e4eb;     /* Акцентный текст - светлый с контрастом */
+    --color-text-muted: #d4c8d0;      /* Приглушенный текст - читаемый на темном */
     
-    // Цвета для carousel и overlay элементов
+    /* Цвета для carousel и overlay элементов */
     --color-carousel-bg: rgba(43, 43, 43, 0.85);
     --color-carousel-bg-hover: rgba(43, 43, 43, 0.95);
     --color-carousel-border: rgba(212, 175, 55, 0.4);
@@ -82,7 +82,7 @@
     --color-carousel-shadow-hover: rgba(212, 175, 55, 0.4);
     --color-carousel-shadow-strong: rgba(212, 175, 55, 0.6);
     
-    // Цвета для модального окна размеров
+    /* Цвета для модального окна размеров */
     --color-modal-overlay: linear-gradient(135deg, 
         rgba(0, 0, 0, 0.8) 0%, 
         rgba(20, 15, 18, 0.85) 50%, 
@@ -120,7 +120,7 @@
         0 4px 12px rgba(212, 175, 55, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
     
-    // Цвета для таблиц размеров
+    /* Цвета для таблиц размеров */
     --color-table-header-bg: linear-gradient(135deg, 
         rgba(212, 175, 55, 0.2) 0%, 
         rgba(255, 182, 193, 0.15) 100%);
@@ -129,53 +129,53 @@
     --color-table-label-bg: rgba(212, 175, 55, 0.1);
 }
 
-// СВЕТЛАЯ ТЕМА
+/* СВЕТЛАЯ ТЕМА */
 [data-theme="light"],
 .light-theme {
-    // Акцентные цвета (более темные для светлой темы для лучшей читаемости)
+    /* Акцентные цвета (более темные для светлой темы для лучшей читаемости) */
     --color-pink-light: #f2a5b8;      /* Темнее исходного #ffb6c1 */
     --color-pink: #f2a5b8;            /* Темнее исходного #ffc0cb */
     
-    // Фоновые цвета (инвертированы)
+    /* Фоновые цвета (инвертированы) */
     --color-bg-primary: #fafafa;      /* Светлый основной фон */
     --color-bg-secondary: #ffffff;    /* Белый фон */
     --color-bg-tertiary: #f5f5f5;     /* Светло-серый фон */
     
-    // Цвета текста (инвертированы)
-    --color-text-primary: #1a1a1a;    /* Темный основной текст */
-    --color-text-secondary: #4a4a4a;  /* Серый второстепенный текст */
-    --color-text-tertiary: #6a6a6a;   /* Светло-серые подзаголовки */
+    /* Цвета текста (контрастные для читаемости на светлом фоне) */
+    --color-text-primary: #1a1a1a;    /* Основной текст - насыщенный темный */
+    --color-text-secondary: #3d3239;  /* Второстепенный текст - темный контрастный */
+    --color-text-tertiary: #4a3f46;   /* Подзаголовки - темный серо-розовый */
     --color-text-inverse: #ffffff;    /* Белый текст на темном фоне */
     
-    // Цвета для glassmorphism (более насыщенные для светлой темы)
+    /* Цвета для glassmorphism (более насыщенные для светлой темы) */
     --color-glass-bg: rgba(255, 182, 193, 0.15);
     --color-glass-border: rgba(255, 182, 193, 0.25);
     
-    // Цвета теней (более темные для светлой темы)
+    /* Цвета теней (более темные для светлой темы) */
     --color-shadow-pink: rgba(255, 182, 193, 0.25);
     --color-shadow-pink-hover: rgba(255, 182, 193, 0.35);
     --color-shadow-pink-strong: rgba(255, 182, 193, 0.45);
     --color-shadow-black: rgba(0, 0, 0, 0.15);
     
-    // Цвета overlay (более светлые)
+    /* Цвета overlay (более светлые) */
     --color-overlay-bg: rgba(250, 250, 250, 0.85);
     --color-overlay-bg-light: rgba(250, 250, 250, 0.7);
     
-    // Градиенты для фонов секций (светлая тема)
+    /* Градиенты для фонов секций (светлая тема) */
     --gradient-bg-section: linear-gradient(to bottom, var(--color-bg-primary), var(--color-bg-secondary));
     --gradient-bg-vk-notice: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(255, 182, 193, 0.08) 100%);
     --gradient-bg-menu: linear-gradient(135deg, rgba(250, 250, 250, 0.85) 0%, rgba(245, 240, 245, 0.85) 50%, rgba(250, 250, 250, 0.85) 100%);
     --gradient-hero-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
     
-    // Цвета для границ
+    /* Цвета для границ */
     --color-border-pink: rgba(255, 182, 193, 0.3);
     --color-border-pink-light: rgba(255, 182, 193, 0.4);
     
-    // Дополнительные цвета для текста
-    --color-text-accent: #f5d5e0;
-    --color-text-muted: #9ca3af;
+    /* Дополнительные цвета для текста (контрастные) */
+    --color-text-accent: #5c4552;     /* Акцентный текст - темный контрастный */
+    --color-text-muted: #5a4d56;      /* Приглушенный текст - читаемый на светлом */
     
-    // Цвета для carousel и overlay элементов (светлая тема)
+    /* Цвета для carousel и overlay элементов (светлая тема) */
     --color-carousel-bg: rgba(250, 250, 250, 0.9);
     --color-carousel-bg-hover: rgba(245, 245, 245, 0.95);
     --color-carousel-border: rgba(212, 175, 55, 0.5);
@@ -183,7 +183,7 @@
     --color-carousel-shadow-hover: rgba(212, 175, 55, 0.3);
     --color-carousel-shadow-strong: rgba(212, 175, 55, 0.5);
     
-    // Цвета для модального окна размеров (светлая тема)
+    /* Цвета для модального окна размеров (светлая тема) */
     --color-modal-overlay: linear-gradient(135deg, 
         rgba(0, 0, 0, 0.6) 0%, 
         rgba(20, 15, 18, 0.65) 50%, 
@@ -221,7 +221,7 @@
         0 4px 12px rgba(212, 175, 55, 0.25),
         inset 0 1px 0 rgba(255, 255, 255, 0.4);
     
-    // Цвета для таблиц размеров (светлая тема)
+    /* Цвета для таблиц размеров (светлая тема) */
     --color-table-header-bg: linear-gradient(135deg, 
         rgba(212, 175, 55, 0.25) 0%, 
         rgba(255, 182, 193, 0.2) 100%);

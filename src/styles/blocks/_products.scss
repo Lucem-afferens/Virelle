@@ -14,9 +14,15 @@
     background-clip: text;
 }
 
-.section-subtitle {
+.section-subtitle,
+.section-header .section-subtitle,
+.section-header p.section-subtitle,
+#featured-collection .section-subtitle,
+#featured-collection .section-header p,
+.featured-collection .section-subtitle,
+.featured-collection .section-header p {
     font-size: 1.25rem;
-    color: var(--color-text-tertiary);
+    color: var(--color-text-secondary) !important;
     font-weight: 300;
 }
 
@@ -51,9 +57,20 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.product-card:hover .product-image-wrapper {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px var(--color-shadow-black);
+@media (hover: hover) and (pointer: fine) {
+    .product-card:hover .product-image-wrapper {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px var(--color-shadow-black);
+    }
+
+    .product-card:hover .product-image-wrapper img {
+        transform: scale(1.1);
+    }
+
+    .product-card:hover .product-overlay,
+    .carousel-item:hover .product-overlay {
+        opacity: 1;
+    }
 }
 
 .product-image-wrapper img {
@@ -61,10 +78,6 @@
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
-}
-
-.product-card:hover .product-image-wrapper img {
-    transform: scale(1.1);
 }
 
 .product-overlay {
@@ -77,11 +90,6 @@
     align-items: flex-end;
     padding: 1.5rem;
     border-radius: 8px;
-}
-
-.product-card:hover .product-overlay,
-.carousel-item:hover .product-overlay {
-    opacity: 1;
 }
 
 .quick-view-btn {
@@ -102,47 +110,59 @@
     font-size: 0.875rem;
 }
 
-.quick-view-btn:hover,
-.quick-view-btn:focus-visible {
-    background: linear-gradient(135deg, var(--color-pink-light) 0%, var(--color-gold) 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px var(--color-carousel-shadow-hover);
+@media (hover: hover) and (pointer: fine) {
+    .quick-view-btn:hover,
+    .quick-view-btn:focus-visible {
+        background: linear-gradient(135deg, var(--color-pink-light) 0%, var(--color-gold) 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px var(--color-carousel-shadow-hover);
+    }
 }
 
-/* Для тач-устройств: кнопка всегда видна как текст без фона */
+/* Для тач-устройств: overlay и кнопка всегда видимы, контрастны в обеих темах */
 @media (hover: none) and (pointer: coarse) {
     .product-overlay {
         opacity: 1;
-        background: linear-gradient(to top, var(--color-overlay-bg-light), transparent);
+        background: linear-gradient(to top, var(--color-overlay-bg) 0%, var(--color-overlay-bg-light) 40%, transparent 70%);
     }
     
     .quick-view-btn {
-        background: transparent;
-        color: var(--color-text-primary);
-        opacity: 0.95;
-        padding: 0.5rem 0;
-        font-weight: 400;
-        text-decoration: underline;
-        text-decoration-color: var(--color-text-primary);
-        opacity: 0.5;
-        text-underline-offset: 0.25rem;
+        background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-pink-light) 100%);
+        color: var(--color-text-inverse);
+        opacity: 1;
+        padding: 0.75rem 1rem;
+        font-weight: 500;
+        text-decoration: none;
+        box-shadow: 0 2px 12px var(--color-shadow-black);
+        border: 1px solid rgba(255, 255, 255, 0.2);
     }
     
     .quick-view-btn:hover,
     .quick-view-btn:active {
+        background: linear-gradient(135deg, var(--color-pink-light) 0%, var(--color-gold) 100%);
+        color: var(--color-text-inverse);
+        opacity: 1;
+    }
+    
+    /* Светлая тема: тёмный текст на кнопке для контраста */
+    [data-theme="light"] .quick-view-btn {
         color: var(--color-text-primary);
-        text-decoration-color: var(--color-text-primary);
+    }
+    [data-theme="light"] .quick-view-btn:hover,
+    [data-theme="light"] .quick-view-btn:active {
+        color: var(--color-text-primary);
     }
     
     /* Для тач-устройств в секции featured-collection: overlay всегда видим */
     #featured-collection .product-overlay {
         opacity: 1;
-        background: linear-gradient(to top, var(--color-overlay-bg-light), transparent);
+        background: linear-gradient(to top, var(--color-overlay-bg) 0%, var(--color-overlay-bg-light) 40%, transparent 70%);
     }
 }
 
 /* Унифицированные стили для бейджей - одинаковые на всех страницах */
-.product-badge {
+.product-badge,
+.rating-badge {
     position: absolute;
     top: 1rem;
     left: 1rem;
@@ -164,6 +184,17 @@
     will-change: transform;
 }
 
+/* Стили для rating-badge */
+.rating-badge {
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-pink-light) 100%);
+    color: var(--color-text-inverse);
+    font-weight: 700;
+    border: 1px solid var(--color-glass-border);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
 @keyframes badgeAppear {
     from {
         opacity: 0;
@@ -175,12 +206,14 @@
     }
 }
 
-.product-card:hover .product-badge {
-    transform: scale(1.05);
-    box-shadow: 
-        0 4px 12px rgba(0, 0, 0, 0.4),
-        0 2px 6px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 var(--color-glass-border);
+@media (hover: hover) and (pointer: fine) {
+    .product-card:hover .product-badge {
+        transform: scale(1.05);
+        box-shadow: 
+            0 4px 12px rgba(0, 0, 0, 0.4),
+            0 2px 6px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 var(--color-glass-border);
+    }
 }
 
 /* Все бейджи стилизуем одинаково - компактно и красочно */
@@ -241,8 +274,10 @@
     transition: color 0.3s ease;
 }
 
-.product-card:hover .product-title {
-    opacity: 0.95;
+@media (hover: hover) and (pointer: fine) {
+    .product-card:hover .product-title {
+        opacity: 0.95;
+    }
 }
 
 .product-desc,
@@ -285,8 +320,10 @@
     }
 }
 
-.product-card:hover .product-price {
-    transform: scale(1.05);
+@media (hover: hover) and (pointer: fine) {
+    .product-card:hover .product-price {
+        transform: scale(1.05);
+    }
 }
 
 .section-cta {

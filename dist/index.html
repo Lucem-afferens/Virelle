@@ -64,12 +64,12 @@
     
     <!-- Предзагрузка критических изображений для hero секции -->
     <!-- Предзагружаем изображение для светлой темы (тема по умолчанию) -->
-    <link rel="preload" as="image" href="/main_for_light_theme.png" fetchpriority="high" type="image/png" media="(prefers-color-scheme: light)">
-    <link rel="preload" as="image" href="/main_for_light_theme.png" fetchpriority="high" type="image/png">
+    <link rel="preload" as="image" href="./main_for_light_theme.png" fetchpriority="high" type="image/png" media="(prefers-color-scheme: light)">
+    <link rel="preload" as="image" href="./main_for_light_theme.png" fetchpriority="high" type="image/png">
     <!-- Предзагружаем изображение для темной темы (может понадобиться при переключении) -->
-    <link rel="preload" as="image" href="/main_for_dark_theme.png" fetchpriority="high" type="image/png">
+    <link rel="preload" as="image" href="./main_for_dark_theme.png" fetchpriority="high" type="image/png">
     <!-- Предзагрузка логотипа -->
-    <link rel="preload" as="image" href="/logo.svg" fetchpriority="high" type="image/svg+xml">
+    <link rel="preload" as="image" href="./logo.svg" fetchpriority="high" type="image/svg+xml">
     
     <!-- Синхронная установка темы ДО рендеринга страницы -->
     <script>
@@ -89,8 +89,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet"></noscript>
-  <script type="module" crossorigin src="/assets/script-C3iXYfC7.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/script-D9GSZqeu.css">
+    <!-- Основной скрипт - стили импортируются через script.js для правильной работы Vite HMR -->
+  <script type="module" crossorigin src="./assets/script-DJZ_RCwJ.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/script-Cn07BtiC.css">
 </head>
 <body>
 
@@ -125,10 +126,10 @@
             <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
         
-        <a href="index.html" style="text-decoration: none; color: inherit;">
-            <img src="/logo.svg" alt="Chill Out Lingerie" class="header-logo-image" fetchpriority="high" loading="eager" decoding="async" width="40" height="40">
+        <div class="no-decoration inherit-color">
+            <img src="./logo.svg" alt="Chill Out Lingerie" class="header-logo-image" fetchpriority="high" loading="eager" decoding="async" width="40" height="40">
         <h2 class="header-logo">Chill Out Lingerie®</h2>
-        </a>
+        </div>
         
         <div class="header-actions">
             <button onclick="toggleTheme()" id="theme-toggle" class="icon-btn theme-toggle" title="Переключить тему" aria-label="Переключить на темную тему">
@@ -139,11 +140,8 @@
                     <i class="fa-solid fa-moon" aria-hidden="true"></i>
                 </span>
             </button>
-            <a href="https://vk.com" target="_blank" class="icon-btn" title="ВКонтакте" aria-label="Наша группа ВКонтакте" rel="noopener noreferrer">
+            <a href="https://vk.com/chilloutlingerie" target="_blank" class="icon-btn" title="ВКонтакте" aria-label="Наша группа ВКонтакте" rel="noopener noreferrer">
                 <i class="fa-brands fa-vk" aria-hidden="true"></i>
-            </a>
-            <a href="catalog.html" class="icon-btn" title="Перейти в каталог" aria-label="Перейти в каталог товаров">
-                <i class="fa-solid fa-search" aria-hidden="true"></i>
             </a>
         </div>
     </div>
@@ -152,8 +150,8 @@
 <main id="main-content">
 <section id="hero" aria-label="Главная секция">
     <div class="hero-bg">
-        <img src="/main_for_dark_theme.png" alt="elegant woman in luxury black silk lingerie in dark moody bedroom setting, soft golden hour lighting from window, premium intimate apparel photography, charcoal and gold tones, sophisticated boudoir aesthetic" class="hero-image hero-image-dark" fetchpriority="high" loading="eager" decoding="async" width="1920" height="1080">
-        <img src="/main_for_light_theme.png" alt="elegant woman in luxury pink silk lingerie in bright minimalist bedroom setting, soft natural lighting, premium intimate apparel photography, light and elegant tones, sophisticated boudoir aesthetic" class="hero-image hero-image-light" fetchpriority="high" loading="eager" decoding="async" width="1920" height="1080">
+        <img src="./main_for_dark_theme.png" alt="elegant woman in luxury black silk lingerie in dark moody bedroom setting, soft golden hour lighting from window, premium intimate apparel photography, charcoal and gold tones, sophisticated boudoir aesthetic" class="hero-image hero-image-dark" fetchpriority="high" loading="eager" decoding="async" width="1920" height="1080">
+        <img src="./main_for_light_theme.png" alt="elegant woman in luxury pink silk lingerie in bright minimalist bedroom setting, soft natural lighting, premium intimate apparel photography, light and elegant tones, sophisticated boudoir aesthetic" class="hero-image hero-image-light" fetchpriority="high" loading="eager" decoding="async" width="1920" height="1080">
         <div class="hero-overlay"></div>
     </div>
     
@@ -166,10 +164,10 @@
             Где элегантность встречается с комфортом. Откройте для себя нашу тщательно подобранную коллекцию премиального нижнего белья, созданного для современной женщины.
         </p>
         <div class="hero-buttons">
-            <a href="catalog.html" class="cta-button btn-outline" style="text-decoration: none;">
+            <a href="catalog.html" class="cta-button btn-outline no-decoration">
                 <span>СМОТРЕТЬ КОЛЛЕКЦИИ</span>
             </a>
-            <a href="#bestsellers" class="cta-button btn-solid" style="text-decoration: none;">
+            <a href="#bestsellers" class="cta-button btn-solid no-decoration">
                 <span>ХИТЫ ПРОДАЖ</span>
             </a>
         </div>
@@ -194,7 +192,7 @@
                     </p>
                 </div>
             </div>
-            <a href="https://vk.com" target="_blank" class="btn-vk-large">
+            <a href="https://vk.com/chilloutlingerie" target="_blank" class="btn-vk-large">
                 <i class="fa-brands fa-vk"></i>
                 <span>ПЕРЕЙТИ В VK</span>
             </a>
@@ -249,11 +247,11 @@
         </div>
         
         <div class="product-grid">
-            <div class="product-card">
+            <div class="product-card" data-product-id="1">
                 <div class="product-image-wrapper">
                     <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/8f519f1bef-1895a91e1bd88105cd4a.png" alt="elegant black lace bralette on model, luxury lingerie photography, studio lighting" loading="lazy" decoding="async" width="600" height="800">
                     <div class="product-overlay">
-                        <button class="quick-view-btn">БЫСТРЫЙ ПРОСМОТР</button>
+                        <button class="quick-view-btn" data-product-id="1">БЫСТРЫЙ ПРОСМОТР</button>
                     </div>
                 </div>
                 <h4 class="product-name">Бюстгальтер Midnight Lace</h4>
@@ -261,24 +259,24 @@
                 <p class="product-price">7 800 ₽</p>
             </div>
             
-            <div class="product-card">
+            <div class="product-card" data-product-id="2">
                 <div class="product-image-wrapper">
                     <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b56beff876-e29888d5a8ccd0f22677.png" alt="champagne silk slip dress lingerie on model, luxury sleepwear photography, elegant pose" loading="lazy" decoding="async" width="600" height="800">
                     <div class="product-overlay">
-                        <button class="quick-view-btn">БЫСТРЫЙ ПРОСМОТР</button>
+                        <button class="quick-view-btn" data-product-id="2">БЫСТРЫЙ ПРОСМОТР</button>
                     </div>
-                    <div class="product-badge">NEW</div>
+                    <div class="product-badge badge-new">NEW</div>
                 </div>
                 <h4 class="product-name">Champagne Silk Slip</h4>
                 <p class="product-desc">Чистый шелк тутового дерева</p>
                 <p class="product-price">14 500 ₽</p>
             </div>
             
-            <div class="product-card">
+            <div class="product-card" data-product-id="3">
                 <div class="product-image-wrapper">
                     <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/96fccf4507-ee48a6038febd71fdd60.png" alt="blush pink satin and lace bodysuit lingerie on model, high-end intimate apparel photography" loading="lazy" decoding="async" width="600" height="800">
                     <div class="product-overlay">
-                        <button class="quick-view-btn">БЫСТРЫЙ ПРОСМОТР</button>
+                        <button class="quick-view-btn" data-product-id="3">БЫСТРЫЙ ПРОСМОТР</button>
                     </div>
                 </div>
                 <h4 class="product-name">Боди Rose Satin</h4>
@@ -286,11 +284,11 @@
                 <p class="product-price">9 200 ₽</p>
             </div>
             
-            <div class="product-card">
+            <div class="product-card" data-product-id="4">
                 <div class="product-image-wrapper">
                     <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/d34cd14776-fd8800389b5e3f0b7c82.png" alt="ivory lace teddy lingerie on model, bridal lingerie photography, romantic lighting" loading="lazy" decoding="async" width="600" height="800">
                     <div class="product-overlay">
-                        <button class="quick-view-btn">БЫСТРЫЙ ПРОСМОТР</button>
+                        <button class="quick-view-btn" data-product-id="4">БЫСТРЫЙ ПРОСМОТР</button>
                     </div>
                     <div class="product-badge bestseller">BESTSELLER</div>
                 </div>
@@ -301,7 +299,7 @@
         </div>
         
         <div class="section-cta">
-            <a href="catalog.html" class="cta-button btn-outline" style="text-decoration: none;">
+            <a href="catalog.html" class="cta-button btn-outline no-decoration">
                 <span>СМОТРЕТЬ ВСЕ ТОВАРЫ</span>
             </a>
         </div>
@@ -332,7 +330,7 @@
                 <div class="product-image-wrapper">
                     <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/5c08a7f1c6-b1f2b1fff0aab95f6104.png" alt="emerald green silk robe with lace trim on model, luxury sleepwear photography" loading="lazy" decoding="async" width="600" height="800">
                     <div class="product-overlay">
-                        <a href="catalog.html" class="quick-view-btn">БЫСТРЫЙ ПРОСМОТР</a>
+                        <button class="quick-view-btn" onclick="openQuickViewFromCard(this)">БЫСТРЫЙ ПРОСМОТР</button>
                     </div>
                 </div>
                 <h4 class="product-name">Халат Emerald Silk</h4>
@@ -374,7 +372,7 @@
                 <div class="product-image-wrapper">
                     <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/48870ed260-bde48a1c7ea8473e1e41.png" alt="navy blue satin chemise with lace details on model, luxury nightwear photography" loading="lazy" decoding="async" width="600" height="800">
                     <div class="product-overlay">
-                        <a href="catalog.html" class="quick-view-btn">БЫСТРЫЙ ПРОСМОТР</a>
+                        <button class="quick-view-btn" onclick="openQuickViewFromCard(this)">БЫСТРЫЙ ПРОСМОТР</button>
                     </div>
                 </div>
                 <h4 class="product-name">Ночная сорочка Midnight</h4>
@@ -417,7 +415,7 @@
                         <span class="new-badge">НОВИНКА</span>
                         <h3 class="featured-title">Коллекция Champagne Dreams</h3>
                         <p class="featured-text">Насладитесь чистой роскошью с нашей фирменной шелковой смесью. Создано для максимального комфорта и вневременной элегантности.</p>
-                        <a href="catalog.html" class="cta-button btn-solid" style="text-decoration: none;">
+                        <a href="catalog.html" class="cta-button btn-solid no-decoration">
                             <span>КУПИТЬ СЕЙЧАС</span>
                         </a>
                     </div>
@@ -629,7 +627,7 @@
                     </div>
                 </div>
                 
-                <button onclick="openSizeGuideModal()" class="cta-button btn-solid" style="text-decoration: none; border: none; cursor: pointer;">
+                <button onclick="openSizeGuideModal()" class="cta-button btn-solid no-decoration">
                     <span>СМОТРЕТЬ РУКОВОДСТВО ПО РАЗМЕРАМ</span>
                 </button>
             </div>
@@ -648,7 +646,7 @@
                     </div>
                     
                     <!-- Поля для бюстгальтера -->
-                    <div id="bra-fields" class="calculator-fields" style="display: none;">
+                    <div id="bra-fields" class="calculator-fields hidden">
                         <div class="form-group">
                             <label for="band-size">Обхват Под Грудью (см)</label>
                             <input type="number" id="band-size" placeholder="например, 75" aria-label="Обхват под грудью в сантиметрах" min="60" max="150">
@@ -661,7 +659,7 @@
                     </div>
                     
                     <!-- Поля для трусов -->
-                    <div id="panties-fields" class="calculator-fields" style="display: none;">
+                    <div id="panties-fields" class="calculator-fields hidden">
                         <div class="form-group">
                             <label for="hip-size">Обхват Бёдер (см)</label>
                             <input type="number" id="hip-size" placeholder="например, 95" aria-label="Обхват бёдер в сантиметрах" min="80" max="120">
@@ -669,7 +667,7 @@
                     </div>
                     
                     <!-- Поля для одежды/пижамы -->
-                    <div id="clothing-fields" class="calculator-fields" style="display: none;">
+                    <div id="clothing-fields" class="calculator-fields hidden">
                         <div class="form-group">
                             <label for="clothing-bust-size">Обхват Груди (см)</label>
                             <input type="number" id="clothing-bust-size" placeholder="например, 84" aria-label="Обхват груди в сантиметрах" min="70" max="120">
@@ -691,7 +689,7 @@
                     </button>
                 </form>
                 
-                <div id="calculator-result" class="calculator-result" style="display: none;"></div>
+                <div id="calculator-result" class="calculator-result hidden"></div>
                 
                 <p class="form-note">
                     Результаты являются рекомендациями. Посадка может варьироваться в зависимости от стиля.
@@ -715,7 +713,7 @@
                 <p class="size-guide-text">
                     Наша приверженность расширенному размерному ряду и устойчивым практикам гарантирует, что элегантность доступна всем, не жертвуя нашей планетой.
                 </p>
-                <a href="#about" class="cta-button btn-outline" style="text-decoration: none;">
+                <a href="#about" class="cta-button btn-outline no-decoration">
                     <span>УЗНАТЬ БОЛЬШЕ</span>
                 </a>
             </div>
@@ -856,7 +854,7 @@
                         <label for="contact-message" class="sr-only">Ваше Сообщение</label>
                         <textarea id="contact-message" rows="5" placeholder="Ваше Сообщение" aria-label="Ваше сообщение" required></textarea>
                     </div>
-                    <button type="submit" class="cta-button btn-solid" style="width: 100%;" aria-label="Отправить сообщение">
+                    <button type="submit" class="cta-button btn-solid full-width" aria-label="Отправить сообщение">
                         <span>ОТПРАВИТЬ СООБЩЕНИЕ</span>
                     </button>
                 </form>
@@ -875,7 +873,7 @@
                     Повышаем уровень интимного белья с вневременной элегантностью, премиальным качеством и инклюзивными дизайнами для современной женщины.
                 </p>
                 <div class="footer-social">
-                    <a href="https://vk.com" target="_blank" class="vk">
+                    <a href="https://vk.com/chilloutlingerie" target="_blank" class="vk">
                         <i class="fa-brands fa-vk"></i>
                     </a>
                     <a href="#">
@@ -1143,6 +1141,42 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно быстрого просмотра товара -->
+<div id="quick-view-modal" class="quick-view-modal" role="dialog" aria-modal="true" aria-labelledby="quick-view-modal-title">
+    <div class="quick-view-modal-overlay" onclick="closeQuickViewModal()"></div>
+    <div class="quick-view-modal-content">
+        <div class="quick-view-modal-header">
+            <h2 id="quick-view-modal-title" class="quick-view-modal-title">Быстрый просмотр</h2>
+            <button onclick="closeQuickViewModal()" class="quick-view-modal-close" aria-label="Закрыть быстрый просмотр">
+                <i class="fa-solid fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="quick-view-modal-body">
+            <div class="quick-view-grid">
+                <div class="quick-view-image-wrapper">
+                    <img id="quick-view-image" src="" alt="" class="quick-view-image" loading="lazy">
+                    <div id="quick-view-badge" class="quick-view-badge"></div>
+                </div>
+                <div class="quick-view-info">
+                    <h3 id="quick-view-name" class="quick-view-name"></h3>
+                    <p id="quick-view-description" class="quick-view-description"></p>
+                    <div class="quick-view-price-wrapper">
+                        <p id="quick-view-price" class="quick-view-price"></p>
+                        <p id="quick-view-original-price" class="quick-view-original-price hidden"></p>
+                    </div>
+                    <div class="quick-view-sizes">
+                        <h4 class="quick-view-sizes-title">Доступные размеры:</h4>
+                        <div id="quick-view-sizes-list" class="quick-view-sizes-list"></div>
+                    </div>
+                    <a id="quick-view-order-btn" href="https://vk.com/chilloutlingerie" target="_blank" class="cta-button btn-solid quick-view-order-btn no-decoration mt-2rem inline-block full-width text-center">
+                        <span>ЗАКАЗАТЬ</span>
+                    </a>
                 </div>
             </div>
         </div>

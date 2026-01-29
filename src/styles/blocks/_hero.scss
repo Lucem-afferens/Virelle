@@ -107,12 +107,31 @@
     gap: 1.5rem;
 }
 
+.hero-buttons .btn-outline {
+    background: var(--color-glass-card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid var(--color-pink-light);
+    box-shadow: var(--color-glass-card-shadow);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .hero-buttons .btn-outline:hover,
+    .hero-buttons .btn-outline:focus-visible {
+        background: var(--color-glass-card-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-color: var(--color-pink-light);
+        box-shadow: var(--color-glass-card-shadow), 0 8px 25px var(--color-shadow-pink-hover);
+    }
+}
+
 .hero-scroll {
     position: absolute;
     bottom: 3rem;
     left: 50%;
     transform: translateX(-50%);
-    color: #ffb6c1;
+    color: var(--color-pink-light);
     font-size: 1.875rem;
     animation: bounce 2s infinite;
 }

@@ -17,9 +17,15 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.catalog-item-large:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px var(--color-shadow-black);
+@media (hover: hover) and (pointer: fine) {
+    .catalog-item-large:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px var(--color-shadow-black);
+    }
+
+    .catalog-item-large:hover img {
+        transform: scale(1.1);
+    }
 }
 
 .catalog-item-large img {
@@ -27,10 +33,6 @@
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
-}
-
-.catalog-item-large:hover img {
-    transform: scale(1.1);
 }
 
 .catalog-overlay {
@@ -75,9 +77,15 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.catalog-item-small:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px var(--color-shadow-black);
+@media (hover: hover) and (pointer: fine) {
+    .catalog-item-small:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px var(--color-shadow-black);
+    }
+
+    .catalog-item-small:hover img {
+        transform: scale(1.1);
+    }
 }
 
 .catalog-item-small img {
@@ -85,10 +93,6 @@
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
-}
-
-.catalog-item-small:hover img {
-    transform: scale(1.1);
 }
 
 .catalog-small-overlay {
@@ -128,8 +132,10 @@
     transition: color 0.3s ease;
 }
 
-.catalog-link:hover {
-    color: var(--color-text-primary);
+@media (hover: hover) and (pointer: fine) {
+    .catalog-link:hover {
+        color: var(--color-text-primary);
+    }
 }
 
 /* ==========================================================================
@@ -227,8 +233,10 @@
     min-width: 200px;
 }
 
-.sort-select:hover {
-    border-color: var(--color-pink);
+@media (hover: hover) and (pointer: fine) {
+    .sort-select:hover {
+        border-color: var(--color-pink);
+    }
 }
 
 .sort-select:focus {
@@ -328,10 +336,12 @@
     justify-content: center;
 }
 
-.pagination-btn:hover:not(:disabled) {
-    background: var(--color-glass-bg);
-    border-color: var(--color-pink);
-    transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+    .pagination-btn:hover:not(:disabled) {
+        background: var(--color-glass-bg);
+        border-color: var(--color-pink);
+        transform: translateY(-2px);
+    }
 }
 
 .pagination-btn:focus-visible {
@@ -428,9 +438,11 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.testimonial-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px var(--color-shadow-black);
+@media (hover: hover) and (pointer: fine) {
+    .testimonial-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px var(--color-shadow-black);
+    }
 }
 
 .testimonial-header {
@@ -597,10 +609,12 @@
     transition: all 0.3s ease;
 }
 
-.form-submit:hover,
-.form-submit:focus-visible {
-    background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-pink-light) 100%);
-    color: var(--color-text-inverse);
+@media (hover: hover) and (pointer: fine) {
+    .form-submit:hover,
+    .form-submit:focus-visible {
+        background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-pink-light) 100%);
+        color: var(--color-text-inverse);
+    }
 }
 
 .form-note {
@@ -946,12 +960,14 @@
     background: var(--color-glass-bg);
 }
 
-.footer-social a:hover,
-.footer-social a:focus-visible {
-    background: var(--color-gold);
-    color: var(--color-text-inverse);
-    outline: 2px solid var(--color-text-primary);
-    outline-offset: 2px;
+@media (hover: hover) and (pointer: fine) {
+    .footer-social a:hover,
+    .footer-social a:focus-visible {
+        background: var(--color-gold);
+        color: var(--color-text-inverse);
+        outline: 2px solid var(--color-text-primary);
+        outline-offset: 2px;
+    }
 }
 
 .footer-title {
@@ -974,12 +990,14 @@
     transition: color 0.3s ease;
 }
 
-.footer-links a:hover,
-.footer-links a:focus-visible {
-    color: var(--color-gold);
-    outline: 2px solid var(--color-gold);
-    outline-offset: 2px;
-    border-radius: 2px;
+@media (hover: hover) and (pointer: fine) {
+    .footer-links a:hover,
+    .footer-links a:focus-visible {
+        color: var(--color-gold);
+        outline: 2px solid var(--color-gold);
+        outline-offset: 2px;
+        border-radius: 2px;
+    }
 }
 
 .footer-bottom {
@@ -1007,12 +1025,14 @@
     transition: color 0.3s ease;
 }
 
-.footer-legal a:hover,
-.footer-legal a:focus-visible {
-    color: var(--color-gold);
-    outline: 2px solid var(--color-gold);
-    outline-offset: 2px;
-    border-radius: 2px;
+@media (hover: hover) and (pointer: fine) {
+    .footer-legal a:hover,
+    .footer-legal a:focus-visible {
+        color: var(--color-gold);
+        outline: 2px solid var(--color-gold);
+        outline-offset: 2px;
+        border-radius: 2px;
+    }
 }
 
 /* ==========================================================================
@@ -1072,9 +1092,28 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.shop-category-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px var(--color-shadow-black);
+@media (hover: hover) and (pointer: fine) {
+    .shop-category-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px var(--color-shadow-black);
+    }
+
+    .shop-category-card:hover .shop-category-image {
+        transform: scale(1.05);
+    }
+
+    .shop-category-link:hover,
+    .shop-category-link:focus-visible {
+        color: var(--color-gold);
+        outline: 2px solid var(--color-gold);
+        outline-offset: 2px;
+        border-radius: 4px;
+    }
+
+    .shop-category-link:hover i,
+    .shop-category-link:focus-visible i {
+        transform: translateX(4px);
+    }
 }
 
 .shop-category-card-large {
@@ -1090,10 +1129,6 @@
     height: 100%;
     object-fit: cover;
     transition: transform 0.7s ease;
-}
-
-.shop-category-card:hover .shop-category-image {
-    transform: scale(1.05);
 }
 
 .shop-category-overlay {
@@ -1154,19 +1189,6 @@
     transition: color 0.3s ease;
 }
 
-.shop-category-link:hover,
-.shop-category-link:focus-visible {
-    color: var(--color-gold);
-    outline: 2px solid var(--color-gold);
-    outline-offset: 2px;
-    border-radius: 4px;
-}
-
 .shop-category-link i {
     transition: transform 0.3s ease;
-}
-
-.shop-category-link:hover i,
-.shop-category-link:focus-visible i {
-    transform: translateX(4px);
 }

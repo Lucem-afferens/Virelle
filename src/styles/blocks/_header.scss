@@ -111,10 +111,12 @@
     box-shadow: 0 4px 15px var(--color-shadow-pink);
 }
 
-.btn-vk:hover {
-    background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-pink-light) 50%, var(--color-gold) 100%);
-    box-shadow: 0 6px 20px var(--color-shadow-pink-strong);
-    transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+    .btn-vk:hover {
+        background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-pink-light) 50%, var(--color-gold) 100%);
+        box-shadow: 0 6px 20px var(--color-shadow-pink-strong);
+        transform: translateY(-2px);
+    }
 }
 
 .icon-btn {
@@ -131,29 +133,30 @@
     justify-content: center;
 }
 
-.icon-btn:hover,
-.icon-btn:focus-visible {
-    color: var(--color-pink);
+@media (hover: hover) and (pointer: fine) {
+    .icon-btn:hover,
+    .icon-btn:focus-visible {
+        color: var(--color-pink);
+    }
 }
 
-// Стили переключателя темы - простая плавная смена иконки
+// Стили переключателя темы - размер как у .icon-btn (в т.ч. как у иконки ВК)
 .theme-toggle {
     position: relative;
-    width: 2rem;
-    height: 2rem;
     padding: 0;
     border: none;
     background: transparent;
     cursor: pointer;
+    // width/height наследуются от .icon-btn
 }
 
-// Общие стили иконок
+// Общие стили иконок — размер как у иконки ВК (1em = font-size от .icon-btn)
 .theme-toggle .icon {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    font-size: 1.4rem;
+    font-size: 1em;
     color: inherit;
     
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -189,9 +192,11 @@
     transition: transform 0.3s ease;
 }
 
-.menu-btn:hover,
-.menu-btn:focus-visible {
-    transform: scale(1.1);
-    color: var(--color-pink);
+@media (hover: hover) and (pointer: fine) {
+    .menu-btn:hover,
+    .menu-btn:focus-visible {
+        transform: scale(1.1);
+        color: var(--color-pink);
+    }
 }
 

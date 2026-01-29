@@ -9,10 +9,10 @@
     border: none;
     border-radius: 12px;
     cursor: pointer;
+    text-decoration: none;
     overflow: hidden;
     transition: all 0.3s ease;
     text-align: center;
-    text-decoration: none;
     white-space: normal;
     word-wrap: break-word;
     box-sizing: border-box;
@@ -38,9 +38,11 @@
     will-change: width, height;
 }
 
-.cta-button:hover::before {
-    width: 200px;
-    height: 200px;
+@media (hover: hover) and (pointer: fine) {
+    .cta-button:hover::before {
+        width: 200px;
+        height: 200px;
+    }
 }
 
 .cta-button span {
@@ -63,12 +65,14 @@
     overflow: hidden;
 }
 
-.btn-outline:hover,
-.btn-outline:focus-visible {
-    background: linear-gradient(135deg, var(--color-pink-light) 0%, var(--color-pink) 100%);
-    color: var(--color-text-inverse);
-    border-color: var(--color-pink);
-    box-shadow: 0 8px 25px var(--color-shadow-pink-hover);
+@media (hover: hover) and (pointer: fine) {
+    .btn-outline:hover,
+    .btn-outline:focus-visible {
+        background: linear-gradient(135deg, var(--color-pink-light) 0%, var(--color-pink) 100%);
+        color: var(--color-text-inverse);
+        border-color: var(--color-pink);
+        box-shadow: 0 8px 25px var(--color-shadow-pink-hover);
+    }
 }
 
 .btn-solid {
@@ -78,24 +82,12 @@
     box-shadow: 0 4px 15px var(--color-shadow-pink);
 }
 
-.btn-solid:hover,
-.btn-solid:focus-visible {
-    background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-pink-light) 50%, var(--color-gold) 100%);
-    box-shadow: 0 8px 25px var(--color-shadow-pink-strong);
-    transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+    .btn-solid:hover,
+    .btn-solid:focus-visible {
+        background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-pink-light) 50%, var(--color-gold) 100%);
+        box-shadow: 0 8px 25px var(--color-shadow-pink-strong);
+        transform: translateY(-2px);
+    }
 }
 
-.hero-scroll {
-    position: absolute;
-    bottom: 3rem;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--color-pink-light);
-    font-size: 1.875rem;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translate(-50%, 0); }
-    50% { transform: translate(-50%, 10px); }
-}

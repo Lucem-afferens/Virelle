@@ -71,10 +71,12 @@
     transition: transform 0.3s ease;
 }
 
-.menu-close:hover,
-.menu-close:focus-visible {
-    transform: rotate(90deg);
-    color: var(--color-pink);
+@media (hover: hover) and (pointer: fine) {
+    .menu-close:hover,
+    .menu-close:focus-visible {
+        transform: rotate(90deg);
+        color: var(--color-pink);
+    }
 }
 
 .menu-nav {
@@ -92,12 +94,14 @@
     transition: color 0.3s ease;
 }
 
-.menu-nav a:hover,
-.menu-nav a:focus-visible {
-    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-pink-light) 50%, var(--color-pink) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+@media (hover: hover) and (pointer: fine) {
+    .menu-nav a:hover,
+    .menu-nav a:focus-visible {
+        background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-pink-light) 50%, var(--color-pink) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
 }
 
 .menu-social {
@@ -112,9 +116,11 @@
     transition: transform 0.3s ease;
 }
 
-.menu-social a:hover,
-.menu-social a:focus-visible {
-    transform: scale(1.1);
-    color: var(--color-pink);
+@media (hover: hover) and (pointer: fine) {
+    .menu-social a:hover,
+    .menu-social a:focus-visible {
+        transform: scale(1.1);
+        color: var(--color-pink);
+    }
 }
 

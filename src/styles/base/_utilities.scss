@@ -53,8 +53,40 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.hover-lift:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px var(--color-shadow-black);
+@media (hover: hover) and (pointer: fine) {
+    .hover-lift:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px var(--color-shadow-black);
+    }
+}
+
+/* Утилиты для отображения/скрытия */
+.hidden {
+    display: none !important;
+}
+
+/* Утилиты для ссылок и кнопок */
+.no-decoration {
+    text-decoration: none !important;
+}
+
+.inherit-color {
+    color: inherit !important;
+}
+
+.full-width {
+    width: 100% !important;
+}
+
+.inline-block {
+    display: inline-block !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.mt-2rem {
+    margin-top: 2rem !important;
 }
 

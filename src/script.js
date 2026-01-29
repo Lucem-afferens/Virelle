@@ -1,3 +1,6 @@
+// Импорт стилей для правильной работы с Vite HMR
+import './styles/style.scss';
+
 function openMenu() {
     const menuOverlay = document.getElementById('menu-overlay');
     const menuBtn = document.querySelector('.menu-btn');

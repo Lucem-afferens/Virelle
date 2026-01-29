@@ -5,7 +5,9 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   // Корневая директория проекта
   root: '.',
-  
+  // Относительные пути в сборке — страница работает при открытии через file:// (браузер в Cursor) и при деплое
+  base: './',
+
   // Директория для статических файлов (изображения, шрифты и т.д.)
   publicDir: 'public',
   
@@ -51,7 +53,12 @@ export default defineConfig({
     open: true,
     
     // Включить CORS
-    cors: true
+    cors: true,
+    
+    // Настройки HMR (Hot Module Replacement)
+    hmr: {
+      overlay: true
+    }
   },
   
   // Настройки препроцессоров

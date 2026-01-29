@@ -54,8 +54,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet"></noscript>
-  <script type="module" crossorigin src="/assets/script-C3iXYfC7.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/script-D9GSZqeu.css">
+    <!-- Основной скрипт — стили импортируются через script.js для правильной работы Vite HMR -->
+  <script type="module" crossorigin src="./assets/script-DJZ_RCwJ.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/script-Cn07BtiC.css">
 </head>
 <body>
 
@@ -80,7 +81,7 @@
             <a href="#"><i class="fa-brands fa-facebook"></i></a>
             <a href="#"><i class="fa-brands fa-pinterest"></i></a>
             <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="https://vk.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-vk"></i></a>
+            <a href="https://vk.com/chilloutlingerie" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-vk"></i></a>
         </div>
     </div>
 </div>
@@ -91,8 +92,8 @@
             <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
         
-        <a href="index.html" style="text-decoration: none; color: inherit;">
-            <img src="/logo.svg" alt="Chill Out Lingerie" class="header-logo-image">
+        <a href="index.html" class="no-decoration inherit-color">
+            <img src="./logo.svg" alt="Chill Out Lingerie" class="header-logo-image">
             <h2 class="header-logo">Chill Out Lingerie®</h2>
         </a>
         
@@ -105,11 +106,8 @@
                     <i class="fa-solid fa-moon" aria-hidden="true"></i>
                 </span>
             </button>
-            <a href="https://vk.com" target="_blank" class="icon-btn" title="ВКонтакте" aria-label="Наша группа ВКонтакте" rel="noopener noreferrer">
+            <a href="https://vk.com/chilloutlingerie" target="_blank" class="icon-btn" title="ВКонтакте" aria-label="Наша группа ВКонтакте" rel="noopener noreferrer">
                 <i class="fa-brands fa-vk" aria-hidden="true"></i>
-            </a>
-            <a href="catalog.html" class="icon-btn" title="Перейти в каталог" aria-label="Перейти в каталог товаров">
-                <i class="fa-solid fa-search" aria-hidden="true"></i>
             </a>
         </div>
     </div>
@@ -129,7 +127,7 @@
                 <button onclick="openFiltersModal()" class="filter-btn cta-button btn-outline" aria-label="Открыть фильтры" aria-expanded="false" id="filter-btn">
                     <i class="fa-solid fa-filter" aria-hidden="true"></i>
                     <span>ФИЛЬТР</span>
-                    <span class="filter-count" id="filter-count" aria-label="Количество активных фильтров" style="display: none;">0</span>
+                    <span class="filter-count hidden" id="filter-count" aria-label="Количество активных фильтров">0</span>
                 </button>
             </div>
             
@@ -156,7 +154,7 @@
         </div>
         
         <!-- Состояние пустого результата -->
-        <div id="empty-state" class="empty-state" style="display: none;" role="status" aria-live="polite">
+        <div id="empty-state" class="empty-state hidden" role="status" aria-live="polite">
             <i class="fa-solid fa-search empty-state-icon" aria-hidden="true"></i>
             <h3 class="empty-state-title">Товары не найдены</h3>
             <p class="empty-state-text">Попробуйте изменить параметры фильтрации</p>
@@ -166,7 +164,7 @@
         </div>
         
         <!-- Пагинация -->
-        <div id="pagination" class="pagination" style="display: none;" role="navigation" aria-label="Пагинация страниц">
+        <div id="pagination" class="pagination hidden" role="navigation" aria-label="Пагинация страниц">
             <button onclick="goToPrevPage()" id="pagination-prev" class="pagination-btn pagination-btn-arrow" aria-label="Предыдущая страница" disabled>
                 <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
             </button>
@@ -190,7 +188,7 @@
                     Повышаем уровень интимного белья с вневременной элегантностью, премиальным качеством и инклюзивными дизайнами для современной женщины.
                 </p>
                 <div class="footer-social">
-                    <a href="https://vk.com" target="_blank" class="vk">
+                    <a href="https://vk.com/chilloutlingerie" target="_blank" class="vk">
                         <i class="fa-brands fa-vk"></i>
                     </a>
                     <a href="#">
@@ -583,6 +581,42 @@
             <button onclick="applyFilters()" class="filters-modal-btn filters-modal-btn-primary" aria-label="Применить фильтры">
                 ПРИМЕНИТЬ
             </button>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно быстрого просмотра товара -->
+<div id="quick-view-modal" class="quick-view-modal" role="dialog" aria-modal="true" aria-labelledby="quick-view-modal-title">
+    <div class="quick-view-modal-overlay" onclick="closeQuickViewModal()"></div>
+    <div class="quick-view-modal-content">
+        <div class="quick-view-modal-header">
+            <h2 id="quick-view-modal-title" class="quick-view-modal-title">Быстрый просмотр</h2>
+            <button onclick="closeQuickViewModal()" class="quick-view-modal-close" aria-label="Закрыть быстрый просмотр">
+                <i class="fa-solid fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="quick-view-modal-body">
+            <div class="quick-view-grid">
+                <div class="quick-view-image-wrapper">
+                    <img id="quick-view-image" src="" alt="" class="quick-view-image" loading="lazy">
+                    <div id="quick-view-badge" class="quick-view-badge"></div>
+                </div>
+                <div class="quick-view-info">
+                    <h3 id="quick-view-name" class="quick-view-name"></h3>
+                    <p id="quick-view-description" class="quick-view-description"></p>
+                    <div class="quick-view-price-wrapper">
+                        <p id="quick-view-price" class="quick-view-price"></p>
+                        <p id="quick-view-original-price" class="quick-view-original-price hidden"></p>
+                    </div>
+                    <div class="quick-view-sizes">
+                        <h4 class="quick-view-sizes-title">Доступные размеры:</h4>
+                        <div id="quick-view-sizes-list" class="quick-view-sizes-list"></div>
+                    </div>
+                    <a id="quick-view-order-btn" href="https://vk.com/chilloutlingerie" target="_blank" class="cta-button btn-solid quick-view-order-btn no-decoration mt-2rem inline-block full-width text-center">
+                        <span>ЗАКАЗАТЬ</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

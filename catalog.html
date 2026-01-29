@@ -54,57 +54,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet"></noscript>
-    <!-- Условная загрузка стилей -->
-    <script>
-        (function() {
-            const isViteDev = window.location.port === '5173' || (window.location.protocol === 'http:' && window.location.hostname === 'localhost');
-            
-            // Загружаем стили
-            const styleLink = document.createElement('link');
-            styleLink.rel = 'stylesheet';
-            if (isViteDev) {
-                styleLink.href = 'src/styles/style.scss';
-            } else {
-                styleLink.href = 'dist/assets/script-D9GSZqeu.css';
-            }
-            document.head.appendChild(styleLink);
-        })();
-    </script>
-    <!-- Условная загрузка скрипта через прямой тег для правильной работы DOMContentLoaded -->
-    <script type="module">
-        const isViteDev = window.location.port === '5173' || (window.location.protocol === 'http:' && window.location.hostname === 'localhost');
-        if (isViteDev) {
-            // Для Vite dev-сервера используем исходный скрипт
-            import('./src/script.js');
-        } else {
-            // Для прямого открытия используем скомпилированный скрипт
-            import('./dist/assets/script-C3iXYfC7.js');
-        }
-    </script>
-    <!-- Дополнительная инициализация каталога на случай, если скрипт загрузился после DOMContentLoaded -->
-    <script>
-        // Ждём загрузки скрипта и инициализируем каталог
-        function tryInitCatalog() {
-            if (typeof window.initCatalog === 'function') {
-                window.initCatalog();
-                return true;
-            }
-            return false;
-        }
-        
-        // Пробуем инициализировать сразу, если скрипт уже загружен
-        if (!tryInitCatalog()) {
-            // Если не получилось, ждём загрузки скрипта
-            let attempts = 0;
-            const maxAttempts = 50; // 5 секунд максимум
-            const checkInterval = setInterval(function() {
-                attempts++;
-                if (tryInitCatalog() || attempts >= maxAttempts) {
-                    clearInterval(checkInterval);
-                }
-            }, 100);
-        }
-    </script>
+    <!-- Основной скрипт — стили импортируются через script.js для правильной работы Vite HMR -->
+    <script type="module" src="src/script.js" defer></script>
 </head>
 <body>
 
@@ -140,7 +91,7 @@
             <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
         
-        <a href="index.html" style="text-decoration: none; color: inherit;">
+        <a href="index.html" class="no-decoration inherit-color">
             <img src="/logo.svg" alt="Chill Out Lingerie" class="header-logo-image">
             <h2 class="header-logo">Chill Out Lingerie®</h2>
         </a>
@@ -175,7 +126,7 @@
                 <button onclick="openFiltersModal()" class="filter-btn cta-button btn-outline" aria-label="Открыть фильтры" aria-expanded="false" id="filter-btn">
                     <i class="fa-solid fa-filter" aria-hidden="true"></i>
                     <span>ФИЛЬТР</span>
-                    <span class="filter-count" id="filter-count" aria-label="Количество активных фильтров" style="display: none;">0</span>
+                    <span class="filter-count hidden" id="filter-count" aria-label="Количество активных фильтров">0</span>
                 </button>
             </div>
             
@@ -202,7 +153,7 @@
         </div>
         
         <!-- Состояние пустого результата -->
-        <div id="empty-state" class="empty-state" style="display: none;" role="status" aria-live="polite">
+        <div id="empty-state" class="empty-state hidden" role="status" aria-live="polite">
             <i class="fa-solid fa-search empty-state-icon" aria-hidden="true"></i>
             <h3 class="empty-state-title">Товары не найдены</h3>
             <p class="empty-state-text">Попробуйте изменить параметры фильтрации</p>
@@ -212,7 +163,7 @@
         </div>
         
         <!-- Пагинация -->
-        <div id="pagination" class="pagination" style="display: none;" role="navigation" aria-label="Пагинация страниц">
+        <div id="pagination" class="pagination hidden" role="navigation" aria-label="Пагинация страниц">
             <button onclick="goToPrevPage()" id="pagination-prev" class="pagination-btn pagination-btn-arrow" aria-label="Предыдущая страница" disabled>
                 <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
             </button>
@@ -654,13 +605,13 @@
                     <p id="quick-view-description" class="quick-view-description"></p>
                     <div class="quick-view-price-wrapper">
                         <p id="quick-view-price" class="quick-view-price"></p>
-                        <p id="quick-view-original-price" class="quick-view-original-price" style="display: none;"></p>
+                        <p id="quick-view-original-price" class="quick-view-original-price hidden"></p>
                     </div>
                     <div class="quick-view-sizes">
                         <h4 class="quick-view-sizes-title">Доступные размеры:</h4>
                         <div id="quick-view-sizes-list" class="quick-view-sizes-list"></div>
                     </div>
-                    <a id="quick-view-order-btn" href="https://vk.com/chilloutlingerie" target="_blank" class="cta-button btn-solid quick-view-order-btn" style="text-decoration: none; margin-top: 2rem; display: inline-block; width: 100%; text-align: center;">
+                    <a id="quick-view-order-btn" href="https://vk.com/chilloutlingerie" target="_blank" class="cta-button btn-solid quick-view-order-btn no-decoration mt-2rem inline-block full-width text-center">
                         <span>ЗАКАЗАТЬ</span>
                     </a>
                 </div>
