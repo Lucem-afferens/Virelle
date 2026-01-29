@@ -3037,6 +3037,7 @@ window.applyFilters = applyFilters;
 window.resetFilters = resetFilters;
 window.handleSortChange = handleSortChange;
 window.goToPage = goToPage;
+window.initCatalog = initCatalog;
 window.goToPrevPage = goToPrevPage;
 window.goToNextPage = goToNextPage;
 // Экспортируем функции быстрого просмотра для доступа из HTML (onclick)

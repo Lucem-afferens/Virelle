@@ -54,8 +54,57 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet"></noscript>
-    <link rel="stylesheet" href="src/styles/style.scss">
-    <script type="module" src="src/script.js" defer></script>
+    <!-- Условная загрузка стилей -->
+    <script>
+        (function() {
+            const isViteDev = window.location.port === '5173' || (window.location.protocol === 'http:' && window.location.hostname === 'localhost');
+            
+            // Загружаем стили
+            const styleLink = document.createElement('link');
+            styleLink.rel = 'stylesheet';
+            if (isViteDev) {
+                styleLink.href = 'src/styles/style.scss';
+            } else {
+                styleLink.href = 'dist/assets/script-D9GSZqeu.css';
+            }
+            document.head.appendChild(styleLink);
+        })();
+    </script>
+    <!-- Условная загрузка скрипта через прямой тег для правильной работы DOMContentLoaded -->
+    <script type="module">
+        const isViteDev = window.location.port === '5173' || (window.location.protocol === 'http:' && window.location.hostname === 'localhost');
+        if (isViteDev) {
+            // Для Vite dev-сервера используем исходный скрипт
+            import('./src/script.js');
+        } else {
+            // Для прямого открытия используем скомпилированный скрипт
+            import('./dist/assets/script-C3iXYfC7.js');
+        }
+    </script>
+    <!-- Дополнительная инициализация каталога на случай, если скрипт загрузился после DOMContentLoaded -->
+    <script>
+        // Ждём загрузки скрипта и инициализируем каталог
+        function tryInitCatalog() {
+            if (typeof window.initCatalog === 'function') {
+                window.initCatalog();
+                return true;
+            }
+            return false;
+        }
+        
+        // Пробуем инициализировать сразу, если скрипт уже загружен
+        if (!tryInitCatalog()) {
+            // Если не получилось, ждём загрузки скрипта
+            let attempts = 0;
+            const maxAttempts = 50; // 5 секунд максимум
+            const checkInterval = setInterval(function() {
+                attempts++;
+                if (tryInitCatalog() || attempts >= maxAttempts) {
+                    clearInterval(checkInterval);
+                }
+            }, 100);
+        }
+    </script>
 </head>
 <body>
 
@@ -107,9 +156,6 @@
             </button>
             <a href="https://vk.com/chilloutlingerie" target="_blank" class="icon-btn" title="ВКонтакте" aria-label="Наша группа ВКонтакте" rel="noopener noreferrer">
                 <i class="fa-brands fa-vk" aria-hidden="true"></i>
-            </a>
-            <a href="catalog.html" class="icon-btn" title="Перейти в каталог" aria-label="Перейти в каталог товаров">
-                <i class="fa-solid fa-search" aria-hidden="true"></i>
             </a>
         </div>
     </div>

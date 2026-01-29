@@ -2,7 +2,7 @@
    VK NOTICE СЕКЦИЯ (Уведомление о ВКонтакте)
    ========================================================================== */
 #vk-notice {
-    padding: 4rem 0;
+    padding: var(--section-padding-y) 0;
     background: var(--gradient-bg-vk-notice);
     border-top: 1px solid var(--color-border-pink);
     border-bottom: 1px solid var(--color-border-pink);
@@ -90,7 +90,7 @@
    VALUE PROPOSITION СЕКЦИЯ (Преимущества)
    ========================================================================== */
 #value-proposition {
-    padding: 6rem 0;
+    padding: var(--section-padding-y) 0;
     background: var(--color-bg-primary);
 }
 
@@ -156,7 +156,7 @@
    FEATURED COLLECTION СЕКЦИЯ (Избранная коллекция)
    ========================================================================== */
 #featured-collection {
-    padding: 6rem 0 8rem 0;
+    padding: var(--section-padding-y) 0 calc(var(--section-padding-y) + 2rem) 0;
     position: relative;
     overflow: visible;
 }
@@ -165,7 +165,7 @@
    BESTSELLERS СЕКЦИЯ (Хиты продаж)
    ========================================================================== */
 #bestsellers {
-    padding: 6rem 0;
+    padding: var(--section-padding-y) 0;
     background: var(--color-bg-primary);
 }
 
@@ -306,7 +306,7 @@
    NEW ARRIVALS СЕКЦИЯ (Новинки)
    ========================================================================== */
 #new-arrivals {
-    padding: 6rem 0;
+    padding: var(--section-padding-y) 0;
     background: var(--gradient-bg-section);
 }
 
@@ -783,6 +783,7 @@
     border: 1px solid var(--color-border-pink-light);
     color: var(--color-text-primary);
     font-family: 'Montserrat', sans-serif;
+    font-size: 1rem; /* Минимум 16px для предотвращения автозума на iOS */
     transition: border-color 0.3s ease;
 }
 
@@ -1108,6 +1109,7 @@
     border: 1px solid var(--color-border-pink-light);
     color: var(--color-text-primary);
     font-family: 'Montserrat', sans-serif;
+    font-size: 1rem; /* Минимум 16px для предотвращения автозума на iOS */
     transition: border-color 0.3s ease;
 }
 
@@ -1225,6 +1227,7 @@
     border: 1px solid var(--color-border-pink-light);
     color: var(--color-text-primary);
     font-family: 'Montserrat', sans-serif;
+    font-size: 1rem; /* Минимум 16px для предотвращения автозума на iOS */
     transition: border-color 0.3s ease;
 }
 
@@ -1253,7 +1256,7 @@
     min-height: 100vh;
     min-height: 100dvh;
     z-index: 1000;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     opacity: 0;
@@ -1263,6 +1266,7 @@
 }
 
 .size-guide-modal.active {
+    display: flex;
     opacity: 1;
     visibility: visible;
     pointer-events: all;
@@ -1543,7 +1547,7 @@
     height: 100vh;
     height: 100dvh;
     z-index: 2000;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     opacity: 0;
@@ -1553,6 +1557,7 @@
 }
 
 .notification.active {
+    display: flex;
     opacity: 1;
     visibility: visible;
     pointer-events: all;
@@ -1770,7 +1775,7 @@
     min-height: 100vh;
     min-height: 100dvh;
     z-index: 1000;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     opacity: 0;
@@ -1780,6 +1785,7 @@
 }
 
 .quick-view-modal.active {
+    display: flex;
     opacity: 1;
     visibility: visible;
     pointer-events: all;
@@ -1972,7 +1978,7 @@
     transform: scale(1.05);
 }
 
-/* Бейдж товара */
+/* Бейдж товара - используем те же стили, что и product-badge */
 .quick-view-badge {
     position: absolute;
     top: 1rem;
@@ -1990,6 +1996,9 @@
         0 1px 3px rgba(0, 0, 0, 0.2),
         inset 0 1px 0 var(--color-glass-border);
     backdrop-filter: blur(10px);
+    animation: badgeAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
+    will-change: transform;
 }
 
 .quick-view-badge.badge-new {
@@ -1997,7 +2006,7 @@
     background-size: 200% 200%;
     color: var(--color-text-inverse);
     font-weight: 700;
-    animation: badgeGradient 3s ease infinite;
+    animation: badgeAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1), badgeGradient 3s ease infinite;
     border: 1px solid var(--color-glass-border);
 }
 
@@ -2006,7 +2015,17 @@
     background-size: 200% 200%;
     color: var(--color-text-primary);
     font-weight: 700;
-    animation: badgeGradient 3s ease infinite;
+    animation: badgeAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1), badgeGradient 3s ease infinite;
+    border: 1px solid var(--color-glass-border);
+    text-shadow: 0 1px 2px var(--color-shadow-black);
+}
+
+.quick-view-badge.badge-sale {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+    background-size: 200% 200%;
+    color: var(--color-text-primary);
+    font-weight: 700;
+    animation: badgeAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1), badgeGradient 3s ease infinite;
     border: 1px solid var(--color-glass-border);
     text-shadow: 0 1px 2px var(--color-shadow-black);
 }

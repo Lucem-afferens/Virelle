@@ -1,5 +1,5 @@
 #catalog {
-    padding: 6rem 0;
+    padding: var(--section-padding-y) 0;
     background: var(--color-bg-secondary);
 }
 
@@ -215,7 +215,7 @@
     border-radius: 12px;
     color: var(--color-text-primary);
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.875rem;
+    font-size: 1rem; /* Минимум 16px для предотвращения автозума на iOS */
     font-weight: 400;
     cursor: pointer;
     appearance: none;
@@ -394,7 +394,7 @@
    TESTIMONIALS СЕКЦИЯ (Отзывы)
    ========================================================================== */
 #testimonials {
-    padding: 6rem 0;
+    padding: var(--section-padding-y) 0;
     background: var(--color-bg-primary);
     position: relative;
     overflow: hidden;
@@ -470,7 +470,7 @@
    SIZE GUIDE СЕКЦИЯ (Таблица размеров)
    ========================================================================== */
 #size-guide {
-    padding: 6rem 0;
+    padding: var(--section-padding-y) 0;
     background: var(--gradient-bg-section);
 }
 
@@ -614,7 +614,7 @@
    ABOUT СЕКЦИЯ (О компании)
    ========================================================================== */
 #about {
-    padding: 6rem 0;
+    padding: var(--section-padding-y) 0;
     background: var(--gradient-bg-section);
 }
 
@@ -664,7 +664,7 @@
    SUSTAINABILITY СЕКЦИЯ (Устойчивое развитие)
    ========================================================================== */
 #sustainability {
-    padding: 6rem 0;
+    padding: var(--section-padding-y) 0;
     background: var(--color-bg-secondary);
 }
 
@@ -724,7 +724,7 @@
    NEWSLETTER СЕКЦИЯ (Подписка на рассылку)
    ========================================================================== */
 #newsletter {
-    padding: 6rem 0;
+    padding: var(--section-padding-y) 0;
     background: var(--color-bg-primary);
 }
 
@@ -783,7 +783,7 @@
    CONTACT СЕКЦИЯ (Контакты)
    ========================================================================== */
 #contact {
-    padding: 6rem 0;
+    padding: var(--section-padding-y) 0;
     background: var(--gradient-bg-section);
 }
 
@@ -1019,7 +1019,7 @@
    SHOP BY CATEGORY СЕКЦИЯ (Покупка по категориям)
    ========================================================================== */
 #shop-by-category {
-    padding: 6rem 0;
+    padding: var(--section-padding-y) 0;
     background: var(--color-bg-secondary);
 }
 

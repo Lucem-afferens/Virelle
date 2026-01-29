@@ -35,3 +35,28 @@ body {
 
 /* Оптимизация загрузки шрифтов - font-display применяется через Google Fonts API */
 
+/* Адаптивные изображения */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Предотвращение переполнения контента */
+* {
+    max-width: 100%;
+}
+
+/* Исключения для элементов, которые должны иметь фиксированную ширину */
+html,
+body,
+.container,
+.header-container,
+.menu-overlay,
+.size-guide-modal,
+.quick-view-modal,
+.filters-modal,
+.notification {
+    max-width: none;
+}
+
