@@ -1107,12 +1107,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
     
-    document.querySelectorAll('section').forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
-        section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        observer.observe(section);
-    });
+    // document.querySelectorAll('section').forEach(section => {
+    //     section.style.opacity = '0';
+    //     section.style.transform = 'translateY(30px)';
+    //     section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    //     observer.observe(section);
+    // });
     
     // Инициализация каталога, если мы на странице каталога
     if (document.getElementById('catalog-page')) {
