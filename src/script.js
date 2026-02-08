@@ -668,7 +668,7 @@ function toggleTheme() {
 // Инициализация темы при загрузке
 function initTheme() {
     // Тема уже установлена inline скриптом в head, но проверим на всякий случай
-    const savedTheme = localStorage.getItem('theme') || 'light'; // По умолчанию светлая тема
+    const savedTheme = localStorage.getItem('theme') || 'dark'; // По умолчанию светлая тема
     const html = document.documentElement;
     const currentTheme = html.getAttribute('data-theme');
     
